@@ -13,14 +13,14 @@
       </div>
       <?php endif; ?>
 
-      <form method="post">
+      <form action="../controller/connexion.php" method="post">
           <div class="form-group mt-4 mb-4">
-            <label for="mail">EMAIL</label>
-            <input type="email" class="form-control" name="mail" placeholder="Email" id="mail" value="<?php echo isset($_POST['mail']) ? $mail : '';?>">
+            <label for="pseudo">PSEUDO</label>
+            <input type="text" class="m" name="pseudo" id="" placeholder="Rentrez votre pseudo">
           </div>
           <div class="form-group1 mt-4 mb-4">
-            <label for="pxd">MOT DE PASSE</label>
-            <input type="password" class="form-control" name="pwd" placeholder="Mot de passe" id="pwd" value="<?php echo isset($_POST['pwd']) ? $pwd : '';?>">
+            <label for="pwd">MOT DE PASSE</label>
+            <input type="password" class="n" name="pwd" placeholder="Mot de passe" id="">
           </div>
           <div class="form-group mt-4 mb-4 justify-content-center"></div>
           <button type="submit" class="btn btn-inscription text-white">CONFIRMER</button>

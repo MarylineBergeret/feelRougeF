@@ -2,7 +2,7 @@
 // INSCRIPTION //
 session_start();
     if(isset($_SESSION['user'])){
-        header('Location: controller.accueil.php');
+        header('Location: accueil.php');
     }else{
         include '../model/connect.php';
         include '../model/get.php';
@@ -12,10 +12,11 @@ session_start();
     
         if(isset($_POST['submit'])){
             $pseudo = htmlspecialchars($_POST['pseudo']);
-            $mail = htmlspecialchars($_POST['mail']);
             $pwd = htmlspecialchars($_POST['pwd']);
+            $mail = htmlspecialchars($_POST['mail']);
+            $bio = htmlspecialchars($_POST['bio']);
 
-            if($pseudo == null || $mail == null || $pwd == null){
+            if($pseudo == null || $pwd == null || $mail == null){
                 $error1 = "Veuillez remplir tous les champs.";
                 $errors[] = $error1;
             }else{
@@ -48,18 +49,17 @@ session_start();
                     $errors[] = $error7;
                 }
                 elseif($errors == null){
-                    $pwd = (password_hash($_POST['pwd'], PASSWORD_BCRYPT));
+                    $pwd = (password_hash($pwd, PASSWORD_BCRYPT));
                     // $role = 10;
                     createUser($bdd, $pseudo, $pwd, $mail, $bio, 1, 10);
-                    $succes = "Vous êtes inscrit, YEAH !-!";
-                    return $succes;
+                    
                     unset($errors);
                     
                     
                 }
             }
         }
-        $style = "inscription";
+        
         include '../view/view.header.php';
         include '../view/inscription.php';
     }

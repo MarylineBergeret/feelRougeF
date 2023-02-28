@@ -1,56 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Responsive Navbar</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets\css\style.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-  </head>
-  <body>
-    <nav class="navbar">
-      <ul class="navbar-menu">
-        <li class="navbar-item logo">
-          <a href="#" class="navbar-link">
-            <span class="navbar-title">WAWASENSEI</span>
-            <i class="fas fa-chevron-right navbar-icon"></i>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">
-            <i class="fas fa-home navbar-icon"></i>
-            <span class="navbar-title">Home</span>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">
-            <i class="fas fa-folder navbar-icon"></i>
-            <span class="navbar-title">Folders</span>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">
-            <i class="fas fa-bell navbar-icon"></i>
-            <span class="navbar-title">Notifications</span>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">
-            <i class="fas fa-user navbar-icon"></i>
-            <span class="navbar-title">Me</span>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">
-            <i class="fas fa-phone navbar-icon"></i>
-            <span class="navbar-title">Contact</span>
-          </a>
-        </li>
-        <li class="navbar-item">
-          <a href="#" class="navbar-link">
-            <i class="fas fa-sign-out-alt navbar-icon"></i>
-            <span class="navbar-title">Exit</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <link rel="stylesheet" href="..\assets\css\header.css">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist\css\bootstrap.min.css">
+    <title>BLOG</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">METAL</a>
+            <div class="nav-links">
+                <ul>
+                    <li class="active"><a href="#">Le Metal</a></li>
+                    <li><a href="#">Festival</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="../controller/inscription.php">Inscription</a></li>
+                    <li><a href="../controller/connexion.php">Connexion</a></li>
+                </ul>
+            </div>
+            <img src="..\assets\image\menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+        </nav>
+    </header>
+    
+
+    <script>
+            const menuHamburger = document.querySelector(".menu-hamburger")
+            const navLinks = document.querySelector(".nav-links")
+    
+            menuHamburger.addEventListener('click',()=>{
+            navLinks.classList.toggle('mobile-menu')
+            });
+    </script>

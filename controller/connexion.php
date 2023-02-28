@@ -4,7 +4,7 @@ session_start();
 
 // CONNEXION //
     if(isset($_SESSION['user'])){
-        header('Location: controller.accueil.php');
+        header('Location: view.profil.php');
     }else{
         include '../model/connect.php';
         include '../model/get.php';
@@ -12,22 +12,22 @@ session_start();
         if(isset($_POST['submit'])){
             $errors = [];
     
-            if(!empty($_POST['mail']) AND !empty($_POST['pwd'])){
-                $mail = htmlspecialchars($_POST['mail']);
-                $pwd = htmlspecialchars($_POST['pwd']);
+            if(!empty($_POST['pseudo']) AND !empty($_POST['pwd'])){
+                $pseudo = ($_POST['pseudo']);
+                $pwd = ($_POST['pwd']);
                 
-                $reqMail = getUserMail($bdd, $mail);
+                $reqUser = getUser($bdd, $pseudo);
         
-                if($reqMail->rowCount() > 0){
-                    $user = $reqMail->fetch();
+                if($reqUser->rowCount() > 0){
+                    $user = $reqUser->fetch();
                     $hashed_password = $user['pwd_user'];
                         if(password_verify($pwd, $hashed_password)) {
-                            $_SESSION['user'] = $mail;
-
-                            $_SESSION['pwd'] = $pwd;
+                            $_SESSION['user'] = $user['pseudo_user'];
+                            $_SESSION['pwd'] = $user['pwd_user'];
+                            $_SESSION['mail'] = $user['mail_user'];
                             $_SESSION['id'] = $user['id_user'];
                             $_SESSION['role'] = (string)$user['id_role'];
-                            header('Location: controller.php');
+                            header('Location: view.profil.php');
                         }else{
                             $error3 = "Vos informations sont incorrectes.";
                             $errors[] = $error3;

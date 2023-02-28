@@ -20,7 +20,7 @@ body {
     --navbar-icon-color:#646c79;
     --navbar-text-color:black;
     --navbar-transition-speed: .2s;
-    --primary-color:#7C4DFF;
+    --primary-color:#a16d0c;
     --navbar-logo-background-color:#e2dfe4;
   }
   
@@ -56,7 +56,7 @@ body {
     padding:0;
     margin:0;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     height:100%;
   }

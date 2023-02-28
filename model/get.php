@@ -1,11 +1,11 @@
 <?php
 
 function getUser($bdd, $pseudo){
-    $reqUser = $bdd->prepare("SELECT * FROM users WHERE pseudo_user = :pseudo_user");
-    $reqUser->execute(array(
+    $req = $bdd->prepare("SELECT * FROM users WHERE pseudo_user = :pseudo_user");
+    $req->execute(array(
         'pseudo_user' => $pseudo
     ));
-    return $reqUser;
+    return $req;
 }
 function getUserMail($bdd, $mail){
     $reqUserMail = $bdd->prepare("SELECT * FROM users WHERE mail_user = :mail_user");
