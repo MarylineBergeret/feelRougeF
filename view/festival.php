@@ -1,11 +1,12 @@
-
+<h1>QUEL FESTIVAL EUROPEEN CHOISIR?</h1>
 <div class="festival">
     <div class="card">
       <img class="card-img-top" src="..\assets\image\sweden.png" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">SUEDE</h4>
+        <p>189</p><button class="icons"><img src="..\assets\image\icons8-rock-and-roll-64.png" alt=""></button><br>
+
         <p class="card-text">Some example text.</p>
-        <p>189<i class="bi bi-hand-thumbs-up"></i></p>
         <a href="https://www.concerts-metal.com/concert_-_Sweden_Rock_Festival_2023-121985.html" target="_blank"
           class="btn btn-dark">En savoir plus</a>
       </div>
