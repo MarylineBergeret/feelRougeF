@@ -57,3 +57,48 @@ function getAllUserByPseudo($bdd, $pseudo)
     }
 }
 
+function getCardFestival1($bdd)
+{
+    try {
+        //On recherche tout de l'utilisateur par son nom
+        $reqFest = $bdd->prepare("SELECT * FROM cardfestivals");
+        $reqFest->execute();
+        $cardfestival = $reqFest->fetchAll();
+        return $cardfestival;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+function getCardFestival($bdd)
+{
+    try {
+        //On recherche toutes les cardfestivals
+        $reqFest = $bdd->prepare("SELECT * FROM cardfestivals");
+        $reqFest->execute();
+        $cardfestivals = $reqFest->fetchAll();
+
+        //On recherche les commentaires associés à chaque cardfestival
+        foreach ($cardfestivals as &$cardfestival) {
+            $reqComments = $bdd->prepare("SELECT * FROM commentaires 
+                                          JOIN cardfestival_commentaire ON commentaires.id_commentaire = cardfestival_commentaire.id_commentaire 
+                                          WHERE cardfestival_commentaire.id_cardfestival = ?");
+            $reqComments->execute(array($cardfestival['id_cardfestival']));
+            $cardfestival['commentaires'] = $reqComments->fetchAll();
+        }
+
+        return $cardfestivals;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+function getMostLikedFestival($bdd)
+{
+  try {
+    $reqFest = $bdd->prepare("SELECT * FROM cardfestivals ORDER BY likes_count DESC LIMIT 1");
+    $reqFest->execute();
+    $most_liked_festival = $reqFest->fetch();
+    return $most_liked_festival;
+  } catch (Exception $e) {
+    die("error : " . $e->getMessage());
+  }
+}
