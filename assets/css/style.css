@@ -117,6 +117,28 @@ body {
   .navbar:hover .logo .navbar-icon {
     transform:rotate(180deg);
   }
+
+  
+h1 {
+  text-align:center;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  font-family : 'New Rocker', cursive , sans-serif;
+  text-shadow: -1px -1px 1px rgba(91, 55, 8, 0.737);
+  /* font-family : 'Dancing Script', cursive ; */
+}
+.festival{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-rows: auto;
+  gap: 10px;
+  margin-top: 105px;
+  justify-items: center;
+}
   
   /*
   ** RESPONSIVE
@@ -161,24 +183,3 @@ body {
   }
   
 
-
-h1 {
-    text-align:center;
-    padding-top: 100px;
-    padding-bottom: 80px;
-    background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
-    background-clip:text;
-    -webkit-background-clip:text;
-    color:transparent;
-    font-family : 'New Rocker', cursive , sans-serif;
-    text-shadow: -1px -1px 1px rgba(91, 55, 8, 0.737);
-    /* font-family : 'Dancing Script', cursive ; */
-}
-.festival{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-template-rows: auto;
-    gap: 10px;
-    margin-top: 105px;
-    justify-items: center;
-}

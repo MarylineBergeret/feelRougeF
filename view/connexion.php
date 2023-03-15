@@ -1,34 +1,19 @@
-<div class="container mt-5 mb-5">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2 class="titles-pages">CONNEXION</h2>
-      <?php
-        if(isset($errors) AND !empty($errors)):
-        $error = implode("<br>", $errors);
-      ?>
-      <div class="col">
-        <div class="alert alert-danger">
-            <?php echo $error;?>
-        </div>
+<main class="main_connexion">
+  <h2>Connexion</h2>
+  <form class="form_connexion" action="connexion.php" method="post">
+    <?php if(isset($errors) && !empty($errors)) : ?>
+      <div class="errors">
+        <?php foreach($errors as $error) : ?>
+          <p><?php echo $error; ?></p>
+        <?php endforeach; ?>
       </div>
-      <?php endif; ?>
+    <?php endif; ?>
+    <label for="pseudo">Pseudo :</label>
+    <input type="text" id="pseudo" name="pseudo" required>
 
-      <form action="../controller/connexion.php" method="post">
-          <div class="form-group mt-4 mb-4">
-            <label for="pseudo">PSEUDO</label>
-            <input type="text" class="m" name="pseudo" id="" placeholder="Rentrez votre pseudo">
-          </div>
-          <div class="form-group1 mt-4 mb-4">
-            <label for="pwd">MOT DE PASSE</label>
-            <input type="password" class="n" name="pwd" placeholder="Mot de passe" id="">
-          </div>
-          <div class="form-group mt-4 mb-4 justify-content-center"></div>
-          <button type="submit" class="btn btn-inscription text-white">CONFIRMER</button>
-        </div>
-      </form>
-      <p class="text-center">Pas de compte ? <a href="../controller/inscription.php" class="fw-bold color-bordeau">Inscrivez-vous</a> dès maintenant !</p>
+    <label for="pwd">Mot de passe :</label>
+    <input type="password" id="pwd" name="pwd" required>
 
-    </div>
-  </div>
-</div>
-
+    <input type="submit" name="submit" value="Se connecter">
+  </form>
+</main>

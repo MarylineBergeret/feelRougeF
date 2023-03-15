@@ -68,22 +68,23 @@ h1 {
 }
 
 
-  .container {
+  /* .container {
     position: relative;
     width: 300px;
     margin: 50px auto 450px auto;
-    perspective: 1000px;
-  }
+    /* perspective: 1000px;} */
   
-  .carousel {
+  
+  /* .carousel {
     position: absolute;
     width: 100%;
-    height: 100%;
-    transform-style: preserve-3d; 
-    animation: rotate360 120s infinite forwards linear;
-    margin-bottom: 50px;
-  }
-  .carousel__face { 
+    height: 100%; */
+    /* transform-style: preserve-3d; 
+       margin-bottom: 50px;
+  } */
+  
+ 
+  /* .carousel__face { 
     position: absolute;
     width: 300px;
     height: 187px;
@@ -98,9 +99,9 @@ h1 {
   span {
     margin: auto;
     font-size: 2rem;
-  }
+  }  */
   
-  
+/*   
   .carousel__face:nth-child(1) {
     background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     transform: rotateY(  0deg) translateZ(430px); }
@@ -127,11 +128,11 @@ h1 {
     transform: rotateY(280deg) translateZ(430px); }
   .carousel__face:nth-child(9) {
     background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY(320deg) translateZ(430px); }
+    transform: rotateY(320deg) translateZ(430px); } */
   
   
   
-  @keyframes rotate360 {
+  /* @keyframes rotate360 {
     from {
       transform: rotateY(0deg);
     }
@@ -139,7 +140,7 @@ h1 {
       transform: rotateY(-360deg);
     }
   }
-  
+   */
 
 
 /****************** ACCUEIL *******************/

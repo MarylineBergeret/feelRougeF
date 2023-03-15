@@ -11,12 +11,12 @@ session_start();
         $errors = [];
     
         if(isset($_POST['submit'])){
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $pwd = htmlspecialchars($_POST['pwd']);
+            $pseudo = htmlspecialchars($_POST['pseudo']);           
             $mail = htmlspecialchars($_POST['mail']);
+            $pwd = htmlspecialchars($_POST['pwd']);
             $bio = htmlspecialchars($_POST['bio']);
 
-            if($pseudo == null || $pwd == null || $mail == null){
+            if($pseudo == null || $mail == null || $pwd == null){
                 $error1 = "Veuillez remplir tous les champs.";
                 $errors[] = $error1;
             }else{
@@ -51,7 +51,7 @@ session_start();
                 elseif($errors == null){
                     $pwd = (password_hash($pwd, PASSWORD_BCRYPT));
                     // $role = 10;
-                    createUser($bdd, $pseudo, $pwd, $mail, $bio, 1, 10);
+                    createUser($bdd, $pseudo, $mail, $pwd, $bio, 10, 1);
                     
                     unset($errors);
                     

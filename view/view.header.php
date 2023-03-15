@@ -20,8 +20,10 @@
                     <li class="active"><a href="#">Le Metal</a></li>
                     <li><a href="#">Festival</a></li>
                     <li><a href="#">Contact</a></li>
+                    
                     <li><a href="../controller/inscription.php">Inscription</a></li>
                     <li><a href="../controller/connexion.php">Connexion</a></li>
+                    <li><a href="../controller/profil.php">Mon profil</a></li>
                 </ul>
             </div>
             <img src="..\assets\image\menu-btn.png" alt="menu hamburger" class="menu-hamburger">

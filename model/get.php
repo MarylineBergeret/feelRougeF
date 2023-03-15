@@ -5,8 +5,9 @@ function getUser($bdd, $pseudo){
     $req->execute(array(
         'pseudo_user' => $pseudo
     ));
-    return $req;
+    return $req->fetch(PDO::FETCH_ASSOC);
 }
+
 function getUserMail($bdd, $mail){
     $reqUserMail = $bdd->prepare("SELECT * FROM users WHERE mail_user = :mail_user");
     $reqUserMail->execute(array(
@@ -57,33 +58,67 @@ function getAllUserByPseudo($bdd, $pseudo)
     }
 }
 
-function getCardFestival1($bdd)
-{
+
+function getCardFestival1($bdd) {
     try {
-        //On recherche tout de l'utilisateur par son nom
-        $reqFest = $bdd->prepare("SELECT * FROM cardfestivals");
-        $reqFest->execute();
-        $cardfestival = $reqFest->fetchAll();
-        return $cardfestival;
+        $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
+                              FROM cardFestivals 
+                              INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
+        $sql->execute();
+        $results = $sql->fetchAll();
+        return $results;
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
     }
 }
-function getCardFestival($bdd)
+
+function getCardFestival($bdd) {
+    try {
+        $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
+                              FROM cardFestivals 
+                              INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
+        $sql->execute();
+        $results = $sql->fetchAll();
+
+        $cardFestivals = array(); // tableau pour stocker les résultats
+
+        foreach ($results as $result) {
+            $name = $result['name_cardFestival'];
+            $comment = $result['content_commentCard'];
+            $date = $result['date_commentCard'];
+
+            // Vérifiez si la carte de festival existe déjà dans le tableau, sinon l'ajoutez
+            if (!isset($cardFestivals[$name])) {
+                $cardFestivals[$name] = array();
+            }
+
+            // Ajoutez le commentaire et la date au tableau de commentaires de la carte de festival
+            $cardFestivals[$name][] = array('comment' => $comment, 'date' => $date);
+        }
+
+        return $cardFestivals;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
+
+
+function getCardFestival11($bdd)
 {
     try {
         //On recherche toutes les cardfestivals
-        $reqFest = $bdd->prepare("SELECT * FROM cardfestivals");
+        $reqFest = $bdd->prepare("SELECT * FROM cardFestivals");
         $reqFest->execute();
-        $cardfestivals = $reqFest->fetchAll();
+        $cardFestivals = $reqFest->fetchAll();
 
         //On recherche les commentaires associés à chaque cardfestival
-        foreach ($cardfestivals as &$cardfestival) {
-            $reqComments = $bdd->prepare("SELECT * FROM commentaires 
-                                          JOIN cardfestival_commentaire ON commentaires.id_commentaire = cardfestival_commentaire.id_commentaire 
-                                          WHERE cardfestival_commentaire.id_cardfestival = ?");
+        foreach ($cardFestivals as &$cardFestival) {
+            $reqComments = $bdd->prepare("SELECT * FROM `commentCard`
+                                          JOIN cardfestival_commentCard ON commentCard.id_cardFestival = cardfestival.id_commentaire 
+                                          WHERE cardfestival_comments.id_cardfestival = ?");
             $reqComments->execute(array($cardfestival['id_cardfestival']));
-            $cardfestival['commentaires'] = $reqComments->fetchAll();
+            $cardfestival['comments'] = $reqComments->fetchAll();
         }
 
         return $cardfestivals;
@@ -94,7 +129,7 @@ function getCardFestival($bdd)
 function getMostLikedFestival($bdd)
 {
   try {
-    $reqFest = $bdd->prepare("SELECT * FROM cardfestivals ORDER BY likes_count DESC LIMIT 1");
+    $reqFest = $bdd->prepare("SELECT * FROM cardFestivals ORDER BY likes_cardFestival DESC LIMIT 1");
     $reqFest->execute();
     $most_liked_festival = $reqFest->fetch();
     return $most_liked_festival;
@@ -102,3 +137,15 @@ function getMostLikedFestival($bdd)
     die("error : " . $e->getMessage());
   }
 }
+function updateUser($bdd, $id_user, $pseudo, $mail, $pwd) {
+    try {
+        $sql = $bdd->prepare("UPDATE users SET pseudo_user=?, mail_user=?, pwd_user=? WHERE id_user=?");
+        // Exécuter la requête SQL avec les valeurs des paramètres
+        $sql->execute(array($pseudo, $mail, $pwd, $id_user));
+        return $sql;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
+
+// SELECT * FROM cardFestivals ORDER BY likes_cardFestival DESC LIMIT 8;
