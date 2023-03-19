@@ -1,6 +1,7 @@
 <?php
 // INSCRIPTION //
 session_start();
+
     if(isset($_SESSION['user'])){
         header('Location: accueil.php');
     }else{
@@ -36,13 +37,15 @@ session_start();
                     $error5 = "Entrez une adresse mail avec un format valide (-----@----.fr)";
                     $errors[] = $error5;
                 }
-                if(strlen($pwd)<5){
+                if(!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/', $pwd)){
                     $error6 = "Le mot de passe doit contenir AU MOINS 5 caractères.";
                     $errors[] = $error6;
                 }
-                $fetchMail = getMail($bdd, $mail)->fetchColumn();
-                $fetchPseudo = getUser($bdd, $pseudo)->fetchColumn();
-                
+                $fetchMail = getMail($bdd, $mail);
+                $fetchPseudo = getUser($bdd, $pseudo);
+                    if ($fetchPseudo !== false) {
+                        $fetchPseudo = $fetchPseudo['pseudo_user'];
+                    }
 
                 if($fetchPseudo >=1 || $fetchMail >=1){
                     $error7 = "Le nom d'utilisateur ou l'adresse mail sont déjà existants";
@@ -61,7 +64,9 @@ session_start();
         }
         
         include '../view/view.header.php';
-        include '../view/inscription.php';
+        include '../view/v.inscription.php';
     }
+
+    
 
  

@@ -1,91 +1,80 @@
 <!DOCTYPE html>
-    <h1>FESTIVALS EN EUROPE</h1>
-    <!-- <div class="livret">
-        <div class="imgBox">
-        <img src="assets\pexels-carte.jpeg" alt="carte d'europe">
-        </div>
-    <div class="details">
-      <h2>lorem ipsum dolor</h2>
-      <p>dfasjl lk;jds jl;sdaf hjdsfjdsa ghfu j asdfuju ,klpds pe posd ur dhqeryt eyop ads oep pfghdm,ntic jrpvcnj dfh
-        eklfnsk r dieu pw ehdg swuewq whr ekkshq pfb v,m ertuk b eu e kwre i t q m ei er wr efg efbdfeoi cbxgkr ,rikugh
-        dsk bvckjgry kfbd,vbkugsbn,sdvksghksvb us y bvkur iur jcxgiur kuryt rktry ktrut dsbvskt hrsut strksbfskfgs </p>
-    </div>
-  </div> -->
-  <div class="festival">
-    <div class="card">
-      <img class="card-img-top" src="assets/sweden.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">SUEDE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Sweden_Rock_Festival_2023-121985.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets/metaldays.jpg" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">SLOVENIE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Metaldays_2023-124601.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets\waken23.jpg" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">ALLEMAGNE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Wacken_Open_Air_2023-124224.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets/tonsofrock.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">NORVEGE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Tons_Of_Rock_2023-127694.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets/graspop.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">BELGIQUE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Graspop_Metal_Meeting_2023-122671.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets/rockamring.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">ALLEMAGNE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="#" class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets/reload.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">ALLEMAGNE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Reload_Festival_2023-125145.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="assets/mastersofrock.png" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">REPUBLIQUE TCHEQUE</h4>
-        <p class="card-text">Some example text.</p>
-        <a href="https://www.concerts-metal.com/concert_-_Masters_of_Rock_2023-130947.html" target="_blank"
-          class="btn btn-dark">En savoir plus</a>
-      </div>
-    </div>
-  </div>
+<html>
+<head>
+	<title>Card Festivals</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+	<style>
+		.card {
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 10px;
+			margin: 10px;
+			width: 300px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.card img {
+			max-width: 100%;
+			height: auto;
+			margin-bottom: 10px;
+		}
+		.card .title {
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.card .content {
+			font-size: 14px;
+			margin-bottom: 10px;
+		}
+		.card .like {
+			font-size: 18px;
+			color: gray;
+			cursor: pointer;
+			margin-right: 10px;
+		}
+		.card .like.active {
+			color: red;
+		}
+		.card .likes {
+			font-size: 14px;
+			color: gray;
+			margin-bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div v-for="cardFestival in cardFestivals" class="card">
+			<img v-bind:src="cardFestival.img_cardFestival" alt="">
+			<div class="title">{{ cardFestival.name_cardFestival }}</div>
+			<div class="content">{{ cardFestival.content_cardFestival }}</div>
+			<div class="likes">{{ cardFestival.likes_cardFestival }} likes</div>
+			<div v-bind:class="{ 'like': true, 'active': cardFestival.liked }" v-on:click="toggleLike(cardFestival)">
+				<i class="fas fa-heart"></i>
+			</div>
+		</div>
+	</div>
 
-    <script src="feelRougeF\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js"></script>   
-
-</body>
-</html>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				cardFestivals: [],
+			},
+			methods: {
+				toggleLike: function(cardFestival) {
+					if (!cardFestival.liked) {
+						cardFestival.likes_cardFestival++;
+						cardFestival.liked = true;
+						// appel à l'API pour ajouter un like dans la base de données
+					} else {
+						cardFestival.likes_cardFestival--;
+						cardFestival.liked = false;
+						// appel à l'API pour supprimer un like dans la base de données
+					}
+				}
+			},
+			mounted: function() {
+				// appel à l'API pour récupérer les card

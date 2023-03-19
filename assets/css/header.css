@@ -1,3 +1,13 @@
+/* 1 NAVBAR */
+/* 2 ACCUEIL **/
+/* 3 BLACK BAND */
+/* 4 IMAGES DREAMS*/
+/* 5 page festival */
+/* 6 form insription*/
+/* 7 form concert*/
+/* 8 page profil*/
+/* 9 deconnexion*/
+/* 10 DASHBOARD ADMIN / tableau de Bord*/
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +15,7 @@
     list-style: none;
 }
 body{
-    background-color: rgba(0, 0, 0, 0.955);
+    background-color: rgba(0, 0, 0, 0.927);
 
 }
 p, h2, h3, h4{
@@ -17,7 +27,7 @@ header{
     
 
 }
-/* NAVBAR */
+/* 1 **************************** NAVBAR *******************************/        /*  1  */
 .navbar{
     position: absolute;
     padding: 50px;
@@ -62,88 +72,35 @@ h1 {
     background-clip:text;
     -webkit-background-clip:text;
     color:transparent;
+    font-weight: bolder;
     font-family : 'New Rocker', cursive , sans-serif;
     text-shadow: -1px -1px 1px rgba(91, 55, 8, 0.737);
     /* font-family : 'Dancing Script', cursive ; */
 }
 
-
-  /* .container {
-    position: relative;
-    width: 300px;
-    margin: 50px auto 450px auto;
-    /* perspective: 1000px;} */
-  
-  
-  /* .carousel {
-    position: absolute;
-    width: 100%;
-    height: 100%; */
-    /* transform-style: preserve-3d; 
-       margin-bottom: 50px;
-  } */
-  
+/* .container{
+    width: 350px;
+    height: 250px;  
+} */
+ /* .carousel-item {
+    height: 600px;
  
-  /* .carousel__face { 
-    position: absolute;
-    width: 300px;
-    height: 187px;
-    top: 20px;
-    left: 10px;
-    right: 10px;
-    background-size: cover;
-    box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
-    display: flex;
+  } */
+  #carouselExampleCaptions{
+    padding: 0 200px;
   }
-  
-  span {
-    margin: auto;
-    font-size: 2rem;
-  }  */
-  
-/*   
-  .carousel__face:nth-child(1) {
-    background-image: url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY(  0deg) translateZ(430px); }
-  .carousel__face:nth-child(2) { 
-    background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-      transform: rotateY( 40deg) translateZ(430px); }
-  .carousel__face:nth-child(3) {
-    background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY( 80deg) translateZ(430px); }
-  .carousel__face:nth-child(4) {
-    background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY(120deg) translateZ(430px); }
-  .carousel__face:nth-child(5) { 
-    background-image: url("https://1drv.ms/u/s!AtLaFNQJdua0ozjvTr9FM261x6Xw?e=2A3s4j");
-   transform: rotateY(160deg) translateZ(430px); }
-  .carousel__face:nth-child(6) { 
-    background-image: url("https://images.pexels.com/photos/1834400/pexels-photo-1834400.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-   transform: rotateY(200deg) translateZ(430px); }
-  .carousel__face:nth-child(7) { 
-    background-image: url("https://images.pexels.com/photos/1415268/pexels-photo-1415268.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-   transform: rotateY(240deg) translateZ(430px); }
-  .carousel__face:nth-child(8) {
-    background-image: url("https://images.pexels.com/photos/135018/pexels-photo-135018.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY(280deg) translateZ(430px); }
-  .carousel__face:nth-child(9) {
-    background-image: url("https://images.pexels.com/photos/1175135/pexels-photo-1175135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    transform: rotateY(320deg) translateZ(430px); } */
-  
-  
-  
-  /* @keyframes rotate360 {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(-360deg);
-    }
+  .pics{
+    height: 550px;
+    width: 100%;
+
   }
-   */
+  .carousel-item {
+    transition-duration: 5s;
+  }
 
 
-/****************** ACCUEIL *******************/
+
+/* 2 ****************************** ACCUEIL *****************************/         /*  2  */
 .presents{
     background: linear-gradient(to top, #000000da, #000000da 50%, #000 75%, #000000d3 75%);
     display: flex;
@@ -165,11 +122,17 @@ h1 {
 }
 #fest img{
     height: 400px;
+    width: 280px;
 }
 #fest img:hover{
     scale: 1.3;
 }
-/*** BLACK BAND ***/
+/* 3 *********************** BLACK BAND ***********************/                    /*  3  */
+.balise{
+    font-size: 5rem;
+    font-weight: bolder;
+    padding: 0 50px;
+}
 .dreams{
     background: linear-gradient(to top, #000000da, #000000da 50%, #000 75%, #000000d3 75%);
     display: flex;
@@ -190,7 +153,7 @@ h1 {
     align-items: center;
     margin: 50px 0;
 }
-/*** IMAGES DREAMS***/
+/* 4 ***************************** IMAGES DREAMS****************************/            /*  4  */
 #imgDream1{
     width : 200px; 
     height : 200px;
@@ -217,8 +180,48 @@ h1 {
     border-radius : 200px;  
 }
 
+  .dream-card {
+    position: relative;
+    margin: 10px;
+    perspective: 1000px;
+  }
+  
+  .dream-card img {
+    width : 200px; 
+    height : 200px;
+    border: 1rem solid rgba(0, 0, 0, 0.741);
+    -moz-border-radius : 100px;
+    -webkit-border-radius : 100px;
+    border-radius : 100px;  
+    transition: transform 0.5s;
+  }
+    
+  .dream-card .text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%) rotateY(180deg);
+    text-align: center;
+    font-size: 18px;    
+    backface-visibility: hidden;
+  }
+  .dream-card.is-flipped  img {
+    transform: rotateY(180deg);
+    background: #ebc365;
+  }
+  
+  .dream-card.is-flipped .text {
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%) rotateY(180deg); */
+    /* text-align: center; */
+    transform: rotateY(0deg);
+  } 
+   
+  
 
-/************ page festival **************/
+/* 5 ******************************* page festival ***************************/           /*  5  */
 .icons{
     float: right;
     bottom: 0;
@@ -228,7 +231,7 @@ h1 {
     width: 25px;
 }
 
-.festival{
+#festival{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-rows: auto;
@@ -237,13 +240,104 @@ h1 {
     justify-items: center;
     
 }
-.card{
+/* .card{
     width: 350px;
     background: rgba(255, 255, 255, 0.906);
-}
-.card-img-top{
+} */
+#festival .card-content{
     width: 350px;
     height: 100px;
+}
+/* 6 ************************form insription********************************/                  /*  6  */
+#inputFond{
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    background-color: #AE8625;
+}
+#fond{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 200px; */
+    position: relative;
+    margin-top: 500px;
+}
+#fond1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: #000;
+    width: 700px;
+    box-shadow: 2px 2px 5px #AE8625;
+    z-index: 1;
+
+}
+#fond1 label{
+    color: #AE8625;
+    font-size: 1.5rem;
+    font-family: 'New Rocker', cursive , sans-serif;
+}
+.input-shadow{
+    box-shadow: 2px 2px 5px #AE8625;
+    width: 400px;
+    height: 50px;
+}
+#fond1 button{
+    margin-top: 30px;
+    background-color: #AE8625;
+    width:200px ;
+    height: 40px;
+    font-weight: bolder;
+}
+.fond2{
+    width: 700px;
+    height: 700px;
+    background: azure;
+    overflow: auto;
+}
+.fond2 p{
+    color: #000;
+}
+#form1{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#fond1, .fond2 {
+    width: 700px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 2s ease-in-out;
+}
+#fond1.active, .fond2.active {
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+.animation {
+    animation: slide 2s;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* 7 *******************************form concert*******************************/        /*  7  */
+
+#concertForm label{
+color: #AE8625;
+}
+#profile{
+    display: flex;
+    flex-direction: row;
 }
 #dreams{
     animation: bounce 0.7s ease infinite;
@@ -254,54 +348,72 @@ h1 {
     to   {top: 106px;}
 }
 
-
-@media screen and (max-width: 900px){
-    .navbar{
-        padding: 0;
-    }
-    .navbar .logo {
-        position: absolute;
-        top: 40px;
-        left: 30px;
-    }
-    .navbar .menu-hamburger{
-        display: block;
-    }
-    .nav-links{
-        top: 0;
-        left: 0;
-        position: absolute;
-        background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
-        backdrop-filter: blur(8px);
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: -100%;
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-
-    }
-    .navbar a{
-        color: #000;
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
-    .navbar a:active{
-        box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.875);
-    }
-    .nav-links.mobile-menu{
-        margin-left: 0;
-    }
-    .nav-links ul{
-        display: flex;
-        flex-direction: column;
-
-    }
-    .navbar .nav-links ul li{
-        margin: 25px 0;
-        font-size: 1.2rem;
-    }
+/* 8 ********************************************page profil*******************/         /*  8  */
+.card-img-top{
+    width: 200px;
+    height: 200px;
+}
+#cardAfficheUser{
+    width: 500px;
+}
+#buttonSendProfil{
+    margin-top: 5px;
+    background-color: #AE8625;
+    border-color: #000;
+}
+#profile {
+    display: grid;
+    grid-template-rows: 1fr 1fr; /* 2 lignes de hauteur égale */
+    grid-template-columns: 50% 50%; /* 2 colonnes de largeur égale */
+    grid-gap: 10px; /* Espacement entre les éléments */
+    align-items: center;
 }
 
+#grid1 {
+    padding-left: 25%;
+    grid-row: 1; /*  première ligne */
+    grid-column: 1; /*  première colonne */
+}
+
+#grid2 {
+    padding-left: 25%;
+    grid-row: 1; /* première ligne */
+    grid-column: 2; /* deuxième colonne */
+}
+#pCard1 p, #pCard2 p{
+    color: #000;
+}
+
+#formTop5 {
+    grid-row: 2; /* deuxième ligne */
+    grid-column: 1 / span 2; /* Span sur deux colonnes */
+}
+
+
+
+/* 9 ******************************deconnexion******************************/          /*  9  */
+#deco{
+    margin-right: 10px;
+}
+#deco a{
+    color: rgb(172, 2, 2);
+    font-size: large;
+}
+#deco a:active{
+    color: rgb(248, 245, 245);
+    font-size: large;
+}
+/* 10 ***********************DASHBOARD ADMIN * tableau de Bord*********************/   /*  10  */
+.tabBord{
+    background: #AE8625;
+    margin: 20px 150px;
+}
+.separate {
+    border-collapse: collapse;
+  }
+  
+.separate td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+  

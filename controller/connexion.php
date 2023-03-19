@@ -1,11 +1,27 @@
 <?php
 session_start();
 include '../view/view.header.php';
-include '../view/connexion.php';
+include '../model/connect.php';
+include '../view/v.connexion.php';
+
 // CONNEXION //
 
 if(isset($_SESSION['user'])){
-    header('Location: view\profil.php');
+    
+    // L'utilisateur est déjà connecté
+    echo "User is already connected.";
+    if(isset($_SESSION['role']) && $_SESSION['role'] === '1'){
+    
+        // L'utilisateur est un administrateur, rediriger vers la page d'administration
+        echo  "User is an admin.";
+        header('Location: admin.php');
+       
+    } else {
+        // L'utilisateur n'est pas un administrateur, rediriger vers la page de profil.
+        echo "User is not an admin.";
+        header('Location: profil.php');
+        exit();
+    }
 } else {
     include '../model/connect.php';
     include '../model/get.php';
@@ -20,10 +36,9 @@ if(isset($_SESSION['user'])){
         $pwd = htmlspecialchars($_POST['pwd']);
 
         if(!empty($pseudo) && !empty($pwd)){
-            $reqUser = getUser($bdd, $pseudo);
+            $user = getUser($bdd, $pseudo);
 
-            if($reqUser->rowCount() > 0){
-                $user = $reqUser->fetch();
+            if($user){
                 $hashed_password = $user['pwd_user'];
 
                 if(password_verify($pwd, $hashed_password)) {
@@ -31,13 +46,27 @@ if(isset($_SESSION['user'])){
                     $_SESSION['user'] = $user['pseudo_user'];
                     $_SESSION['mail'] = $user['mail_user'];
                     $_SESSION['id'] = $user['id_user'];
-                    $_SESSION['role'] = (string)$user['id_role'];
+                    $_SESSION['role'] = $user['id_role'];
 
                     // message de succès
                     $success = "Vous êtes maintenant connecté.";
                     echo $success;
-                    header('Location: view\profil.php');
-                    exit();
+
+                    if($user['id_role'] === 1 ){
+                        $_SESSION['id_role'] = '1';
+                        // L'utilisateur est un administrateur, rediriger vers la page d'administration
+                        echo "User is an admin.";
+
+                        header('Location: admin.php');
+                        
+                        exit();
+                    } else {
+                        $_SESSION['id_role'] = '10';
+                        // L'utilisateur n'est pas un administrateur, rediriger vers la page de profil.
+                        echo "User is not an admin.";
+                        header('Location: profil.php');
+                        exit();
+                    }
                 } else {
                     // message d'erreur
                     $errors[] = "Vos informations de connexion sont incorrectes.";
@@ -51,8 +80,4 @@ if(isset($_SESSION['user'])){
             $errors[] = "Veuillez compléter tous les champs.";
         }
     }
-
-    $style = "style";
-
-    // include '../view/view.footer.php';
 }

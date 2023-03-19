@@ -27,15 +27,22 @@ function createUser($bdd, $pseudo, $mail, $pwd, $bio, $id_role, $id_image)
         return $bad;
     }
 };
-function insereConcert($bdd, $band, $location, $year) {
+function insertConcerts($bdd, $band, $location, $year) {
     $sql = "INSERT INTO concerts (band_concert, location_concert, year_concert) VALUES (:band, :location, :year)";
     $stmt = $bdd->prepare($sql);
     $stmt->bindParam(':band', $band);
     $stmt->bindParam(':location', $location);
     $stmt->bindParam(':year', $year);
     $stmt->execute();
+    return $bdd->lastInsertId();
 }
 
+function inserePrefere($bdd, $id_user, $id_concert) {
+    $stmt = $bdd->prepare("INSERT INTO prefere (id_user, id_concert) VALUES (:id_user, :id_concert)");
+    $stmt->bindParam(':id_user', $id_user);
+    $stmt->bindParam(':id_concert', $id_concert);
+    $stmt->execute();
+}
 
 // echo "Vos concerts préférés ont été enregistrés dans la base de données.";
 

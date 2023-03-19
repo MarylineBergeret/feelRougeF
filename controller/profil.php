@@ -1,33 +1,50 @@
 <?php
+session_start();
 include '../model/connect.php';
 include '../model/get.php';
+include '../model/read.php';
 include '../model/insert.php';
 include '../view/view.header.php';
-include '../view/profil.php';
-
-
-// if (!empty($_POST['pseudo']) || !empty($_POST['email']) || !empty($_POST['password'])) {
-
-// // Appeler la fonction getUser pour récupérer les informations de l'utilisateur
-// $user = getUser($bdd, $pseudo);
-//     // Afficher le formulaire pour modifier les informations de l'utilisateur
-//     $pseudo = htmlspecialchars($_POST['pseudo']);
-//     $mail = htmlspecialchars($_POST['email']);
-//     $pwd = htmlspecialchars($_POST['password']);
-//     updateUser($bdd, $pseudo, $mail, $pwd); // Correction : appel de la fonction updateUser
-//     $answer = "Vos données ont été mises à jour";
-//     echo $answer; // Correction : utilisation de echo
-// } else {
-//     $messagePb = "Problème lors de la mise à jour des données.";
-//     echo $messagePb; // Correction : utilisation de echo
-// }
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['user'])) {
+    // Rediriger l'utilisateur vers la page de connexion
+    header('Location: connexion.php');
+    exit();
+}
+$id_user = $_SESSION['id'];
+$cardAfficheUser = afficheUser($bdd,$id_user);
+$cardAfficheConcerts = afficheConcerts($bdd,$id_user);
+include '../view/v.profil.php';
 
 if (!empty($_POST['concert1']) && !empty($_POST['concert1_band']) && !empty($_POST['concert1_location']) && !empty($_POST['concert1_year'])
     && !empty($_POST['concert2']) && !empty($_POST['concert2_band']) && !empty($_POST['concert2_location']) && !empty($_POST['concert2_year'])
     && !empty($_POST['concert3']) && !empty($_POST['concert3_band']) && !empty($_POST['concert3_location']) && !empty($_POST['concert3_year'])
     && !empty($_POST['concert4']) && !empty($_POST['concert4_band']) && !empty($_POST['concert4_location']) && !empty($_POST['concert4_year'])
     && !empty($_POST['concert5']) && !empty($_POST['concert5_band']) && !empty($_POST['concert5_location']) && !empty($_POST['concert5_year'])) {
+        // Stocker les données utilisateur dans la session
+    $_SESSION['user_data'] = array();
 
+    for ($i = 1; $i <= 5; $i++) {
+        $concert = "concert{$i}";
+        $band = "concert{$i}_band";
+        $location = "concert{$i}_location";
+        $year = "concert{$i}_year";
+    
+        // Vérifier si l'année est valide (comprise entre 1960 et 2023)
+        if (isset($_POST[$year]) && $_POST[$year] >= 1960 && $_POST[$year] <= 2023) {
+            $_SESSION['user_data'][$concert] = $_POST[$concert];
+            $_SESSION['user_data'][$band] = $_POST[$band];
+            $_SESSION['user_data'][$location] = $_POST[$location];
+            $_SESSION['user_data'][$year] = $_POST[$year];
+        } else {
+            // Si l'année n'est pas valide, stocker un message d'erreur
+            $_SESSION['user_data']['error'] = "L'année du concert n°{$i} doit être comprise entre 1960 et 2023.";
+            // Rediriger l'utilisateur vers la page de formulaire
+            header('Location: formulaire.php');
+            exit();
+        }
+    }
+   
     $concerts = array();
 
     for ($i = 1; $i <= 5; $i++) {
@@ -45,22 +62,37 @@ if (!empty($_POST['concert1']) && !empty($_POST['concert1_band']) && !empty($_PO
 
         $concerts[] = $concert;
     }
-
-
-    foreach($concerts as $concert) {
-        $name = htmlspecialchars($concert['name']);
-        $band = htmlspecialchars($concert['band']);
-        $location = htmlspecialchars($concert['location']);
-        $year = htmlspecialchars($concert['year']);
-        insereConcert($bdd,$band,$location,$year);
+        $concerts_pref = getConcertsById($bdd, $id_user); 
+        if(count($concerts_pref) > 0){
+           
+        // Mettre à jour les données existantes
+            foreach($concerts_pref as $i => $concert) {
+                $id_concert = $concert['id_concert'];
+                $band = htmlspecialchars($concert['band_concert']);
+                $location = htmlspecialchars($concert['location_concert']);
+                $year = htmlspecialchars($concert['year_concert']);
+                updateConcert($bdd, $id_concert, $band, $location, $year);           
+            }
+            $message = "Vos concerts préférés ont été mis à jour dans la base de données.";   
+        } else {
+        // Insérer de nouvelles données
+            
+            foreach($concerts as $concert) {
+                $name = htmlspecialchars($concert['name']);
+                $band = htmlspecialchars($concert['band']);
+                $location = htmlspecialchars($concert['location']);
+                $year = htmlspecialchars($concert['year']);
+                $id_concert = insereConcert($bdd,$band,$location,$year);
+                inserePrefere($bdd, $id_user, $id_concert);   
+        }
+        $message = "Vos concerts préférés ont été enregistrés dans la base de données.";
     }
-    $message = "Vos concerts préférés ont été enregistrés dans la base de données.";
     return $message;
+         
+}else{
+    echo "Veuillez remplir tous les champs.";
 }
 
-
-
-
-
 ?>
+
 
