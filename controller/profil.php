@@ -12,8 +12,12 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 $id_user = $_SESSION['id'];
-$cardAfficheUser = afficheUser($bdd,$id_user);
-$cardAfficheConcerts = afficheConcerts($bdd,$id_user);
+
+
+    $user = getUserById($bdd,$id_user);
+    $imageUrl = getUserImage($bdd,$id_user);
+    $concerts = getConcertsById($bdd, $id_user);
+    $pos = strpos($user['mail_user'], '@');
 include '../view/v.profil.php';
 
 if (!empty($_POST['concert1']) && !empty($_POST['concert1_band']) && !empty($_POST['concert1_location']) && !empty($_POST['concert1_year'])
@@ -82,7 +86,7 @@ if (!empty($_POST['concert1']) && !empty($_POST['concert1_band']) && !empty($_PO
                 $band = htmlspecialchars($concert['band']);
                 $location = htmlspecialchars($concert['location']);
                 $year = htmlspecialchars($concert['year']);
-                $id_concert = insereConcert($bdd,$band,$location,$year);
+                $id_concert = insereConcerts($bdd,$band,$location,$year);
                 inserePrefere($bdd, $id_user, $id_concert);   
         }
         $message = "Vos concerts préférés ont été enregistrés dans la base de données.";
@@ -91,6 +95,44 @@ if (!empty($_POST['concert1']) && !empty($_POST['concert1_band']) && !empty($_PO
          
 }else{
     echo "Veuillez remplir tous les champs.";
+}
+
+
+
+
+// Vérifie si le formulaire a été soumis
+if (isset($_POST['submit'])) {
+    // Vérifie si un fichier a été sélectionné
+    if (isset($_FILES['image'])) {
+        // Récupère les informations sur le fichier
+        $file_name = $_FILES['image']['name'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        $file_size = $_FILES['image']['size'];
+        $file_error = $_FILES['image']['error'];
+
+        // Vérifie s'il y a une erreur dans le fichier
+        if ($file_error === 0) {
+            // Vérifie la taille de fichier
+            if ($file_size <= 5000000) {
+                // Crée un nom de fichier unique
+                $file_destination = 'uploads/' . uniqid('', true) . '.' . strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                // Déplace le fichier dans le dossier "uploads"
+                if (move_uploaded_file($file_tmp, $file_destination)) {
+                    // Le fichier a été téléchargé avec succès
+                    echo 'Le fichier a été téléchargé avec succès.';
+                } else {
+                    // Une erreur s'est produite lors du téléchargement du fichier
+                    echo 'Une erreur s\'est produite lors du téléchargement du fichier.';
+                }
+            } else {
+                // Le fichier est trop volumineux
+                echo 'Le fichier est trop volumineux.';
+            }
+        } else {
+            // Une erreur s'est produite lors du téléchargement du fichier
+            echo 'Une erreur s\'est produite lors du téléchargement du fichier.';
+        }
+    }
 }
 
 ?>

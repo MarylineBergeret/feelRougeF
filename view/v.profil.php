@@ -1,14 +1,69 @@
 
-<div id="deco">
-    <a href="../controller/deconnexion.php">DECONNEXION</a>
-    </div>
-<div id="profile">
+    <div id="deco">
+        <a href="../controller/deconnexion.php">DECONNEXION</a>
+        </div>
+    <div id="profile">
 
-    <div id="grid1">
-    <p>{</p>    
-    <?php echo $cardAfficheUser; ?>
-    <p>}</p>  
+        <div id="grid1">
+            <div class='card' id='cardAfficheUser'>
+                <div class='card-header'>
+                 <h2>Profil : <?php echo $user['pseudo_user'] ?></h2>
+                </div>
+                    <div class='card-body'>
+                        <div class='row'>
+                            <div class='col-sm-3'>
+                            <img src='<?php echo $imageUrl ?>' class='img-thumbnail'>
+                            </div>
+                                <div class='col-sm-9' id='pCard1'>
+                                    <p>Pseudo : <?php echo $user['pseudo_user'] ?></p>
+                                    <p>Adresse e-mail : <?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?></p>
+                                    <p>Biographie : <?php echo $user['bio_user'] ?></p>
+                                        <form action='update_pseudo.php' method='post'>
+                                            <div class='form-group'>
+                                                <label for='new_pseudo'>Nouveau pseudo :</label>
+                                                <input type='text' class='form-control' id='new_pseudo' name='new_pseudo' value='<?php echo $user['pseudo_user'] ?>'>
+                                            </div>
+                                            <div class='form-group'>
+                                                <label for='new_bio'>Modifier Bio :</label>
+                                                <input type='text' class='form-control' id='new_bio' name='new_bio' value='<?php echo $user['bio_user'] ?>'>
+                                            </div>
+                                            <div class='form-group'>
+                                                <form action='upload_image.php' method='post' enctype='multipart/form-data'>
+                                                    <label for='image'>Changer l'image :</label><br>
+                                                    <input type='file' id='image' name='image' accept='image/*'><br>
+                                                </form>
+                                            </div>
+                                            <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>
+                                        </form>
+                                </div> <!-- end col-sm-9 -->
+                        </div> <!-- end row -->
+                    </div> <!-- end card-body -->
+            </div> <!-- end card -->
+ 
     </div>
+
+<div id="grid2">  
+    <div class='card' id='cardAfficheConcerts'>
+        <div class='card-header'><h2><?php echo $user['pseudo_user']?> : SON TOP 5 </h2>
+        </div>
+            <div class='card-body'>
+                <div class='row'>
+                    <div class='col-sm-3'><img src= <?php echo $imageUrl?> class='img-thumbnail'>
+                    </div>
+                        <div class='col-sm-9' id='pCard2'>
+                        <?php foreach ($concerts as $concert) {?>
+       
+                            <p><?php echo $concert['band_concert']?></p><br> 
+                            <p><?php echo $concert['location_concert']?></p><br>
+                            <p><?php echo $concert['year_concert'];}?></p><br>
+    
+                        </div>  <!-- end col-sm-9-->
+                </div> <!-- end row-->
+            </div>" <!-- end card-body-->
+    </div>" <!-- end card-->
+        
+</div>
+
     
     <div id="formTop5" class="container">
         <form id="concertForm" method="POST" action="../controller/profil.php" class="row g-3">
@@ -53,7 +108,5 @@
         </form>
 
     </div>
-    <div id="grid2"><?php echo $cardAfficheConcerts; ?></div>
-</div>
-
+ 
 

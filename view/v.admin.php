@@ -8,8 +8,25 @@
     </div>
 
     <div>
-        <fieldset class="tabBord"><?php echo getAllUser($bdd)?></fieldset>
-    </div>
+        <fieldset class="tabBord">
+        <table class='separate'>
+        <tr><th>ID USER</th><th>PSEUDO</th><th>MAIL</th><th>ROLE</th><th>ACTIONS</th><th>ICONE</th><tr>
+        <?php foreach ($users as $user ) {?>
+            <tr>
+            <td><?php echo $user['id_user']?></td>
+            <td><?php echo $user['pseudo_user']?></td>
+            <td><?php echo $user['mail_user']?></td>
+            <td><?php echo $user['name_role']?></td>
+            <td><select class='form-select form-role' aria-label='Default select example'>
+                    <option selected>Choisir un rôle</option>
+                    <option value='1'>Admin</option>
+                    <option value='2'>User</option>
+                </select></td>
+            <td><button class='btn'><i class='bi bi-trash-fill'></i></button></td>
+            </tr>
+        <?php }?>
+        </table>
+        </fieldset>
 
     <div class="container mt-5 mb-5">
 
@@ -32,7 +49,8 @@
             <textarea id="content" name="content" rows="10" required></textarea>
             <br>
             <button type="submit">Créer</button>
+        </form>
         </fieldset>
 
-    </form>
+    
     </div>

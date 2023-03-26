@@ -27,7 +27,7 @@ function createUser($bdd, $pseudo, $mail, $pwd, $bio, $id_role, $id_image)
         return $bad;
     }
 };
-function insertConcerts($bdd, $band, $location, $year) {
+function insereConcerts($bdd, $band, $location, $year) {
     $sql = "INSERT INTO concerts (band_concert, location_concert, year_concert) VALUES (:band, :location, :year)";
     $stmt = $bdd->prepare($sql);
     $stmt->bindParam(':band', $band);

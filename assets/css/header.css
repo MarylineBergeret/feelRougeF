@@ -22,7 +22,7 @@ p, h2, h3, h4{
     color: aliceblue;
 }
 header{
-    height: 30vh;
+    height: 20vh;
     width: 100vh;
     
 
@@ -78,14 +78,7 @@ h1 {
     /* font-family : 'Dancing Script', cursive ; */
 }
 
-/* .container{
-    width: 350px;
-    height: 250px;  
-} */
- /* .carousel-item {
-    height: 600px;
- 
-  } */
+
   #carouselExampleCaptions{
     padding: 0 200px;
   }
@@ -127,7 +120,7 @@ h1 {
 #fest img:hover{
     scale: 1.3;
 }
-/* 3 *********************** BLACK BAND ***********************/                    /*  3  */
+/* 3 *********************** Accueil BLACK BAND ***********************/                    /*  3  */
 .balise{
     font-size: 5rem;
     font-weight: bolder;
@@ -231,22 +224,22 @@ h1 {
     width: 25px;
 }
 
-#festival{
+/* #festival{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-rows: auto;
-    gap: 20px;
+    gap: 40px;
     margin-top: 105px;
     justify-items: center;
     
-}
-/* .card{
-    width: 350px;
-    background: rgba(255, 255, 255, 0.906);
 } */
-#festival .card-content{
+.imgCard{
     width: 350px;
-    height: 100px;
+}
+.card1{
+    width: 350px;
+    height: 300px;
+    background: #fff;
 }
 /* 6 ************************form insription********************************/                  /*  6  */
 #inputFond{
@@ -356,6 +349,9 @@ color: #AE8625;
 #cardAfficheUser{
     width: 500px;
 }
+#cardAfficheConcerts.card{
+    width: 500px;
+}
 #buttonSendProfil{
     margin-top: 5px;
     background-color: #AE8625;
@@ -388,6 +384,104 @@ color: #AE8625;
     grid-row: 2; /* deuxième ligne */
     grid-column: 1 / span 2; /* Span sur deux colonnes */
 }
+
+
+/********page salon*******/
+
+#listen{
+    position: relative;
+    width: 100vw;
+    height: 80vh;
+    background-size: cover;
+    z-index: 0;
+}
+
+  
+  .pointing-div {
+    position: absolute;
+   
+    padding: 15px;
+    width: 10%;
+    border-radius: 5px;
+    z-index: 1;
+  }
+  
+  .pointer {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin: auto;
+    z-index: 1;
+  }
+  #point0 { /*ordi*/
+    top: 56%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    left: 32%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+  }
+  #point1 { /*platine*/
+    top: 62%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    left: 45%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+  }
+  #point2 { /*disque mur*/
+    top: 40%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    left: 86%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+  }
+  #point3 { /*piano*/
+    top: 68%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    left: 83%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+  }
+  #point4 { /*guitar*/
+    top: 45%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    left: 52%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+  }
+  #point5{ 
+    top: 83%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    left: 12%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
+    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+  }
+  #audio-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0b0b0b;
+    color: #fff;
+    text-align: center;
+  }
+i.bi{
+    color: rgb(217, 36, 163);
+   z-index: 1;
+}
+
+
+#play-pause-button {
+    background: white;
+    border-color: #AE8625;
+    color: #040404;
+  z-index: 0;
+  }
+  
+#footer{
+    position: fixed;
+    bottom: -40px;
+    left: 0;
+    width: 100%;  
+}
+  
+  
+  
+
+
+
+
+
+
 
 
 

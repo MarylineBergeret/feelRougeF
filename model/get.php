@@ -11,14 +11,19 @@ function getUser($bdd, $pseudo){
         die("error : " . $e->getMessage());
     }
 }
-function getUser1($bdd, $pseudo) {
-    $query = $bdd->prepare('SELECT * FROM users WHERE pseudo_user = :pseudo');
-    $query->execute(array(
-        'pseudo' => $pseudo
-    ));
-    $result = $query->fetch(PDO::FETCH_OBJ); // Renvoi un objet
-    return $result;
+function getAllUser($bdd) {
+    try {
+        // Requête SQL pour récupérer tous les utilisateurs et leur rôle
+        $req = $bdd->prepare("SELECT users.*, roles.name_role FROM users JOIN roles ON users.id_role = roles.id_role");
+        $req->execute();
+        $results = $req->fetchAll();
+        return $results;
+
+    } catch (Exception $e) {
+        die("Error : " . $e->getMessage());
+    }
 }
+
 function getUserImage($bdd,$id_user) {
     try {
         $stmt = $bdd->prepare('SELECT images.url_image FROM users INNER JOIN images ON users.id_image = images.id_image WHERE users.id_user = :id_user');
@@ -26,6 +31,17 @@ function getUserImage($bdd,$id_user) {
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['url_image'];
+    } catch (PDOException $e) {
+        echo 'Une erreur est survenue : ' . $e->getMessage();
+        exit;
+    }
+}
+function updateUserImage($bdd, $id_user, $id_image) {
+    try {
+        $stmt = $bdd->prepare('UPDATE users SET id_image = :id_image WHERE id_user = :id_user');
+        $stmt->bindValue(':id_image', $id_image, PDO::PARAM_INT);
+        $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
+        $stmt->execute();
     } catch (PDOException $e) {
         echo 'Une erreur est survenue : ' . $e->getMessage();
         exit;
@@ -91,85 +107,50 @@ function getUserByMail($bdd, $mail_user)
     }
 }
 
-function getAllUser($bdd) {
-    try {
-        // Requête SQL pour récupérer tous les utilisateurs et leur rôle
-        $req = $bdd->query("SELECT users.*, roles.name_role FROM users JOIN roles ON users.id_role = roles.id_role");
-
-        // Stockage des résultats dans une variable
-        $tableau = "<table class='separate'>";
-        $tableau .= "<tr><th>ID USER</th><th>PSEUDO</th><th>MAIL</th><th>ROLE</th><th>ACTIONS</th><th></th><tr>";
-        while ($user = $req->fetch(PDO::FETCH_ASSOC)) {
-            $tableau .= "<tr>";
-            $tableau .= "<td>".$user['id_user']."</td>";
-            $tableau .= "<td>".$user['pseudo_user']."</td>";
-            $tableau .= "<td>".$user['mail_user']."</td>";
-            $tableau .= "<td>".$user['name_role']."</td>";
-            $tableau .= "<td>";
-            $tableau .= "<select class='form-select form-role' aria-label='Default select example'>
-                            <option selected>Choisir un rôle</option>
-                            <option value='1'>Administrateur</option>
-                            <option value='2'>Utilisateur</option>
-                        </select>";
-            $tableau .= "<button class='btn'><i class='bi bi-trash-fill'></i></button>";
-            $tableau .= "</td>";
-            $tableau .= "</tr>";
-        }
-        $tableau .= "</table>";
-
-    } catch (Exception $e) {
-        die("Error : " . $e->getMessage());
-    }
-
-    // Affichage du tableau plus tard dans votre code
-    return $tableau;
-}
 
 
+// function getCardFestival1($bdd) {
+//     try {
+//         $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
+//                               FROM cardFestivals 
+//                               INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
+//         $sql->execute();
+//         $results = $sql->fetchAll();
+//         return $results;
+//     } catch (Exception $e) {
+//         die("error : " . $e->getMessage());
+//     }
+// }
 
+// function getCardFestival2($bdd) {
+//     try {
+//         $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
+//                               FROM cardFestivals 
+//                               INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
+//         $sql->execute();
+//         $results = $sql->fetchAll();
 
-function getCardFestival1($bdd) {
-    try {
-        $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
-                              FROM cardFestivals 
-                              INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
-        $sql->execute();
-        $results = $sql->fetchAll();
-        return $results;
-    } catch (Exception $e) {
-        die("error : " . $e->getMessage());
-    }
-}
+//         $cardFestivals = array(); // tableau pour stocker les résultats
 
-function getCardFestival2($bdd) {
-    try {
-        $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
-                              FROM cardFestivals 
-                              INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
-        $sql->execute();
-        $results = $sql->fetchAll();
+//         foreach ($results as $result) {
+//             $name = $result['name_cardFestival'];
+//             $comment = $result['content_commentCard'];
+//             $date = $result['date_commentCard'];
 
-        $cardFestivals = array(); // tableau pour stocker les résultats
+//             // Vérifiez si la carte de festival existe déjà dans le tableau, sinon l'ajoutez
+//             if (!isset($cardFestivals[$name])) {
+//                 $cardFestivals[$name] = array();
+//             }
 
-        foreach ($results as $result) {
-            $name = $result['name_cardFestival'];
-            $comment = $result['content_commentCard'];
-            $date = $result['date_commentCard'];
+//             // Ajoutez le commentaire et la date au tableau de commentaires de la carte de festival
+//             $cardFestivals[$name][] = array('comment' => $comment, 'date' => $date);
+//         }
 
-            // Vérifiez si la carte de festival existe déjà dans le tableau, sinon l'ajoutez
-            if (!isset($cardFestivals[$name])) {
-                $cardFestivals[$name] = array();
-            }
-
-            // Ajoutez le commentaire et la date au tableau de commentaires de la carte de festival
-            $cardFestivals[$name][] = array('comment' => $comment, 'date' => $date);
-        }
-
-        return $cardFestivals;
-    } catch (Exception $e) {
-        die("error : " . $e->getMessage());
-    }
-}
+//         return $cardFestivals;
+//     } catch (Exception $e) {
+//         die("error : " . $e->getMessage());
+//     }
+// }
 
 
 
@@ -306,7 +287,7 @@ function updateUserPassword($bdd, $id_user, $hashedPassword) {
     try {
         $stmt = $bdd->prepare("UPDATE users SET pwd_user = :pwd_user WHERE id_user = :id_user");
         $stmt->bindParam(':pwd_user', $hashedPassword);
-        $stmt->bindParam(':id_user', $userId);
+        $stmt->bindParam(':id_user', $id_user);
         $stmt->execute();
     } catch(PDOException $e) {
         // Gérer l'exception selon les besoins

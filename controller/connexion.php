@@ -1,4 +1,12 @@
 <?php
+// session_set_cookie_params([
+//     'lifetime' => 86400,
+//     'path' => '/',
+//     'domain' => $_SERVER['HTTP_HOST'],
+//     'secure' => true,
+//     'httponly' => true,
+//     'samesite' => 'Strict'
+//   ]);
 session_start();
 include '../view/view.header.php';
 include '../model/connect.php';
@@ -8,22 +16,21 @@ include '../view/v.connexion.php';
 
 if(isset($_SESSION['user'])){
     
-    // L'utilisateur est déjà connecté
-    echo "User is already connected.";
+
     if(isset($_SESSION['role']) && $_SESSION['role'] === '1'){
     
         // L'utilisateur est un administrateur, rediriger vers la page d'administration
-        echo  "User is an admin.";
+       
         header('Location: admin.php');
        
     } else {
         // L'utilisateur n'est pas un administrateur, rediriger vers la page de profil.
-        echo "User is not an admin.";
+        
         header('Location: profil.php');
         exit();
     }
 } else {
-    include '../model/connect.php';
+   
     include '../model/get.php';
 
     $errors = [];
@@ -40,6 +47,7 @@ if(isset($_SESSION['user'])){
 
             if($user){
                 $hashed_password = $user['pwd_user'];
+                // $hashed_password = password_hash($pwd, PASSWORD_BCRYPT);
 
                 if(password_verify($pwd, $hashed_password)) {
                     // stockage des informations de profil dans la variable de session
@@ -50,20 +58,16 @@ if(isset($_SESSION['user'])){
 
                     // message de succès
                     $success = "Vous êtes maintenant connecté.";
-                    echo $success;
+                    
 
                     if($user['id_role'] === 1 ){
                         $_SESSION['id_role'] = '1';
                         // L'utilisateur est un administrateur, rediriger vers la page d'administration
-                        echo "User is an admin.";
-
                         header('Location: admin.php');
-                        
                         exit();
                     } else {
                         $_SESSION['id_role'] = '10';
                         // L'utilisateur n'est pas un administrateur, rediriger vers la page de profil.
-                        echo "User is not an admin.";
                         header('Location: profil.php');
                         exit();
                     }
