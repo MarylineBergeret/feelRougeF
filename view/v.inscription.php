@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 
   function toggleDivs() {
   let div1 = document.getElementById('fond1');
@@ -11,9 +11,9 @@
         div1.classList.add('active', 'animation');
     }
 }
-</script>
+</script> -->
 <div class="form-check form-switch" id="inputFond">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value="Toggle" onclick="toggleDivs()" checked>
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value="Toggle" checked>
   <br>
   <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
 </div>
@@ -40,37 +40,37 @@
       <div id="fond1">
       
     <!-- La balise Table pour formater l'affichage du formulaire -->
-      <form id="form1" action="../controller/inscription.php" method="POST">   
-      <h1>Formulaire d'inscription</h1>
-      <!-- <fieldset> -->
-        <table>
-          <tr>
-            <td><label for="pseudo">Pseudo</label><br>
-            <input class="input-shadow" type="text" name="pseudo" placeholder="saisir votre Pseudo"/> </td>
-          </tr>
-          <tr>
-          
-            <td><label for="pwd">Password</label><br>
-            <input class="input-shadow" type="text" name="pwd" placeholder="saisir votre mot de passe"/></td>
-          </tr>
-          <tr>
-          
-            <td><label for="mail">Mail</label><br>
-            <input class="input-shadow" type="email" name="mail" placeholder="saisir votre Email"/></td>
-          </tr>
-          <tr>
-          
-            <td><label for="bio">Bio</label><br>
-            <input class="input-shadow" type="text" name="bio" placeholder="saisir votre Bio"/></td>
-          </tr>
-          
-          <tr>
-            <td><button type="submit" name="submit">ENVOYER</button></td>
-          </tr>  
+        <form id="form1" action="../controller/inscription.php" method="POST">   
+        <h1>Formulaire d'inscription</h1>
+        <!-- <fieldset> -->
+          <table>
+            <tr>
+              <td><label for="pseudo">Pseudo</label><br>
+              <input class="input-shadow" type="text" name="pseudo" placeholder="saisir votre Pseudo"> </td>
+            </tr>
+            <tr>
+            
+              <td><label for="pwd">Password</label><br>
+              <input class="input-shadow" type="password" name="pwd" placeholder="saisir votre mot de passe"></td>
+            </tr>
+            <tr>
+            
+              <td><label for="mail">Mail</label><br>
+              <input class="input-shadow" type="email" name="mail" placeholder="saisir votre Email"></td>
+            </tr>
+            <tr>
+            
+              <td><label for="bio">Bio</label><br>
+              <input class="input-shadow" type="text" name="bio" placeholder="saisir votre Bio"></td>
+            </tr>
+            
+            <tr>
+              <td><button type="submit" name="submit">ENVOYER</button></td>
+            </tr>  
       
-        </table>      
+          </table>      
       <!-- </fieldset> -->
-      </form>
+        </form>
       </div>
     
 

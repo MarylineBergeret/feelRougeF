@@ -1,7 +1,7 @@
 
     <div id="deco">
         <a href="../controller/deconnexion.php">DECONNEXION</a>
-        </div>
+    </div>
     <div id="profile">
 
         <div id="grid1">
@@ -43,27 +43,28 @@
                     </div> <!-- end card-body -->
             </div> <!-- end card -->
  
-    </div>
-
-<div id="grid2">  
-    <div class='card' id='cardAfficheConcerts'>
-        <div class='card-header'><h2><?php echo $user['pseudo_user']?> : SON TOP 5 </h2>
         </div>
-            <div class='card-body'>
-                <div class='row'>
-                    <div class='col-sm-3'><img src= <?php echo $imageUrl?> class='img-thumbnail'>
-                    </div>
-                        <div class='col-sm-9' id='pCard2'>
-                        <?php foreach ($concerts as $concert) {?>
-       
-                            <p><?php echo $concert['band_concert']?></p><p><?php echo $concert['location_concert']?></p><p><?php echo $concert['year_concert'];}?></p>
-    
-                        </div>  <!-- end col-sm-9-->
-                </div> <!-- end row-->
-            </div>" <!-- end card-body-->
-    </div>" <!-- end card-->
-        
-</div>
+
+        <div id="grid2">  
+            <div class='card' id='cardAfficheConcerts'>
+                <div class='card-header'><h2><?php echo $user['pseudo_user']?> : SON TOP 5 </h2>
+                </div>
+                    <div class='card-body'>
+                        <div class='row'>
+                            <div class='col-sm-3'><img src= <?php echo $imageUrl?> class='img-thumbnail'>
+                            </div>
+                                <div class='col-sm-9' id='pCard2'>
+                                <?php foreach ($concerts as $concert) {?>
+            
+                                    <p><?php echo $concert['band_concert']?></p><p><?php echo $concert['location_concert']?></p><p><?php echo $concert['year_concert'];}?></p>
+            
+                                </div>  <!-- end col-sm-9-->
+                        </div> <!-- end row-->
+                    </div>" <!-- end card-body-->
+            </div>" <!-- end card-->
+                
+        </div>
+    </div>
 
     
     <div id="formTop5" class="container">

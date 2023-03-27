@@ -73,7 +73,7 @@ header{
 h1 {
     text-align:center;
     padding-top: 10px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
     background-clip:text;
     -webkit-background-clip:text;
@@ -253,21 +253,24 @@ h1 {
     margin: 150px;
 }
 /* 6 ************************form insription********************************/                  /*  6  */
+form{
+    padding: 40px 0;
+}
+
 #inputFond{
     display: flex;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 1.2rem;
     background-color: #AE8625;
 }
-#fond{
+#fond, #formContact, #mainConnexion, #mainPwd{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 200px; */
     position: relative;
-    margin-top: 500px;
+    margin-top: 70px;
 }
-#fond1{
+#fond1, #formulaire, #formConnexion, #formPwd{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -277,7 +280,7 @@ h1 {
     z-index: 1;
 
 }
-#fond1 label{
+#fond1 label, #formulaire label, #formConnexion label, #formPwd{
     color: #AE8625;
     font-size: 1.5rem;
     font-family: 'New Rocker', cursive , sans-serif;
@@ -287,7 +290,7 @@ h1 {
     width: 400px;
     height: 50px;
 }
-#fond1 button{
+#fond1 button, #buttonForm, #buttonConnexion, #buttonPwd{
     margin-top: 30px;
     background-color: #AE8625;
     width:200px ;
@@ -299,14 +302,15 @@ h1 {
     height: 700px;
     background: azure;
     overflow: auto;
+    z-index: 0;
 }
 .fond2 p{
     color: #000;
 }
-#form1{
+/* #form1{
     padding-top: 50px;
     padding-bottom: 50px;
-}
+} */
 #fond1, .fond2 {
     width: 700px;
     border-radius: 10px;
@@ -316,14 +320,20 @@ h1 {
     transform: translate(-50%, -50%);
     transition: all 2s ease-in-out;
 }
-#fond1.active, .fond2.active {
+/* #fond1.active {
     top: 50%;
-    left: 50%;
+    left: 40%;
+    z-index: 2;
+}
+.fond2.active {
+    top: 50%;
+    left: 60%;
     z-index: 2;
 }
 .animation {
     animation: slide 2s;
 }
+
 
 @keyframes slide {
     from {
@@ -332,7 +342,66 @@ h1 {
     to {
         transform: translateX(0);
     }
+} */
+
+/* 7 *******************************form connexion*******************************/        /*  7  */
+
+#gifContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+.gif1{
+    font-size: 2rem;
+    position: relative;
+    left: -100%;
+    animation: slide-in 2s ease-in-out forwards, slide-out 2s ease-in-out 5s forwards;  
+    z-index: 0;
+}
+.gif2{
+    font-size: 3rem;
+    position: relative;
+    top: 100px;
+    left: -100%;
+    animation: slide-in2 2s ease-in-out 5s , slide-out 4s ease-in-out 10s forwards;
+    z-index: 0;
+}
+@keyframes slide-in {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 50%;
+    }
+}
+@keyframes slide-out {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 150%;
+    }
+}
+
+@keyframes slide-in2 {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 50%;
+    }
+}
+@keyframes slide-out2 {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 150%;
+    }
+}
+
+
 
 /* 7 *******************************form concert*******************************/        /*  7  */
 
@@ -461,12 +530,16 @@ color: #AE8625;
   }
   #audio-controls {
     position: fixed;
-    bottom: 0;
+    top: 170px;
     left: 0;
     width: 100%;
     background-color: #0b0b0b;
     color: #fff;
     text-align: center;
+    z-index: 1;
+  }
+  #volume-control {
+    background-color: rgb(19, 141, 104);
   }
 i.bi{
     color: rgb(217, 36, 163);
@@ -483,7 +556,7 @@ i.bi{
   
 #footer{
     position: fixed;
-    bottom: -40px;
+    bottom: -45px;
     left: 0;
     width: 100%;  
 }

@@ -9,8 +9,8 @@ if(!empty($_POST['mail']) AND !empty($_POST['new_password']) AND !empty($_POST['
 
 // Récupère les valeurs des champs du formulaire
 $mail = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
-$newPassword = filter_var($_POST['new_password'], FILTER_SANITIZE_STRING);
-$newPassword1 = filter_var($_POST['new_password1'], FILTER_SANITIZE_STRING);
+$newPassword = filter_var($_POST['new_password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$newPassword1 = filter_var($_POST['new_password1'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
     // Vérifie si le code de réinitialisation est valide pour l'adresse e-mail donnée
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {

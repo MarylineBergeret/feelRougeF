@@ -15,29 +15,21 @@ include '../view/v.connexion.php';
 // CONNEXION //
 
 if(isset($_SESSION['user'])){
-    
-
-    if(isset($_SESSION['role']) && $_SESSION['role'] === '1'){
-    
-        // L'utilisateur est un administrateur, rediriger vers la page d'administration
-       
-        header('Location: admin.php');
-       
+    if(isset($_SESSION['role']) && $_SESSION['role'] === '1'){  
+        // L'utilisateur est un administrateur, rediriger vers la page d'administration      
+        header('Location: admin.php');      
     } else {
         // L'utilisateur n'est pas un administrateur, rediriger vers la page de profil.
         
         header('Location: profil.php');
         exit();
     }
-} else {
-   
+} else {  
     include '../model/get.php';
-
     $errors = [];
     $success = '';
 
     if(isset($_POST['submit'])){
-
         // nettoyage des données entrantes
         $pseudo = htmlspecialchars($_POST['pseudo']);
         $pwd = htmlspecialchars($_POST['pwd']);
@@ -85,3 +77,4 @@ if(isset($_SESSION['user'])){
         }
     }
 }
+include '../view/foot.php';

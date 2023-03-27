@@ -63,10 +63,11 @@ session_start();
             }
         }
         
-        include '../view/view.header.php';
-        include '../view/v.inscription.php';
-    }
 
+    }
+    include '../view/view.header.php';
+    include '../view/v.inscription.php';
+    include '../view/foot.php';
     
 
  

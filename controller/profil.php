@@ -94,10 +94,6 @@ include '../view/v.profil.php';
     }else{
         echo "Veuillez remplir tous les champs.";
     }
-
-
-
-
     
 ?>
 

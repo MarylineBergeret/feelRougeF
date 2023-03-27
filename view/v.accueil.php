@@ -60,7 +60,7 @@
 </div>
 
 <div class="dreams">
-    <p class="balise"><</p><img src="..\assets\image\finger-crossed.png" class="finger"><h2>MY DREAMS ?</h2><img src="..\assets\image\finger-crossed.png" class="finger"><p class="balise">></p>
+    <p class="balise"><</p><img src="https://media.giphy.com/media/rRstpAt8VXo3sVcJcu/giphy.gif" class="finger"><h2>MY DREAMS ?</h2><img src="https://media.giphy.com/media/rRstpAt8VXo3sVcJcu/giphy.gif" class="finger"><p class="balise">></p>
 </div>
   
 <div class="dreams1">
@@ -83,6 +83,8 @@
     </div>
   </div>
 </div>
+
+<div>https://media.giphy.com/media/ctfFP2O2VdqhkbOHjh/giphy.gif</div>
 
 
 <script>

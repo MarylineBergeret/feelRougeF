@@ -7,25 +7,7 @@ https://youtu.be/D7tcryUTTZ8   symbole
 MAtthew scar
 https://youtu.be/rNO3XtHkyCM
 
-<div><img src="" alt=""></div>
 
-$tableau = "<table class='separate'>";
-        $tableau .= "<tr><th>ID USER</th><th>PSEUDO</th><th>MAIL</th><th>ROLE</th><th>ACTIONS</th><th>ICONE</th><tr>";
-        while ($user = $req->fetch(PDO::FETCH_ASSOC)) {
-            $tableau .= "<tr>";
-            $tableau .= "<td>".$user['id_user']."</td>";
-            $tableau .= "<td>".$user['pseudo_user']."</td>";
-            $tableau .= "<td>".$user['mail_user']."</td>";
-            $tableau .= "<td>".$user['name_role']."</td>";
-            $tableau .= "<td><select class='form-select form-role' aria-label='Default select example'>
-                            <option selected>Choisir un rôle</option>
-                            <option value='1'>Administrateur</option>
-                            <option value='2'>User</option>
-                        </select></td>";
-            $tableau .= "<td><button class='btn'><i class='bi bi-trash-fill'></i></button></td>";
-            $tableau .= "</tr>";
-        }
-        $tableau .= "</table>";
 
 
        

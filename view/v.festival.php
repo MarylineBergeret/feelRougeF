@@ -1,4 +1,4 @@
-
+  <h2></h2>
   <div id="festival">
   <!-- Afficher chaque carte avec une icône "like" -->
   <?php foreach ($cardFestivals as $cardFestival) { ?>
@@ -33,6 +33,9 @@
         <span class="comment-date"><?php echo $comment['date_commentCard']; ?></span>
       </div>
     <?php } ?>
+    </div>
+    <div>
+      <img src="https://media.giphy.com/media/n4fQFQVUl0Iu5fi9WW/giphy.gif" alt="hellfest">
     </div>
 
   <!-- Code JavaScript pour gérer les clics sur l'icône "like" -->
