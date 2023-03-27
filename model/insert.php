@@ -44,8 +44,30 @@ function inserePrefere($bdd, $id_user, $id_concert) {
     $stmt->execute();
 }
 
-// echo "Vos concerts préférés ont été enregistrés dans la base de données.";
+function ajouterCommentaire($bdd, $content_commentCard, $id_cardFestival) {
+    try {
+        $stmt = $bdd->prepare("INSERT INTO commentCard (content_commentCard, date_commentCard, id_cardFestival) VALUES (:content_commentCard, NOW(), :id_cardFestival)");
+        $stmt->bindParam(':content_commentCard', $content_commentCard);
+        $stmt->bindParam(':id_cardFestival', $id_cardFestival);
+        $stmt->execute();
+    } catch(PDOException $e) {
+        // Gérer l'erreur de l'insertion
+        echo "Erreur : " . $e->getMessage();
+    }
+}
 
+function insertImage($bdd, $file_name) {
+    try {
+        $stmt = $bdd->prepare('INSERT INTO images (url_image) VALUES (:url_image)');
+        $stmt->bindValue(':url_image', "images/".$file_name, PDO::PARAM_STR);
+        $stmt->execute();
+        $id_image = $bdd->lastInsertId();
+        return $id_image;
+    } catch (PDOException $e) {
+        echo 'Une erreur est survenue lors de l\'insertion de l\'image : ' . $e->getMessage();
+        exit;
+    }
+}
 
 
 

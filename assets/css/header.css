@@ -8,6 +8,9 @@
 /* 8 page profil*/
 /* 9 deconnexion*/
 /* 10 DASHBOARD ADMIN / tableau de Bord*/
+@import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -18,8 +21,11 @@ body{
     background-color: rgba(0, 0, 0, 0.927);
 
 }
-p, h2, h3, h4{
+p, h2, h3, h4, span{
     color: aliceblue;
+}
+a{
+    color: #AE8625;
 }
 header{
     height: 20vh;
@@ -215,16 +221,16 @@ h1 {
   
 
 /* 5 ******************************* page festival ***************************/           /*  5  */
-.icons{
+/* .icons{
     float: right;
     bottom: 0;
 }
 .icons img{
     height: 25px;
     width: 25px;
-}
+} */
 
-/* #festival{
+#festival{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-rows: auto;
@@ -232,14 +238,19 @@ h1 {
     margin-top: 105px;
     justify-items: center;
     
-} */
+} 
 .imgCard{
-    width: 350px;
+    width: 346px;
+    height: 110px;
 }
 .card1{
     width: 350px;
     height: 300px;
-    background: #fff;
+    border: 2px solid;
+    border-color: white white #AE8625 #AE8625;
+}
+#lien{
+    margin: 150px;
 }
 /* 6 ************************form insription********************************/                  /*  6  */
 #inputFond{
@@ -378,6 +389,9 @@ color: #AE8625;
 }
 #pCard1 p, #pCard2 p{
     color: #000;
+}
+.col-sm-9{
+    display: inline-block;
 }
 
 #formTop5 {

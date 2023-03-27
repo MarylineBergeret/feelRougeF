@@ -295,7 +295,35 @@ function updateUserPassword($bdd, $id_user, $hashedPassword) {
     }
 }
 
+function incrementLikes($bdd,$id_cardFestival) {
+    try {
+        $request = $bdd->prepare("UPDATE cardFestivals SET likes_cardFestival = likes_cardFestival + 1 WHERE id_cardFestival = :id_cardFestival");
+        $request->bindParam(':id_cardFestival', $id_cardFestival);
+        $request->execute();
 
+        return true;
+    } catch (PDOException $e) {
+        // Log or display the error message
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
+function getLikes($bdd,$id_cardFestival) {
+    try {
+       
+        $req = $bdd->prepare("SELECT likes_cardFestival FROM cardFestivals WHERE id_cardFestival = :id_cardFestival");
+        $req->bindParam(':id_cardFestival', $id_cardFestival);
+        $req->execute();
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+
+        return $result['likes_cardFestival'];
+    } catch (PDOException $e) {
+        // Log or display the error message
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
 
 
 //<?php

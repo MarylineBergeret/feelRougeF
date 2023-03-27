@@ -18,20 +18,23 @@
                                     <p>Pseudo : <?php echo $user['pseudo_user'] ?></p>
                                     <p>Adresse e-mail : <?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?></p>
                                     <p>Biographie : <?php echo $user['bio_user'] ?></p>
-                                        <form action='update_pseudo.php' method='post'>
+                                        <form action='../controller/update.php' method='post'>
                                             <div class='form-group'>
                                                 <label for='new_pseudo'>Nouveau pseudo :</label>
                                                 <input type='text' class='form-control' id='new_pseudo' name='new_pseudo' value='<?php echo $user['pseudo_user'] ?>'>
+                                            </div>
+                                            <div class='form-group'>
+                                                <label for='new_email'>Nouveau mail :</label>
+                                                <input type='text' class='form-control' id='new_email' name='new_email' value='<?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?>'>
                                             </div>
                                             <div class='form-group'>
                                                 <label for='new_bio'>Modifier Bio :</label>
                                                 <input type='text' class='form-control' id='new_bio' name='new_bio' value='<?php echo $user['bio_user'] ?>'>
                                             </div>
                                             <div class='form-group'>
-                                                <form action='upload_image.php' method='post' enctype='multipart/form-data'>
-                                                    <label for='image'>Changer l'image :</label><br>
-                                                    <input type='file' id='image' name='image' accept='image/*'><br>
-                                                </form>
+                                                    <label for='url_image'>Changer l'image :</label><br>
+                                                    <input type='file' id='image' name='url_image' accept='.png, .jpg, .gif'><br>
+                                                
                                             </div>
                                             <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>
                                         </form>
@@ -53,9 +56,7 @@
                         <div class='col-sm-9' id='pCard2'>
                         <?php foreach ($concerts as $concert) {?>
        
-                            <p><?php echo $concert['band_concert']?></p><br> 
-                            <p><?php echo $concert['location_concert']?></p><br>
-                            <p><?php echo $concert['year_concert'];}?></p><br>
+                            <p><?php echo $concert['band_concert']?></p><p><?php echo $concert['location_concert']?></p><p><?php echo $concert['year_concert'];}?></p>
     
                         </div>  <!-- end col-sm-9-->
                 </div> <!-- end row-->
