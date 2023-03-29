@@ -4,26 +4,25 @@ session_start();
 include '../model/connect.php';
 
 include '../model/get.php';
+include '../model/insert.php';
+include '../model/delete.php';
 include '../view/view.header.php';
 $cardFestivals = getCardFestival($bdd);
-include '../view/v.festival.php';
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id_cardFestival'])) {
-    $id_cardFestival = $_GET['id_cardFestival'];
-    if (incrementLikes($bdd,$id_cardFestival)) {
-        $likes = getLikes($bdd,$id_cardFestival); // suppose que vous avez une fonction qui récupère le nombre de likes pour cette carte depuis la base de données
-        $response = array('success' => true, 'likes' => $likes);
-        header('Content-Type: application/json');
-        echo json_encode($response);
-    } else {
-        $response = array('success' => false);
-        header('Content-Type: application/json');
-        echo json_encode($response);
+getComments($bdd);
+
+if(isset($_POST['state']) AND isset($_POST["likeIdFestival"]) AND isset($_POST["likeIdUser"])){
+    $idUser = $_POST["likeIdUser"];
+    $idCardfestival = $_POST["likeIdFestival"];
+    $state = $_POST['state'];
+    if($state = 'like'){
+        deleteLike($bdd, $idUser, $idCardfestival);
+    }else{
+        insertLike($bdd, $idUser, $idCardfestival);
     }
 }
-
+include '../view/v.festival.php';
 // Vérifier que le formulaire a été soumis
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
+if (isset($_POST['submit'])) {
     // Vérifier si l'utilisateur est connecté
     if (!isset($_SESSION['user'])) {
         $erreur = 'Vous devez être connecté pour poster un commentaire';
@@ -33,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $id_cardFestival = $_POST['id_cardFestival'];
 
         // Vérifier que les données sont valides
-        if (empty($commentaire)) {
+        if (empty($content_commentCard)) {
             $erreur = 'Le commentaire ne peut pas être vide';
         } else {
 
@@ -47,5 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 }
+
 include '../view/foot.php';
 ?>

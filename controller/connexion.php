@@ -15,7 +15,7 @@ include '../view/v.connexion.php';
 // CONNEXION //
 
 if(isset($_SESSION['user'])){
-    if(isset($_SESSION['role']) && $_SESSION['role'] === '1'){  
+    if(isset($_SESSION['user']['id_role']) && $_SESSION['role'] === '1'){  
         // L'utilisateur est un administrateur, rediriger vers la page d'administration      
         header('Location: admin.php');      
     } else {
@@ -43,22 +43,23 @@ if(isset($_SESSION['user'])){
 
                 if(password_verify($pwd, $hashed_password)) {
                     // stockage des informations de profil dans la variable de session
-                    $_SESSION['user'] = $user['pseudo_user'];
+                    /*$_SESSION['user'] = $user['pseudo_user'];
                     $_SESSION['mail'] = $user['mail_user'];
                     $_SESSION['id'] = $user['id_user'];
-                    $_SESSION['role'] = $user['id_role'];
+                    $_SESSION['role'] = $user['id_role'];*/
+                    $_SESSION['user'] = $user;
 
                     // message de succès
                     $success = "Vous êtes maintenant connecté.";
                     
 
-                    if($user['id_role'] === 1 ){
-                        $_SESSION['id_role'] = '1';
+                    if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == '1' ){
+                        //$_SESSION['id_role'] = '1';
                         // L'utilisateur est un administrateur, rediriger vers la page d'administration
                         header('Location: admin.php');
                         exit();
-                    } else {
-                        $_SESSION['id_role'] = '10';
+                    } elseif(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] === '10') {
+                        //$_SESSION['id_role'] = '10';
                         // L'utilisateur n'est pas un administrateur, rediriger vers la page de profil.
                         header('Location: profil.php');
                         exit();

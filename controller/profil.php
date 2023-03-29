@@ -10,13 +10,14 @@ if (!isset($_SESSION['user'])) {
     header('Location: connexion.php');
     exit();
 }else{
-$id_user = $_SESSION['id'];
+$id_user = $_SESSION['user']['id_user'];
 $user = getUserById($bdd,$id_user);
 $imageUrl = getUserImage($bdd,$id_user);
 $concerts = getConcertsById($bdd, $id_user);
 $pos = strpos($user['mail_user'], '@');
 include '../view/v.profil.php';
 }
+// Vérifier que tous les champs du formulaire ont été remplis
     if (!empty($_POST['concert1']) && !empty($_POST['concert1_band']) && !empty($_POST['concert1_location']) && !empty($_POST['concert1_year'])
         && !empty($_POST['concert2']) && !empty($_POST['concert2_band']) && !empty($_POST['concert2_location']) && !empty($_POST['concert2_year'])
         && !empty($_POST['concert3']) && !empty($_POST['concert3_band']) && !empty($_POST['concert3_location']) && !empty($_POST['concert3_year'])
@@ -48,13 +49,13 @@ include '../view/v.profil.php';
         }
     
         $concerts = array();
-
+//boucle pour afficher les champs des formulaires
         for ($i = 1; $i <= 5; $i++) {
             $concert_name = 'concert' . $i;
             $band_name = 'concert' . $i . '_band';
             $location_name = 'concert' . $i . '_location';
             $year_name = 'concert' . $i . '_year';
-
+//création tableau associatif pour les valeurs postées, ajouté à la fin du tableau "concerts"
             $concert = array(
                 'name' => $_POST[$concert_name],
                 'band' => $_POST[$band_name],
@@ -64,6 +65,7 @@ include '../view/v.profil.php';
 
             $concerts[] = $concert;
         }
+        //récupération des concerts prefs d'un user
             $concerts_pref = getConcertsById($bdd, $id_user); 
             if(count($concerts_pref) > 0){
             
@@ -94,7 +96,42 @@ include '../view/v.profil.php';
     }else{
         echo "Veuillez remplir tous les champs.";
     }
-    
+
+if (isset($_FILES['file'])) {
+    // Récupère les informations sur le fichier
+    $file_name = $_FILES['file']['name'];
+    $file_tmp = $_FILES['file']['tmp_name'];
+    $file_size = $_FILES['file']['size'];
+    $file_error = $_FILES['file']['error'];
+
+    // Vérifie s'il y a une erreur dans le fichier
+    if ($file_error === 0) {
+
+        if ($file_size <= 5000000) {
+        // Crée un nom de fichier unique
+        $file_destination = "..\import\image/$file_name";
+        // Déplace le fichier dans le dossier "image"
+            if (move_uploaded_file($file_tmp, $file_destination)) {
+            // Le fichier a été téléchargé avec succès
+                echo 'Le fichier a été téléchargé avec succès.';
+                $id_image = insertImage($bdd, $file_name);
+                updateUserImage($bdd, $id_user, $id_image);
+                $imageUrl = getUserImage($bdd,$id_user);
+                
+            } else {
+            // Une erreur s'est produite lors du téléchargement du fichier
+                echo 'Une erreur s\'est produite lors du téléchargement du fichier.';
+            }
+        } else {
+        // Le fichier est trop volumineux
+            echo 'Le fichier est trop volumineux.';
+        }
+    } else {
+        // Une erreur s'est produite lors du téléchargement du fichier
+        echo 'Une erreur s\'est produite lors du téléchargement du fichier.';
+    }
+}
+include '../view/foot.php';
 ?>
 
 

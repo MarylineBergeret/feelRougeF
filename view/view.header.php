@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <!-- Inclure le lien vers la bibliothèque d'icônes de Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.6.0/font/bootstrap-icons.min.css" integrity="sha512-1F6Djdl53UOtwJUot9XUwyN6Lrj6lYLoI1z+8ySpJ04y4o4QvA/Aj+L8ZJUnJeZnoS+KjZZNTWgJIMQ2o2RyRQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-     <!-- Inclure la bibliothèque jQuery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="..\assets\css\header.css">
     <link rel="stylesheet" href="..\assets\css\responsive.css">
 <title>BLOG</title>
@@ -23,14 +22,18 @@
                     <li><a href="../controller/salon.php">Salon d'écoute</a></li>
                     <li><a href="../controller/contact.php">Contact</a></li>
                     
+                    <?php if(!isset($_SESSION['user'])): ?>
                     <li><a href="../controller/inscription.php">Inscription</a></li>
                     <li><a href="../controller/connexion.php">Connexion</a></li>
+                    
+                    <?php endif ?>
                     <?php if(isset($_SESSION['user'])){ ?>
                     <li><a href="../controller/profil.php">Mon profil</a></li>
+                    <li><a href="../controller/deconnexion.php">DECONNEXION</a></li>
                     <?php } ?>
-                    <?php if(isset($_SESSION['user']) && $_SESSION['id_role'] = '1' ){?>
+                    <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1 ):?>
                     <li><a href="../controller/admin.php">Dashboard</a></li>
-                    <?php } ?>
+                    <?php endif ?>
                    
                 </ul>
             </div>
@@ -38,12 +41,3 @@
         </nav>
     </header>
     
-
-    <script>
-            const menuHamburger = document.querySelector(".menu-hamburger")
-            const navLinks = document.querySelector(".nav-links")
-    
-            menuHamburger.addEventListener('click',()=>{
-            navLinks.classList.toggle('mobile-menu')
-            });
-    </script>

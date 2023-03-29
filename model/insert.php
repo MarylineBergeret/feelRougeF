@@ -46,10 +46,10 @@ function inserePrefere($bdd, $id_user, $id_concert) {
 
 function ajouterCommentaire($bdd, $content_commentCard, $id_cardFestival) {
     try {
-        $stmt = $bdd->prepare("INSERT INTO commentCard (content_commentCard, date_commentCard, id_cardFestival) VALUES (:content_commentCard, NOW(), :id_cardFestival)");
-        $stmt->bindParam(':content_commentCard', $content_commentCard);
-        $stmt->bindParam(':id_cardFestival', $id_cardFestival);
-        $stmt->execute();
+        $req = $bdd->prepare("INSERT INTO commentCard (content_commentCard, date_commentCard, id_cardFestival) VALUES (:content_commentCard, NOW(), :id_cardFestival)");
+        $req->bindParam(':content_commentCard', $content_commentCard);
+        $req->bindParam(':id_cardFestival', $id_cardFestival);
+        $req->execute();
     } catch(PDOException $e) {
         // Gérer l'erreur de l'insertion
         echo "Erreur : " . $e->getMessage();
@@ -58,17 +58,25 @@ function ajouterCommentaire($bdd, $content_commentCard, $id_cardFestival) {
 
 function insertImage($bdd, $file_name) {
     try {
-        $stmt = $bdd->prepare('INSERT INTO images (url_image) VALUES (:url_image)');
-        $stmt->bindValue(':url_image', "images/".$file_name, PDO::PARAM_STR);
-        $stmt->execute();
+        $file_destination = "..\import\image/$file_name";
+        $req = $bdd->prepare('INSERT INTO images (url_image) VALUES (?)');
+        $req->execute([$file_destination]);
         $id_image = $bdd->lastInsertId();
         return $id_image;
     } catch (PDOException $e) {
-        echo 'Une erreur est survenue lors de l\'insertion de l\'image : ' . $e->getMessage();
+        echo 'Erreur ' . $e->getMessage();
         exit;
     }
 }
 
+
+function insertLike($bdd, $idUser, $idCardfestival){
+    $request = $bdd->prepare(" INSERT INTO likes(id_user, id_cardFestival) VALUES (:idUser, :idCardfestival) ");
+    $request->execute(array(
+        "idUser" => $idUser,
+        "idCardfestival" => $idCardfestival
+    ));
+}
 
 
 // Requête UPDATE pour mettre à jour les informations de l'utilisateur

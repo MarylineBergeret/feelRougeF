@@ -87,7 +87,7 @@
 <div>https://media.giphy.com/media/ctfFP2O2VdqhkbOHjh/giphy.gif</div>
 
 
-<script>
+<!-- <script>
 const cards = document.querySelectorAll('.dream-card');
 cards.forEach((card) => {
   const img = card.querySelector('img');
@@ -101,6 +101,6 @@ cards.forEach((card) => {
   });
 });
 
-</script>
+</script> -->
 
 

@@ -13,4 +13,12 @@ function deleteUser($bdd, $id_user) {
         return $deleteFail;
     }
 }
+
+function deleteLike($bdd, $idUser, $idCardFestival){
+    $request = $bdd->prepare("DELETE FROM likes WHERE id_user = :idUser AND id_cardFestival = :idCardfestival");
+    $request->execute(array(
+        "idUser" => $idUser,
+        "idCardfestival" => $idCardFestival
+    ));
+}
 ?>

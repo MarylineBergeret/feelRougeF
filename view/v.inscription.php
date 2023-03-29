@@ -72,8 +72,10 @@
       <!-- </fieldset> -->
         </form>
       </div>
-    
-
+      </div> 
+      <div class="fond3">
+        <img src="https://media.giphy.com/media/QTi3uyWcyJxeAAeTNB/giphy.gif" alt="flèches">
+      </div>
       <div class="fond2">
 
       <h5>FAQ</h5>
@@ -104,4 +106,6 @@
 
       Le heavy metal est souvent considéré comme la "source" de nombreux sous-genres de métal, dont le métal progressif. Le métal progressif est caractérisé par des structures de chansons plus complexes, des changements de tempo et de rythme, des influences de musique classique et jazz, et des paroles qui abordent souvent des sujets plus philosophiques et intellectuels.</p>
       </div>
-    </div>   
+    <div>
+      <img src="https://media.giphy.com/media/fQ5LRK2P2wrd7ArLO2/giphy.gif" alt="">
+    </div>

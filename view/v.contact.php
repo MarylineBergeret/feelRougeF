@@ -18,7 +18,7 @@
                 <tr>
                 
                     <td><label for="textarea">Votre demande</label><br>
-                    <textarea name="textarea" rows="4" cols="50">Je vous écoute</textarea>
+                    <textarea id="textAForm" name="textarea" rows="4" cols="35">Je vous écoute</textarea>
                     <br>
                 </tr>
                 <tr>

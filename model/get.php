@@ -48,6 +48,7 @@ function updateUserImage($bdd, $id_user, $id_image) {
     }
 }
 
+
   
 
 function getUserMail($bdd, $mail){
@@ -107,20 +108,36 @@ function getUserByMail($bdd, $mail_user)
     }
 }
 
+function getComments($bdd) {
+    try {
+      $req = $bdd->prepare("SELECT commentCard.id_commentCard, commentCard.content_commentCard, commentCard.date_commentCard, cardFestivals.name_cardFestival
+                            FROM commentCard
+                            INNER JOIN cardFestivals
+                            ON commentCard.id_cardFestival = cardFestivals.id_cardFestival");
+  
+      $req->execute(); // exécuter la requête SQL
+  
+      $comments = $req->fetchAll(PDO::FETCH_ASSOC);
+  
+      return $comments;
+    } catch(PDOException $e) {
+      echo "Erreur : " . $e->getMessage();
+    }
+  }
+  
 
-
-// function getCardFestival1($bdd) {
-//     try {
-//         $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
-//                               FROM cardFestivals 
-//                               INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
-//         $sql->execute();
-//         $results = $sql->fetchAll();
-//         return $results;
-//     } catch (Exception $e) {
-//         die("error : " . $e->getMessage());
-//     }
-// }
+function getCardFestival($bdd) {
+    try {
+        $sql = $bdd->prepare("  SELECT *
+                                FROM cardFestivals
+                            ");
+        $sql->execute();
+        $results = $sql->fetchAll();
+        return $results;
+    } catch (Exception $e) {
+        die("error : " . $e->getMessage());
+    }
+}
 
 // function getCardFestival2($bdd) {
 //     try {
@@ -154,7 +171,7 @@ function getUserByMail($bdd, $mail_user)
 
 
 
-function getCardFestival($bdd) {
+function getCardFestival11($bdd) {
     try {
         // Set PDO to throw exceptions on error
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -234,7 +251,7 @@ function updateUser($bdd, $id_user, $pseudo, $mail, $pwd) {
     try {
         $sql = $bdd->prepare("UPDATE users SET pseudo_user=?, mail_user=?, pwd_user=? WHERE id_user=?");
         // Exécuter la requête SQL avec les valeurs des paramètres
-        $sql->execute(array($pseudo, $mail, $pwd, $id_user));
+        $sql->execute(array($id_user, $pseudo, $mail, $pwd));
         return $sql;
     } catch (Exception $e) {
         die("error : " . $e->getMessage());
@@ -257,8 +274,6 @@ function getConcertsById($bdd, $id_user) {
     }
 }
 
-
-  
 
 function updateConcert($bdd, $id_concert, $band, $location, $year) {
     // Préparer la requête SQL
@@ -309,56 +324,32 @@ function incrementLikes($bdd,$id_cardFestival) {
     }
 }
 
-function getLikes($bdd,$id_cardFestival) {
-    try {
-       
-        $req = $bdd->prepare("SELECT likes_cardFestival FROM cardFestivals WHERE id_cardFestival = :id_cardFestival");
-        $req->bindParam(':id_cardFestival', $id_cardFestival);
-        $req->execute();
-        $result = $req->fetch(PDO::FETCH_ASSOC);
 
-        return $result['likes_cardFestival'];
-    } catch (PDOException $e) {
-        // Log or display the error message
-        echo "Error: " . $e->getMessage();
-        return false;
-    }
+// ------------------- NOUVELLES REQUETES
+function getLikes($bdd, $idUser, $idCardFestival){
+    $request = $bdd->prepare("SELECT COUNT(*) 
+                            FROM likes 
+                            WHERE id_user = :idUser 
+                            AND id_cardFestival = :idCardFestival");
+    $request->execute(array(
+        "idUser" => $idUser,
+        "idCardFestival" => $idCardFestival
+    ));
+    $request = $request->fetchColumn();
+    return $request>0;
 }
 
 
-//<?php
-// Vérifier que le fichier a été téléchargé correctement
-// if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-//   die('Erreur de téléchargement');
-// }
-
-// // Vérifier que le fichier est une image
-// $image_info = getimagesize($_FILES['image']['tmp_name']);
-// if (!$image_info) {
-//   die('Le fichier n\'est pas une image');
-// }
-
-// // Vérifier la sécurité du fichier
-// if ($_FILES['image']['size'] > 1000000) {
-//   die('Le fichier est trop gros');
-// }
-
-// // Générer un nom de fichier unique
-// $filename = uniqid() . '.jpg';
-
-// Copier le fichier dans un dossier sécurisé
-// if (!move_uploaded_file($_FILES['image']['tmp_name'], '/chemin/vers/dossier/securise/' . $filename)) {
-//   die('Erreur lors de la copie du fichier');
-// }
-
-// // Mettre à jour la base de données avec le nouveau chemin de l'image
-// // ...
-
-// // Rediriger l'utilisateur vers la page de profil
-// header('Location: profil.php');
-// exit();
-// 
-
-
-
+function getTotalLikes($bdd, $idFestival){
+    $request = $bdd->prepare("SELECT *, COUNT(likes.id_cardFestival) as nblikes
+                            FROM cardFestivals
+                            LEFT JOIN likes
+                            ON likes.id_cardFestival = cardFestivals.id_cardFestival
+                            GROUP BY cardFestivals.id_cardFestival
+                            ORDER BY nblikes DESC");
+    $request->execute(array(
+        "idFestival" => $idFestival
+    ));
+    return $request->fetch();
+}
 

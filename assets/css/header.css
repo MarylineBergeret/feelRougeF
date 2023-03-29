@@ -2,12 +2,15 @@
 /* 2 ACCUEIL **/
 /* 3 BLACK BAND */
 /* 4 IMAGES DREAMS*/
-/* 5 page festival */
-/* 6 form insription*/
-/* 7 form concert*/
-/* 8 page profil*/
-/* 9 deconnexion*/
-/* 10 DASHBOARD ADMIN / tableau de Bord*/
+/* 5 page metal */
+/* 6 page festival */
+/* 7 form insription*/
+/* 8 form connexion*/
+/* 9 form concert*/
+/* 10 page profil*/
+/* 11 page salon*/
+/* 12 deconnexion*/
+/* 13 DASHBOARD ADMIN / tableau de Bord*/
 @import url('https://fonts.googleapis.com/css2?family=New+Rocker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
@@ -23,6 +26,9 @@ body{
 }
 p, h2, h3, h4, span{
     color: aliceblue;
+}
+label{
+    color: white;
 }
 a{
     color: #AE8625;
@@ -218,26 +224,33 @@ h1 {
     transform: rotateY(0deg);
   } 
    
-  
 
-/* 5 ******************************* page festival ***************************/           /*  5  */
-/* .icons{
-    float: right;
-    bottom: 0;
+/* 5 **************************** page metal ***************************/           /*  5  */   
+#container{
+    margin: 100px auto;  
 }
-.icons img{
-    height: 25px;
-    width: 25px;
-} */
 
+.accordion-item{
+    background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
+
+    /* background: rgb(243, 240, 240); */
+    padding: 20px;
+}
+
+/* 6 ******************************* page festival ***************************/           /*  6  */
+.voteGif{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #festival{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-rows: auto;
-    gap: 40px;
-    margin-top: 105px;
-    justify-items: center;
-    
+    gap: 30px;
+    margin-top: 95px;
+    justify-items: center;   
 } 
 .imgCard{
     width: 346px;
@@ -245,18 +258,20 @@ h1 {
 }
 .card1{
     width: 350px;
-    height: 300px;
+    height: 380px;
     border: 2px solid;
     border-color: white white #AE8625 #AE8625;
+    margin-top: 100px;
 }
 #lien{
     margin: 150px;
 }
-/* 6 ************************form insription********************************/                  /*  6  */
-form{
-    padding: 40px 0;
-}
 
+form{
+    padding: 20px 20px;
+    margin: 10px 0;
+}
+/* 7 ************************form insription********************************/                  /*  7  */
 #inputFond{
     display: flex;
     justify-content: center;
@@ -277,8 +292,6 @@ form{
     background: #000;
     width: 700px;
     box-shadow: 2px 2px 5px #AE8625;
-    z-index: 1;
-
 }
 #fond1 label, #formulaire label, #formConnexion label, #formPwd{
     color: #AE8625;
@@ -302,49 +315,18 @@ form{
     height: 700px;
     background: azure;
     overflow: auto;
-    z-index: 0;
+    justify-content: center;
+
+}
+.fond3{
+    justify-content: center;
 }
 .fond2 p{
     color: #000;
 }
-/* #form1{
-    padding-top: 50px;
-    padding-bottom: 50px;
-} */
-#fond1, .fond2 {
-    width: 700px;
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 2s ease-in-out;
-}
-/* #fond1.active {
-    top: 50%;
-    left: 40%;
-    z-index: 2;
-}
-.fond2.active {
-    top: 50%;
-    left: 60%;
-    z-index: 2;
-}
-.animation {
-    animation: slide 2s;
-}
 
 
-@keyframes slide {
-    from {
-        transform: translateX(-10px);
-    }
-    to {
-        transform: translateX(0);
-    }
-} */
-
-/* 7 *******************************form connexion*******************************/        /*  7  */
+/* 8 *******************************form connexion*******************************/        /*  8  */
 
 #gifContent{
     display: flex;
@@ -356,17 +338,17 @@ form{
     font-size: 2rem;
     position: relative;
     left: -100%;
-    animation: slide-in 2s ease-in-out forwards, slide-out 2s ease-in-out 5s forwards;  
+    animation: slide-in 4s ease-in-out forwards, slide-out 4s ease-in-out 5s forwards;  
     z-index: 0;
 }
-.gif2{
+/* .gif2{
     font-size: 3rem;
     position: relative;
     top: 100px;
     left: -100%;
     animation: slide-in2 2s ease-in-out 5s , slide-out 4s ease-in-out 10s forwards;
     z-index: 0;
-}
+} */
 @keyframes slide-in {
     from {
         left: -100%;
@@ -403,7 +385,7 @@ form{
 
 
 
-/* 7 *******************************form concert*******************************/        /*  7  */
+/* 9 *******************************form concert*******************************/        /*  9  */
 
 #concertForm label{
 color: #AE8625;
@@ -421,7 +403,7 @@ color: #AE8625;
     to   {top: 106px;}
 }
 
-/* 8 ********************************************page profil*******************/         /*  8  */
+/* 10 ********************************************page profil*******************/         /*  10  */
 .card-img-top{
     width: 200px;
     height: 200px;
@@ -459,8 +441,15 @@ color: #AE8625;
 #pCard1 p, #pCard2 p{
     color: #000;
 }
-.col-sm-9{
-    display: inline-block;
+.card-header {
+    background-color: #000000;
+}
+#titreH2{
+    color: #AE8625;
+    text-align: center;
+}
+#imageChange{
+    width: 20px;
 }
 
 #formTop5 {
@@ -469,7 +458,7 @@ color: #AE8625;
 }
 
 
-/********page salon*******/
+/*11*****************************page salon****************************/
 
 #listen{
     position: relative;
@@ -560,19 +549,9 @@ i.bi{
     left: 0;
     width: 100%;  
 }
-  
-  
-  
 
 
-
-
-
-
-
-
-
-/* 9 ******************************deconnexion******************************/          /*  9  */
+/* 12 ******************************deconnexion******************************/          /*  12  */
 #deco{
     margin-right: 10px;
 }
@@ -584,7 +563,7 @@ i.bi{
     color: rgb(248, 245, 245);
     font-size: large;
 }
-/* 10 ***********************DASHBOARD ADMIN * tableau de Bord*********************/   /*  10  */
+/* 13 ***********************DASHBOARD ADMIN * tableau de Bord*********************/   /*  13  */
 .tabBord{
     background: #AE8625;
     margin: 20px 150px;

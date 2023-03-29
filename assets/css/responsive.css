@@ -16,7 +16,7 @@
     }
     .navbar .menu-hamburger{
         display: block;
-        margin-left: 30px;
+        /* margin-left: 30px; */
         
     }
     .nav-links{
@@ -62,9 +62,9 @@
 
 /****page profil*********/
   /* Media queries pour ajuster la grille en fonction de la taille de l'écran */
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
     #profile {
-      grid-template-rows: 1fr 1fr 1fr; /* 3 lignes de hauteur égale */
+      grid-template-rows: 1fr 1fr; /* 3 lignes de hauteur égale */
       grid-template-columns: 100%; /* 1 colonne de largeur maximale */
     }
     
@@ -84,3 +84,34 @@
     }
   }
   
+
+@media screen and (min-width: 375px){
+  .navbar .logo {
+    position: absolute;
+    color: #AE8625;
+    top: 20px;
+    left: 10px;
+}
+  #fond1, #formulaire, #formConnexion, #formPwd, #formContact{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: #000;
+    width: 300px;
+    box-shadow: 2px 2px 5px #AE8625;
+}
+#fond1 label, #formulaire label, #formConnexion label, #formPwd{
+    color: #AE8625;
+    font-size: 1.5rem;
+    font-family: 'New Rocker', cursive , sans-serif;
+}
+.input-shadow{
+    box-shadow: 2px 2px 5px #AE8625;
+    width: 200px;
+    height: 50px;
+}
+/* #textAForm{
+  font-size: 16px;
+  width: 180px;
+} */
+}

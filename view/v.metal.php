@@ -93,12 +93,12 @@
 </div>
 <div>
 
-<img src="https://media.giphy.com/media/YnYPp21Tbp1K1nLh04/giphy.gif" alt="">
+<img src="https://media.giphy.com/media/YnYPp21Tbp1K1nLh04/giphy.gif" alt="eclair">
 
-<img src="https://media.giphy.com/media/s6DwLEIfo7PHdnyEy6/giphy.gif">
-<img src="https://media.giphy.com/media/SVfmOMsgrmAjauxRfl/giphy.gif">
 
 </div>
 <div>
 
+<img src="https://media.giphy.com/media/s6DwLEIfo7PHdnyEy6/giphy.gif">
+<img src="https://media.giphy.com/media/SVfmOMsgrmAjauxRfl/giphy.gif">
 </div>
