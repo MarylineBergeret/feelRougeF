@@ -5,20 +5,21 @@
         <div id="grid1">
             <div class='card' id='cardAfficheUser'>
                 <div class='card-header'>
-                 <h2>Profil : <?php echo $user['pseudo_user'] ?></h2>
+                 <h2 class="titreH2">Profil : <?php echo $user['pseudo_user'] ?></h2>
                 </div>
                     <div class='card-body'>
                         <div class='row'>
                             <div class='col-sm-4'>
-                            <img src='<?php echo $imageUrl?>' class='img-thumbnail'>
-                            <form action='../controller/profil.php' method='POST' enctype="multipart/form-data">
-
-                                <div class='form-group'>
-                                    <label for='file'>Changer l'image :</label><br>
-                                    <input type='file' id='imageChange' name='file'><br>
-                                    <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>              
+                                <div><img src='<?php echo $imageUrl?>' class='img-thumbnail'>
                                 </div>
-                            </form>
+                                <form action='../controller/profil.php' method='POST' enctype="multipart/form-data">
+
+                                    <div class='form-group'>
+                                        <label for='file'>Changer l'image :</label><br>
+                                        <input type='file' id='imageChange' name='file'><br>
+                                        <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>              
+                                    </div>
+                                </form>
                             </div>
                             <div class='col-sm-8' id='pCard1'>
                                 <p>Pseudo : <?php echo $user['pseudo_user'] ?></p>
@@ -48,11 +49,11 @@
 <!--affichage des concerts préférés dans une card-->
         <div id="grid2">  
             <div class='card' id='cardAfficheConcerts'>
-                <div class='card-header'><h2 id="titreH2"><?php echo $user['pseudo_user']?> : SON TOP 5 </h2>
+                <div class='card-header'><h2 class="titreH2"><?php echo $user['pseudo_user']?> : SON TOP 5 </h2>
                 </div>
                     <div class='card-body'>
                         <div class='row'>
-                            <div class='col-sm-3'><img src= <?php echo $imageUrl?> class='img-thumbnail'>
+                            <div class='col-sm-3'><img src='<?php echo $imageUrl?>' class='img-thumbnail'>
                             </div>
                                 <div class='col-sm-9' id='pCard2'>
                                 <?php foreach ($concerts as $concert) {?>
@@ -61,8 +62,8 @@
             
                                 </div>  <!-- end col-sm-9-->
                         </div> <!-- end row-->
-                    </div>" <!-- end card-body-->
-            </div>" <!-- end card-->
+                    </div> <!-- end card-body-->
+            </div><!-- end card-->
                 
         </div>
     </div>

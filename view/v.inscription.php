@@ -1,23 +1,9 @@
-<!-- <script>
 
-  function toggleDivs() {
-  let div1 = document.getElementById('fond1');
-  let div2 = document.querySelector('.fond2');
-    if (div1.classList.contains('active')) {
-        div1.classList.remove('active');
-        div2.classList.add('active', 'animation');
-    } else {
-        div2.classList.remove('active');
-        div1.classList.add('active', 'animation');
-    }
-}
-</script> -->
 <div class="form-check form-switch" id="inputFond">
   <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" value="Toggle" checked>
   <br>
   <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
 </div>
-  <!-- <div id="imgFond"><img src="assets\ondes.png" width="290px" height="150px" alt="sound"></div> -->
 
   <?php
    // Cette condition vérifie si la variable $errors existe et n'est pas vide.

@@ -21,7 +21,7 @@
     list-style: none;
 }
 body{
-    background-color: rgba(0, 0, 0, 0.927);
+    background-color: rgba(0, 0, 0, 0.947);
 
 }
 p, h2, h3, h4, span{
@@ -42,9 +42,9 @@ header{
 /* 1 **************************** NAVBAR *******************************/        /*  1  */
 .navbar{
     position: absolute;
-    padding: 50px;
+    padding: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     box-sizing: border-box; 
@@ -53,16 +53,19 @@ header{
 .navbar a{
     color: rgb(155, 111, 36);
     font-size: 1.3rem;
+    font-family : 'Rye', cursive , sans-serif;
+
 }
 .navbar .logo{
     font-size: 2em;
     font-weight: bold;
+    font-family : 'Rye', cursive , sans-serif;
 }
 .navbar .nav-links ul{
     display: flex;
 }
 .navbar .nav-links ul li{
-    margin: 0 25px;
+    margin: 0 20px;
 }
 .navbar .nav-links ul li.active a{
     color: azure;
@@ -92,7 +95,7 @@ h1 {
 
 
   #carouselExampleCaptions{
-    padding: 0 200px;
+    padding: 0 280px;
   }
   .pics{
     height: 550px;
@@ -115,7 +118,15 @@ h1 {
     height: 100px;
     margin-top: 80px;
 }
+.presents h2{
+    font-family : 'New Rocker', cursive , sans-serif;
+}
+#presentP{
+    display: flex;
+    justify-content: center;
+    font-family : 'Rye', cursive , sans-serif;
 
+}
 #fest{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -132,11 +143,42 @@ h1 {
 #fest img:hover{
     scale: 1.3;
 }
+#hellFest{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10%;
+  
+}
+#hellFest img{
+    height: 380px;
+    margin: 30px 30px;
+}
+.imageContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
 /* 3 *********************** Accueil BLACK BAND ***********************/                    /*  3  */
 .balise{
     font-size: 5rem;
     font-weight: bolder;
-    padding: 0 50px;
+    padding: 0 100px;
+}
+.balise1{
+    font-size: 9rem;
+    font-weight: bolder;
+    padding: 0 100px;
 }
 .dreams{
     background: linear-gradient(to top, #000000da, #000000da 50%, #000 75%, #000000d3 75%);
@@ -212,7 +254,7 @@ h1 {
   }
   .dream-card.is-flipped  img {
     transform: rotateY(180deg);
-    background: #ebc365;
+    background: #ffffff;
   }
   
   .dream-card.is-flipped .text {
@@ -232,8 +274,6 @@ h1 {
 
 .accordion-item{
     background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
-
-    /* background: rgb(243, 240, 240); */
     padding: 20px;
 }
 
@@ -264,13 +304,17 @@ h1 {
     margin-top: 100px;
 }
 #lien{
-    margin: 150px;
+    margin: 80px;
 }
 
 form{
     padding: 20px 20px;
     margin: 10px 0;
 }
+#inputIdFest{
+    display: none;
+}
+
 /* 7 ************************form insription********************************/                  /*  7  */
 #inputFond{
     display: flex;
@@ -293,7 +337,7 @@ form{
     width: 700px;
     box-shadow: 2px 2px 5px #AE8625;
 }
-#fond1 label, #formulaire label, #formConnexion label, #formPwd{
+#fond1 label, #formulaire label, #formConnexion label{
     color: #AE8625;
     font-size: 1.5rem;
     font-family: 'New Rocker', cursive , sans-serif;
@@ -327,62 +371,28 @@ form{
 
 
 /* 8 *******************************form connexion*******************************/        /*  8  */
-
+/* 
 #gifContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    
+
 }
 .gif1{
     font-size: 2rem;
     position: relative;
-    left: -100%;
-    animation: slide-in 4s ease-in-out forwards, slide-out 4s ease-in-out 5s forwards;  
-    z-index: 0;
+    
+    animation: slide-in 6s ease-in-out forwards;  
+
 }
-/* .gif2{
-    font-size: 3rem;
-    position: relative;
-    top: 100px;
-    left: -100%;
-    animation: slide-in2 2s ease-in-out 5s , slide-out 4s ease-in-out 10s forwards;
-    z-index: 0;
-} */
+
 @keyframes slide-in {
     from {
-        left: -100%;
+        left: 0%;
     }
     to {
-        left: 50%;
+        left: 80%;
     }
-}
-@keyframes slide-out {
-    from {
-        left: 50%;
-    }
-    to {
-        left: 150%;
-    }
-}
-
-@keyframes slide-in2 {
-    from {
-        left: -100%;
-    }
-    to {
-        left: 50%;
-    }
-}
-@keyframes slide-out2 {
-    from {
-        left: 50%;
-    }
-    to {
-        left: 150%;
-    }
-}
-
+} */
 
 
 /* 9 *******************************form concert*******************************/        /*  9  */
@@ -390,26 +400,15 @@ form{
 #concertForm label{
 color: #AE8625;
 }
-#profile{
-    display: flex;
-    flex-direction: row;
-}
-#dreams{
-    animation: bounce 0.7s ease infinite;
-}
-@keyframes bounce{
-    from {top: 106px;}
-    50%  {top: 86px;}
-    to   {top: 106px;}
-}
+
 
 /* 10 ********************************************page profil*******************/         /*  10  */
-.card-img-top{
-    width: 200px;
-    height: 200px;
+.img-thumbnail{
+    width: 180px;
+    height: 100px;
 }
 #cardAfficheUser{
-    width: 500px;
+    width: 600px;
 }
 #cardAfficheConcerts.card{
     width: 500px;
@@ -421,7 +420,7 @@ color: #AE8625;
 }
 #profile {
     display: grid;
-    grid-template-rows: 1fr 1fr; /* 2 lignes de hauteur égale */
+    grid-template-rows: 1fr; /* 2 lignes de hauteur égale */
     grid-template-columns: 50% 50%; /* 2 colonnes de largeur égale */
     grid-gap: 10px; /* Espacement entre les éléments */
     align-items: center;
@@ -442,20 +441,18 @@ color: #AE8625;
     color: #000;
 }
 .card-header {
-    background-color: #000000;
-}
-#titreH2{
-    color: #AE8625;
+    background: #000000;
     text-align: center;
 }
+.titreH2{
+    color: #AE8625;
+    
+}
 #imageChange{
-    width: 20px;
+    width: 140px;
 }
 
-#formTop5 {
-    grid-row: 2; /* deuxième ligne */
-    grid-column: 1 / span 2; /* Span sur deux colonnes */
-}
+
 
 
 /*11*****************************page salon****************************/
@@ -488,9 +485,9 @@ color: #AE8625;
     z-index: 1;
   }
   #point0 { /*ordi*/
-    top: 56%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    left: 32%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+    top: 56%; 
+    left: 32%; 
+    /* ; centrez la div de pointage sur le point spécifié */
   }
   #point1 { /*platine*/
     top: 62%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
@@ -525,23 +522,12 @@ color: #AE8625;
     background-color: #0b0b0b;
     color: #fff;
     text-align: center;
-    z-index: 1;
+    
   }
   #volume-control {
     background-color: rgb(19, 141, 104);
   }
-i.bi{
-    color: rgb(217, 36, 163);
-   z-index: 1;
-}
 
-
-#play-pause-button {
-    background: white;
-    border-color: #AE8625;
-    color: #040404;
-  z-index: 0;
-  }
   
 #footer{
     position: fixed;

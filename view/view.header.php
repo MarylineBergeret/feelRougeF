@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="../controller/accueil.php" class="logo">METAL</a>
+            <a href="../controller/accueil.php" class="logo">Accueil</a>
             <div class="nav-links">
                 <ul>
                     <li class="active"><a href="../controller/metal.php">Le Metal</a></li>
@@ -29,7 +29,7 @@
                     <?php endif ?>
                     <?php if(isset($_SESSION['user'])){ ?>
                     <li><a href="../controller/profil.php">Mon profil</a></li>
-                    <li><a href="../controller/deconnexion.php">DECONNEXION</a></li>
+                    <li><a href="../controller/deconnexion.php">Déconnexion</a></li>
                     <?php } ?>
                     <?php if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1 ):?>
                     <li><a href="../controller/admin.php">Dashboard</a></li>

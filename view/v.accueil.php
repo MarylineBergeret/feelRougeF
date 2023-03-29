@@ -8,22 +8,22 @@
     <div class="carousel-item active">
       <img class="pics" src="..\assets\image\vibration1.jpg" class="d-block w-100" alt="Aérosmith">
       <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+        <h5>ONDES METAL</h5>
+        <p>Sensations garanties</p>
       </div>
     </div>
     <div class="carousel-item">
       <img class="pics" src="..\assets\image\vibration4.JPG" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        <h5>CONCERTS EN SALLE</h5>
+        <p>Rien de mieux que les vibrations en concerts</p>
       </div>
     </div>
     <div class="carousel-item">
       <img class="pics" src="..\assets\image\vibration2.JPG" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-        <h5>Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+        <h5>LES FESTIVALS</h5>
+        <p>Des sites de plus en plus spectaculaires</p>
       </div>
     </div>
   </div>
@@ -38,69 +38,81 @@
 </div>
 
 
-
-
-
-
-    
-    
 <div class="presents">
-<h2>Mais c'est qui elle ?</h2>
-<br>
-<p>ok, je me présente vite fait, avec du son... </p>
+<p class="balise"><</p><h2>Mais c'est qui elle ?</h2><p class="balise">></p>
 </div>
+<br>
+  <p id="presentP" >ok, je me présente vite fait, avec les éditions du Hellfest que j'ai pu faire... </p>
 <div id="fest">
-    <img src="..\assets/image/h2007.png" alt="Hellfest2007">
-    <img src="..\assets/image/H2009.png" alt="Hellfest2009">
-    <img src="..\assets/image/H2010.png" alt="Hellfest2010">
-    <img src="..\assets/image/H2012.png" alt="Hellfest2012">
-    <img src="..\assets/image/H2014.png" alt="Hellfest2014">
-    <img src="..\assets/image/H2022.png" alt="Hellfest2022">
-    <img src="..\assets/image/point.png" alt="pointInterrogation" title="Vas donc voter !">
+  <img src="..\assets/image/h2007.png" alt="Hellfest2007">
+  <img src="..\assets/image/H2009.png" alt="Hellfest2009">
+  <img src="..\assets/image/H2010.png" alt="Hellfest2010">
+  <img src="..\assets/image/H2012.png" alt="Hellfest2012">
+  <img src="..\assets/image/H2014.png" alt="Hellfest2014">
+  <img src="..\assets/image/H2022.png" alt="Hellfest2022">
+  <img src="..\assets/image/point.png" alt="pointInterrogation" title="Vas donc voter !">
+</div>
+<div class="voteGif">
+  <img src="https://media.giphy.com/media/n4fQFQVUl0Iu5fi9WW/giphy.gif" alt="hellfest">
+</div>
+<div id="hellFest">
+  <div class="imageContainer">
+    <img src="../assets/image/photoH2.png" alt="hellfest public">
+    <div class="text-overlay">
+      <p>Une communauté sans pareil</p>
+    </div>
+  </div>
+  <div class="imageContainer">
+    <img src="../assets/image/photoH4.png" alt="hellfest public">
+    <div class="text-overlay">
+      <p>Le fondateur, Ben Barbaud, modèle économique exemplaire basé sur les acteurs locaux</p>
+    </div>
+  </div>
+  <div class="imageContainer">
+    <img src="../assets/image/photoH6.png" alt="hellfest public">
+    <div class="text-overlay">
+      <p>Un véritable voyage hors du monde réel</p>
+    </div>
+  </div>
+  <div class="imageContainer">
+    <img src="../assets/image/photoH5.png" alt="hellfest public">
+    <div class="text-overlay">
+      <p>Des structures gigantesques pour un site qui ne cesse de s'agrandir</p>
+    </div>
+  </div>
 </div>
 
+<!-- <figure>
+    <img src="../assets/image/photoH2.png" alt="hellfest public">
+    <figcaption>Description de la première image</figcaption> -->
 <div class="dreams">
-    <p class="balise"><</p><img src="https://media.giphy.com/media/rRstpAt8VXo3sVcJcu/giphy.gif" class="finger"><h2>MY DREAMS ?</h2><img src="https://media.giphy.com/media/rRstpAt8VXo3sVcJcu/giphy.gif" class="finger"><p class="balise">></p>
+  <p class="balise1">{</p>
+  <img src="https://media.giphy.com/media/ctfFP2O2VdqhkbOHjh/giphy.gif" alt="Follow your dreams">
+  <p class="balise1">}</p>
 </div>
-  
+
 <div class="dreams1">
   <div class="dream-card">
     <img src="..\assets\image\symphonyX.png" title="suivre Russel Allen sur une tournée" id="imgDream1">
-    <div class="text">
-      <p>Texte à afficher après clic sur SymphonyX</p>
-    </div>
+      <div class="text">
+        <p>TOURNEE SYMPHONY X</p>
+      </div>
   </div>
+  <img src="https://media.giphy.com/media/rRstpAt8VXo3sVcJcu/giphy.gif" class="finger">
   <div class="dream-card">
     <img src="..\assets\image\tso.jpg" title="Transiberian-Orchestra" id="imgDream2">
-    <div class="text">
-      <p>Texte à afficher après clic sur TSO</p>
-    </div>
+      <div class="text">
+        <p>TRANSIBERIAN-ORCHESTRA</p>
+      </div>
   </div>
+  <img src="https://media.giphy.com/media/rRstpAt8VXo3sVcJcu/giphy.gif" class="finger">
   <div class="dream-card">
     <img src="..\assets\image\croisiere.png" title="70 000 TONS OF METAL" id="imgDream3">
     <div class="text">
-      <p>Texte à afficher après clic sur la croisière</p>
+      <p>CROISIERE METAL</p>
     </div>
   </div>
 </div>
 
-<div>https://media.giphy.com/media/ctfFP2O2VdqhkbOHjh/giphy.gif</div>
-
-
-<!-- <script>
-const cards = document.querySelectorAll('.dream-card');
-cards.forEach((card) => {
-  const img = card.querySelector('img');
-  const text = card.querySelector('.text');
-  img.addEventListener('click', () => {
-    console.log('image clicked');
-    card.classList.toggle('is-flipped');
-  });
-  text.addEventListener('click', () => {
-    card.classList.toggle('is-flipped');
-  });
-});
-
-</script> -->
 
 

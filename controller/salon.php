@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../model/connect.php';
+
 include '../view/view.header.php';
 
     // Liste des musiques avec leur nom et leur source

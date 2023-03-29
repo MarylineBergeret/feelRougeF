@@ -1,12 +1,4 @@
 <?php
-// session_set_cookie_params([
-//     'lifetime' => 86400,
-//     'path' => '/',
-//     'domain' => $_SERVER['HTTP_HOST'],
-//     'secure' => true,
-//     'httponly' => true,
-//     'samesite' => 'Strict'
-//   ]);
 session_start();
 include '../view/view.header.php';
 include '../model/connect.php';

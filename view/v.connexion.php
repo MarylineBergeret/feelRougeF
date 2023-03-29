@@ -32,5 +32,4 @@
   <div id="gifContent">
       <img src="https://media.giphy.com/media/kpGHI4zVTYNcCz7uQE/giphy.gif" class="gif1" alt="Come On">
 
-      <!-- <img src="https://media.giphy.com/media/7M454RF3wQh5LKKwUO/giphy.gif" class="gif2" alt="Rock On"> -->
-    </div>
+  </div>
