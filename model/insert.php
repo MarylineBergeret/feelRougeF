@@ -1,29 +1,27 @@
 <?php
 
-function createUser($bdd, $pseudo, $mail, $pwd, $bio, $id_role, $id_image)
+function createUser($bdd, $pseudo, $mail, $pwd, $bio)
 {
     try
     {
         $req = $bdd->prepare(
-            "INSERT INTO `users`(pseudo_user,mail_user,pwd_user,bio_user,id_role,id_image) values
-        (:pseudo_user,:mail_user,:pwd_user,:bio_user,:id_role,:id_image)"
+            "INSERT INTO `users`(pseudo_user,mail_user,pwd_user,bio_user) values
+        (:pseudo_user,:mail_user,:pwd_user,:bio_user)"
         );
         $req->execute(array(
             'pseudo_user' => $pseudo,
             'mail_user' => $mail,
             'pwd_user' => $pwd,            
             'bio_user' => $bio,            
-            'id_role' => $id_role,
-            'id_image' => $id_image,            
-           
+                                
         ));
         $req->closeCursor();
-        $good = "it's good";
+        $good = "user create";
         return $good;
     }
     catch(Exception $e){
         die('Erreur: ' .$e->getMessage());
-        $bad = "it's bad";
+        $bad = "user NO create";
         return $bad;
     }
 };
@@ -44,17 +42,19 @@ function inserePrefere($bdd, $id_user, $id_concert) {
     $stmt->execute();
 }
 
-function ajouterCommentaire($bdd, $content_commentCard, $id_cardFestival) {
+function ajouterCommentaire($bdd, $content_commentCard, $id_cardFestival, $id_user) {
     try {
-        $req = $bdd->prepare("INSERT INTO commentCard (content_commentCard, date_commentCard, id_cardFestival) VALUES (:content_commentCard, NOW(), :id_cardFestival)");
+        $req = $bdd->prepare("INSERT INTO commentCard (content_commentCard, date_commentCard, id_cardFestival, id_user) VALUES (:content_commentCard, NOW(), :id_cardFestival, :id_user)");
         $req->bindParam(':content_commentCard', $content_commentCard);
         $req->bindParam(':id_cardFestival', $id_cardFestival);
+        $req->bindParam(':id_user', $id_user);
         $req->execute();
     } catch(PDOException $e) {
         // Gérer l'erreur de l'insertion
         echo "Erreur : " . $e->getMessage();
     }
 }
+
 
 function insertImage($bdd, $file_name) {
     try {

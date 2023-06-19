@@ -4,6 +4,7 @@ include '../view/view.header.php';
 include '../view/pwd.php';
 include '../model/connect.php';
 include '../model/get.php';
+include '../model/update.php';
 
 if(!empty($_POST['mail']) AND !empty($_POST['new_password']) AND !empty($_POST['new_password1'])){
 

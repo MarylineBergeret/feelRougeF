@@ -44,7 +44,6 @@
                         </div> <!-- end row -->
                     </div> <!-- end card-body -->
             </div> <!-- end card -->
- 
         </div>
 <!--affichage des concerts préférés dans une card-->
         <div id="grid2">  
@@ -68,7 +67,7 @@
         </div>
     </div>
 
-    
+    <p id="textPForm">Vous pouvez rentrez votre top 5 avec ce formulaire :</p>
     <div id="formTop5" class="container">
         <form id="concertForm" method="POST" action="../controller/profil.php" class="row g-3">
             <div class="col-md-4">

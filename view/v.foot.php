@@ -1,12 +1,13 @@
 
-<!-- Inclure le lien vers la bibliothèque d'icônes de Bootstrap -->
-
-    
-
-    
+<!-- Inclue le lien vers les bibliothèques d'icônes... -->
+  
     <script src="../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/nav.js"></script>
     <script src="../assets/js/likes.js"></script>
+    <script src="../assets/js/music.js"></script>
+    <script src="../assets/js/footer.js"></script>
+    <script src="../assets/js/admin.js"></script>
 
 </body>
 <footer>

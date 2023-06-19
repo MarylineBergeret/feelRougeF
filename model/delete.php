@@ -1,5 +1,5 @@
 <?php
-function deleteUser($bdd, $id_user) {
+function deleteUserDTB($bdd, $id_user) {
     try {
         $stmt = $bdd->prepare("DELETE FROM users WHERE id_user = :id_user");
         $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);

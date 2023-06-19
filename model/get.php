@@ -36,20 +36,7 @@ function getUserImage($bdd,$id_user) {
         exit;
     }
 }
-function updateUserImage($bdd, $id_user, $id_image) {
-    try {
-        $stmt = $bdd->prepare('UPDATE users SET id_image = :id_image WHERE id_user = :id_user');
-        $stmt->bindValue(':id_image', $id_image, PDO::PARAM_INT);
-        $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
-        $stmt->execute();
-    } catch (PDOException $e) {
-        echo 'Une erreur est survenue : ' . $e->getMessage();
-        exit;
-    }
-}
 
-
-  
 
 function getUserMail($bdd, $mail){
     $reqUserMail = $bdd->prepare("SELECT * FROM users WHERE mail_user = :mail_user");
@@ -74,6 +61,15 @@ function getPwd($bdd, $pwd){
         'pwd_user' => $pwd
     ));
     return $reqPwd;
+}
+function getAllUsers($bdd) {
+    try {
+        $req = $bdd->query('SELECT * FROM users');
+        $users = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    } catch (PDOException $e) {
+        echo "Erreur lors de la récupération des informations des utilisateurs: " . $e->getMessage();
+    }
 }
 
 function getUserById($bdd, $id_user)
@@ -110,11 +106,11 @@ function getUserByMail($bdd, $mail_user)
 
 function getComments($bdd) {
     try {
-      $req = $bdd->prepare("SELECT commentCard.id_commentCard, commentCard.content_commentCard, commentCard.date_commentCard, cardFestivals.name_cardFestival
-                            FROM commentCard
-                            INNER JOIN cardFestivals
-                            ON commentCard.id_cardFestival = cardFestivals.id_cardFestival");
-  
+        $req = $bdd->prepare("SELECT commentCard.id_commentCard, commentCard.content_commentCard, commentCard.date_commentCard, cardFestivals.name_cardFestival, users.pseudo_user
+        FROM commentCard
+        INNER JOIN cardFestivals ON commentCard.id_cardFestival = cardFestivals.id_cardFestival
+        INNER JOIN users ON commentCard.id_user = users.id_user");
+
       $req->execute(); // exécuter la requête SQL
   
       $comments = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -139,127 +135,6 @@ function getCardFestival($bdd) {
     }
 }
 
-// function getCardFestival2($bdd) {
-//     try {
-//         $sql = $bdd->prepare("SELECT cardFestivals.name_cardFestival, commentCard.content_commentCard, commentCard.date_commentCard 
-//                               FROM cardFestivals 
-//                               INNER JOIN commentCard ON cardFestivals.id_cardFestival = commentCard.id_cardFestival");
-//         $sql->execute();
-//         $results = $sql->fetchAll();
-
-//         $cardFestivals = array(); // tableau pour stocker les résultats
-
-//         foreach ($results as $result) {
-//             $name = $result['name_cardFestival'];
-//             $comment = $result['content_commentCard'];
-//             $date = $result['date_commentCard'];
-
-//             // Vérifiez si la carte de festival existe déjà dans le tableau, sinon l'ajoutez
-//             if (!isset($cardFestivals[$name])) {
-//                 $cardFestivals[$name] = array();
-//             }
-
-//             // Ajoutez le commentaire et la date au tableau de commentaires de la carte de festival
-//             $cardFestivals[$name][] = array('comment' => $comment, 'date' => $date);
-//         }
-
-//         return $cardFestivals;
-//     } catch (Exception $e) {
-//         die("error : " . $e->getMessage());
-//     }
-// }
-
-
-
-function getCardFestival11($bdd) {
-    try {
-        // Set PDO to throw exceptions on error
-        $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        // Query to retrieve all festival cards and their associated comments
-        $query = "SELECT cf.*, c.id_commentCard, c.content_commentCard, c.date_commentCard FROM cardFestivals cf LEFT JOIN commentCard c ON cf.id_cardFestival = c.id_cardFestival";
-
-        // Prepare and execute the query
-        $stmt = $bdd->prepare($query);
-        $stmt->execute();
-
-        // Initialize an empty array to hold the results
-        $results = array();
-
-        // Iterate over each row returned by the query
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Extract the fields for the festival card from the row
-            $id_cardFestival = $row['id_cardFestival'];
-            $name_cardFestival = $row['name_cardFestival'];
-            $content_cardFestival = $row['content_cardFestival'];
-            $img_cardFestival = $row['img_cardFestival'];
-            $likes_cardFestival = $row['likes_cardFestival'];
-
-            // Initialize an empty array to hold the comments for the festival card
-            $comments = array();
-
-            // If the row has comment information, extract it and add it to the comments array
-            if (!empty($row['id_commentCard'])) {
-                $comment = array(
-                    'id_commentCard' => $row['id_commentCard'],
-                    'content_commentCard' => $row['content_commentCard'],
-                    'date_commentCard' => $row['date_commentCard']
-                );
-                $comments[] = $comment;
-            }
-
-            // If the festival card is not yet in the results array, add it with its comments
-            if (!array_key_exists($id_cardFestival, $results)) {
-                $cardFestival = array(
-                    'id_cardFestival' => $id_cardFestival,
-                    'name_cardFestival' => $name_cardFestival,
-                    'content_cardFestival' => $content_cardFestival,
-                    'img_cardFestival' => $img_cardFestival,
-                    'likes_cardFestival' => $likes_cardFestival,
-                    'comments' => $comments
-                );
-                $results[$id_cardFestival] = $cardFestival;
-            }
-            // If the festival card is already in the results array, add its comments to the existing comments array
-            else {
-                $results[$id_cardFestival]['comments'] = array_merge($results[$id_cardFestival]['comments'], $comments);
-            }
-        }
-
-        // Return the results as an array of festival cards
-        return $results;
-    } catch (PDOException $e) {
-        // If an exception occurs, catch it and echo an error message
-        echo "Erreur : " . $e->getMessage();
-    }
-}
-
-
-
-function getMostLikedFestival($bdd)
-{
-  try {
-    $reqFest = $bdd->prepare("SELECT * FROM cardFestivals ORDER BY likes_cardFestival DESC LIMIT 1");
-    $reqFest->execute();
-    $most_liked_festival = $reqFest->fetch();
-    return $most_liked_festival;
-  } catch (Exception $e) {
-    die("error : " . $e->getMessage());
-  }
-}
-function updateUser($bdd, $id_user, $pseudo, $mail, $pwd) {
-    try {
-        $sql = $bdd->prepare("UPDATE users SET pseudo_user=?, mail_user=?, pwd_user=? WHERE id_user=?");
-        // Exécuter la requête SQL avec les valeurs des paramètres
-        $sql->execute(array($id_user, $pseudo, $mail, $pwd));
-        return $sql;
-    } catch (Exception $e) {
-        die("error : " . $e->getMessage());
-    }
-}
-
-// SELECT * FROM cardFestivals ORDER BY likes_cardFestival DESC LIMIT 8;
-
 function getConcertsById($bdd, $id_user) {
     try {
         $req = $bdd->prepare('SELECT DISTINCT concerts.* 
@@ -271,42 +146,6 @@ function getConcertsById($bdd, $id_user) {
         return $concerts;
     } catch (PDOException $e) {
         echo "Erreur lors de la récupération des informations de concerts: " . $e->getMessage();
-    }
-}
-
-
-function updateConcert($bdd, $id_concert, $band, $location, $year) {
-    // Préparer la requête SQL
-    $query = "UPDATE concerts SET band_concert = :band, location_concert = :location, year_concert = :year WHERE id_concert = :id_concert";
-    $statement = $bdd->prepare($query);
-
-    // Exécuter la requête en liant les paramètres
-    $result = $statement->execute(array(
-        ':id_concert' => $id_concert,
-        ':band' => $band,
-        ':location' => $location,
-        ':year' => $year
-    ));
-
-    // Vérifier si la mise à jour a réussi et renvoyer le résultat
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-function updateUserPassword($bdd, $id_user, $hashedPassword) {
-
-    try {
-        $stmt = $bdd->prepare("UPDATE users SET pwd_user = :pwd_user WHERE id_user = :id_user");
-        $stmt->bindParam(':pwd_user', $hashedPassword);
-        $stmt->bindParam(':id_user', $id_user);
-        $stmt->execute();
-    } catch(PDOException $e) {
-        // Gérer l'exception selon les besoins
-        echo "Erreur lors de la mise à jour du mot de passe : " . $e->getMessage();
     }
 }
 
@@ -340,16 +179,39 @@ function getLikes($bdd, $idUser, $idCardFestival){
 }
 
 
-function getTotalLikes($bdd, $idFestival){
+function getTotalLikes($bdd){
+    try{
     $request = $bdd->prepare("SELECT *, COUNT(likes.id_cardFestival) as nblikes
                             FROM cardFestivals
                             LEFT JOIN likes
                             ON likes.id_cardFestival = cardFestivals.id_cardFestival
                             GROUP BY cardFestivals.id_cardFestival
                             ORDER BY nblikes DESC");
-    $request->execute(array(
-        "idFestival" => $idFestival
-    ));
-    return $request->fetch();
+    $request->execute();
+    return $request->fetchAll();
+    } catch (PDOException $e) {
+        // Log or display the error message
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
 }
+
+function getCountLikes($bdd, $idCardFestival){
+    try{
+        $request = $bdd->prepare("SELECT COUNT(*) as num_likes 
+                                FROM likes 
+                                WHERE id_cardFestival = :id_cardFestival");
+        $request->execute(array(
+        "id_cardFestival" => $idCardFestival
+        ));
+        $result = $request->fetch();
+        $num_likes = $result['num_likes'];
+        return $num_likes;
+    } catch (PDOException $e) {
+        // Log or display the error message
+        echo "Error: " . $e->getMessage();
+        return false;
+    }
+}
+
 

@@ -1,0 +1,36 @@
+#bodyPendu {
+    text-align: center;
+  }
+  
+  #h1Pendu {
+    color: #ff0000;
+  }
+  
+  #word-container {
+    margin-top: 20px;
+  }
+  
+  #guesses-container, #wrong-container {
+    margin-top: 40px;
+  }
+  
+  #image-container {
+    margin-top: 40px;
+  }
+  
+  #hangman-image {
+    max-width: 300px;
+  }
+  
+  #guess-form {
+    margin-top: 40px;
+  }
+  
+  #guess-input {
+    width: 30px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  

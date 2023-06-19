@@ -3,6 +3,7 @@ session_start();
 include '../model/connect.php';
 include '../model/get.php';
 include '../model/insert.php';
+include '../model/update.php';
 include '../view/v.header.php';
 include '../view/v.profil.php';
 
@@ -72,5 +73,5 @@ if(isset($_SESSION['user']['id_user'])){
     
 
 
-include '../view/foot.php';
+include '../view/v.foot.php';
     

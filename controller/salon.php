@@ -13,7 +13,7 @@ include '../view/view.header.php';
         ['name' => 'music5', 'src' => '..\assets\music\music5.mp3'],
         ['name' => 'music6', 'src' => '..\assets\music\music6.mp3'],
     ];
-include '../view/salon.php';
-include '../view/foot.php';
+include '../view/v.salon.php';
+include '../view/v.foot.php';
 
 ?>

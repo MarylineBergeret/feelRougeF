@@ -3,6 +3,7 @@ session_start();
 include '../model/connect.php';
 include '../model/get.php';
 include '../model/insert.php';
+include '../model/update.php';
 include '../view/view.header.php';
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
@@ -131,7 +132,7 @@ if (isset($_FILES['file'])) {
         echo 'Une erreur s\'est produite lors du téléchargement du fichier.';
     }
 }
-include '../view/foot.php';
+include '../view/v.foot.php';
 ?>
 
 
