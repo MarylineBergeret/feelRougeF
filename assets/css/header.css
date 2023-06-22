@@ -156,18 +156,18 @@ h1 {
 .imageContainer {
     position: relative;
     display: inline-block;
-  }
-  
-  .text-overlay {
-    position: absolute;
-    top: 83%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-  }
+}
+
+.text-overlay {
+position: absolute;
+top: 83%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: rgba(0, 0, 0, 0.6);
+color: #fff;
+padding: 10px;
+text-align: center;
+}
   
 /* 3 *********************** Accueil BLACK BAND ***********************/                    /*  3  */
 .balise{
@@ -221,8 +221,8 @@ h1 {
     color: white;
     text-align: center;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.925);
-  }
-  .dream-card1 {
+}
+.dream-card1 {
     position: relative;
     width: 300px;
     height: 350px;
@@ -232,9 +232,9 @@ h1 {
     color: white;
     text-align: center;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.925);
-  }
+}
 
-  .dream-card2 {
+.dream-card2 {
     position: relative;
     width: 300px;
     height: 350px;
@@ -244,8 +244,8 @@ h1 {
     color: white;
     text-align: center;
     box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.925);
-  }
-  .dream-card .text, .dream-card1 .text, .dream-card2 .text {
+}
+.dream-card .text, .dream-card1 .text, .dream-card2 .text {
     position: absolute;
     width: 250px;
     height: 150px;
@@ -256,16 +256,55 @@ h1 {
     border-radius: 5px;
     font-weight: 1.1rem;
     overflow: auto;
-  }
-  .dream-card .text p, .dream-card1 .text p, .dream-card2 .text p {
-  color: #000000; 
-  margin-bottom: 0;
-  }
-  .titreCard {
+}
+.dream-card .text p, .dream-card1 .text p, .dream-card2 .text p {
+    color: #000000; 
+    margin-bottom: 0;
+}
+.titreCard {
     font-size: 1.2rem;
     font-weight: bold;
     font-family: 'New Rocker', cursive , sans-serif;
+}
+.post-it {
+    position: relative;
+    width: 300px;
+    padding: 20px;
+    margin-left: 20px;
+    background-color: #caad0a;
+    transform: rotate(-5deg);
+    border-radius: 10px;
   }
+.post-it2 {
+    position: relative;
+    width: 300px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 60px;
+    background-color: #0a5230;
+    transform: rotate(-5deg);
+    border-radius: 10px;
+}
+.rounded-article {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #000;
+    margin: 15px;
+}
+.custom-article {
+    clip-path: polygon(0% 0%, 100% 0%, 98% 100%, 2% 100%);
+    padding: 20px;
+    background-color: white;
+    color: #000;
+    margin: 30px;
+}
+.rounded-article p, .custom-article p {
+     color: #000
+}
+.rounded-article h3, .custom-article h3 {
+    color: #AE8625;
+}
   /* .dream-card {
     position: relative;
     margin: 10px;
@@ -338,45 +377,7 @@ iframe{
     display: flex;
     justify-content: center;
 } 
-.post-it {
-    position: relative;
-    width: 300px;
-    padding: 20px;
-    margin-left: 20px;
-    background-color: #caad0a;
-    transform: rotate(-5deg);
-    border-radius: 10px;
-  }
-.post-it2 {
-    position: relative;
-    width: 300px;
-    padding: 20px;
-    margin-top: 30px;
-    margin-left: 60px;
-    background-color: #0a5230;
-    transform: rotate(-5deg);
-    border-radius: 10px;
-}
-.rounded-article {
-    border-radius: 20px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    color: #000;
-    margin: 15px;
-}
-.custom-article {
-    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
-    padding: 20px;
-    background-color: white;
-    color: #000;
-    margin: 30px;
-}
-.rounded-article p, .custom-article p {
-     color: #000
-}
-.rounded-article h3, .custom-article h3 {
-    color: #AE8625;
-}
+
 
 /* 6 ******************************* page festival ***************************/           /*  6  */
 .voteGif{
@@ -398,13 +399,10 @@ iframe{
     width: 90%;
 
 }
-.card-header p{
-    background-color: white;
-    color: rgba(0, 128, 100, 0.966);
-    font-family: 'New Rocker', cursive , sans-serif;
-}
 .card-body p {
     color: #000;
+    display: flex;
+    justify-content: center;
 }
 .card-body2 p {
     color: #f8f4f4;
@@ -428,26 +426,49 @@ iframe{
     border-color: white white #AE8625 #AE8625;
     margin-top: 100px;
 }
-#lien{
+#lien {
     margin: 80px;
 }
 
-form{
+form {
     padding: 20px 20px;
     margin: 10px 0;
 }
-#inputIdFest{
+#inputIdFest {
     display: none;
 }
-#iconFest{
+#iconFest {
     width: 25px;
     height: 20px;
 }
 .scroll-container {
-    max-height: 800px; /* Ajustez la hauteur maximale selon vos besoins */
+    max-height: 800px; 
     overflow-y: auto;
     margin-bottom: 50px; /* Ajoute une barre de défilement verticale si nécessaire */
-  }
+}
+#nameUser {
+    font-size: 1.8rem;
+    color: #AE8625;
+} 
+#filter-value {
+    width: 290px;
+    font-size: 0.8rem;
+}
+#voteFor{
+    background-color: white;
+    color: rgba(0, 128, 100, 0.966);
+    font-family: 'New Rocker', cursive , sans-serif;
+    font-size: 2rem;
+}
+/* Style pour la première barre de défilement */
+#festival ::-webkit-scrollbar-thumb {
+    background-color: #AE8625;
+}
+
+/* Style pour la deuxième barre de défilement */
+#cardC ::-webkit-scrollbar-thumb {
+background-color: #0a5230;
+}
   
 /* 7 ************************form insription********************************/                  /*  7  */
 #inputFond{
@@ -473,13 +494,14 @@ form{
 }
 #fond1 label, #formulaire label, #formConnexion label{
     color: #AE8625;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    margin-top: 10px;
     font-family: 'New Rocker', cursive , sans-serif;
 }
 .input-shadow{
     box-shadow: 2px 2px 5px #AE8625;
     width: 400px;
-    height: 50px;
+    height: 60px;
 }
 #fond1 button, #buttonForm, #buttonConnexion, #buttonPwd{
     margin-top: 30px;
@@ -499,6 +521,7 @@ form{
     transform: translate(-50%);
 }
 .fond2-container {
+    height: 500px;
     margin-bottom: 200px; 
 }
   
@@ -544,6 +567,18 @@ form{
 #espace {
     height: 200px;
 } 
+.infoInscription {
+    color: #f0f0f0;
+    font-size: 1rem;
+    width: 100%;  
+    display: none;  
+}
+.boutonInfo {
+    width: 40px !important; 
+}
+.boutonInfo img {
+    width: 20px;
+}
 
 /* 8 *******************************form connexion*******************************/        /*  8  */
 

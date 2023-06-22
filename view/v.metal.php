@@ -85,7 +85,7 @@
     </div>
     <div id="youtube">
         <iframe class="video-shadow" width="560" height="315" src="https://www.youtube.com/embed/rNO3XtHkyCM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <img src="https://media.giphy.com/media/YnYPp21Tbp1K1nLh04/giphy.gif" alt="eclair">
+        <img src="https://media.giphy.com/media/YnYPp21Tbp1K1nLh04/giphy.gif" id="gifEclair" alt="eclair">
         <iframe class="video-shadow" width="560" height="315" src="https://www.youtube.com/embed/kbk7ThCAApk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>   
     </div>
     <div id="youtube2">

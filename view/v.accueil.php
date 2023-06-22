@@ -45,16 +45,16 @@
       <div class="post-it"><!-- Article style "post-it" -->
         <h3>"Le top 5..."</h3>
         <p>Ouais mais comme je fais le site, j'aurais droit à un top 8 ! Ce qui va rendre plus dur ton choix de ton top 5 ! Inscris toi, accèdes à ton profil, un formulaire n'attend que tes réponses... </p>
-        <p>1 => Symphony X à Bordeaux en 2012</p>
-        <p>2 => Heaven and Hell au Hellfest en 2014</p>
-        <p>2 => Pain of Salvation au Hellfest en 2007</p>
-        <p>2 => Teanacious D à Paris en 2019</p>
-        <p>3 => Extreme à Bilbao en 2011</p>
-        <p>4 => Robert Plant à Pau en 2009</p>
+
       </div>
       <div class="post-it2"><!-- Article style "post-it" -->
-        <h3>Article style "post-it"</h3>
-        <p>Ceci est un article avec une forme de "post-it".</p>
+        <h3>MON TOP 5</h3>
+        <p>1 => Symphony X à Bordeaux en 2012</p>
+        <p>2 => Heaven and Hell au Hellfest en 2014</p>
+        <p>3 => Pain of Salvation au Hellfest en 2007</p>
+        <p>4 => Teanacious D à Paris en 2019</p>
+        <p>5 => Extreme à Bilbao en 2011</p>
+        <p>6 => Robert Plant à Pau en 2009</p>
       </div>
     </div>
     <div class="col-lg-8">
@@ -164,7 +164,8 @@
         <p>2 => Teanacious D à Paris en 2019</p>
         <p>3 => Extreme à Bilbao en 2011</p>
         <p>4 => Robert Plant à Pau en 2009</p>
-      </div><!--col-lg-4-->
+      </div>
+    </div><!--col-lg-4-->
     <div class="col-lg-8">
       <div class="rounded-article"> <!-- Article avec des bords ronds -->
         <h3>Pourquoi le métal ?</h3>

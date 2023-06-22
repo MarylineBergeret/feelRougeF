@@ -5,7 +5,7 @@ include '../model/connect.php';
 
 // CONNEXION //
 if(isset($_SESSION['user'])){
-    if(isset($_SESSION['user']['id_role']) && $_SESSION['role'] === '1'){  
+    if(isset($_SESSION['user']['id_role']) && $_SESSION['role'] == 1){  
         // L'utilisateur est un administrateur, rediriger vers la page d'administration      
         header('Location: admin.php');      
     } else {
@@ -40,7 +40,7 @@ if(isset($_SESSION['user'])){
             }
         } else {
             // message d'erreur
-            $errors[] = "Il en manque la moitié! Veuillez compléter tous les champs.";
+            $errors[] = "Il en manque la moitié ! Veuillez compléter tous les champs.";
         }
     }
 }

@@ -36,15 +36,23 @@ function getUserImage($bdd,$id_user) {
         exit;
     }
 }
-
-
-function getUserMail($bdd, $mail){
-    $reqUserMail = $bdd->prepare("SELECT * FROM users WHERE mail_user = :mail_user");
-    $reqUserMail->execute(array(
-        'mail_user' => $mail
-    ));
-    return $reqUserMail;
+function getAllUsers($bdd) {
+    try {
+        $req = $bdd->query('SELECT * FROM users');
+        $users = $req->fetchAll(PDO::FETCH_ASSOC);
+        return $users;
+    } catch (PDOException $e) {
+        echo "Erreur lors de la récupération des informations des utilisateurs: " . $e->getMessage();
+    }
 }
+
+// function getUserMail($bdd, $mail){
+//     $reqUserMail = $bdd->prepare("SELECT * FROM users WHERE mail_user = :mail_user");
+//     $reqUserMail->execute(array(
+//         'mail_user' => $mail
+//     ));
+//     return $reqUserMail;
+// }
 
 function getMail($bdd, $mail){
     $reqMail = $bdd->prepare("SELECT COUNT(mail_user) FROM users WHERE mail_user = :mail_user");
@@ -55,22 +63,14 @@ function getMail($bdd, $mail){
 }
 
 
-function getPwd($bdd, $pwd){
-    $reqPwd = $bdd->prepare("SELECT COUNT(pwd_user) FROM users WHERE pwd_user = :pwd_user");
-    $reqPwd->execute(array(
-        'pwd_user' => $pwd
-    ));
-    return $reqPwd;
-}
-function getAllUsers($bdd) {
-    try {
-        $req = $bdd->query('SELECT * FROM users');
-        $users = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $users;
-    } catch (PDOException $e) {
-        echo "Erreur lors de la récupération des informations des utilisateurs: " . $e->getMessage();
-    }
-}
+// function getPwd($bdd, $pwd){
+//     $reqPwd = $bdd->prepare("SELECT COUNT(pwd_user) FROM users WHERE pwd_user = :pwd_user");
+//     $reqPwd->execute(array(
+//         'pwd_user' => $pwd
+//     ));
+//     return $reqPwd;
+// }
+
 
 function getUserById($bdd, $id_user)
 {
@@ -120,7 +120,30 @@ function getComments($bdd) {
       echo "Erreur : " . $e->getMessage();
     }
   }
-  
+  function filterComments($bdd, $filterTypeValue, $filterValue) {
+    $sql = "SELECT commentCard.id_commentCard, commentCard.content_commentCard, commentCard.date_commentCard, cardFestivals.name_cardFestival, users.pseudo_user
+            FROM commentCard
+            INNER JOIN cardFestivals ON commentCard.id_cardFestival = cardFestivals.id_cardFestival
+            INNER JOIN users ON commentCard.id_user = users.id_user
+            WHERE ";
+
+    if ($filterTypeValue === 'cardFestival') {
+        $sql .= "cardFestivals.name_cardFestival LIKE CONCAT('%', :filterValue, '%')";
+    } elseif ($filterTypeValue === 'pseudo') {
+        $sql .= "users.pseudo_user LIKE CONCAT('%', :filterValue, '%')";
+    } elseif ($filterTypeValue === 'date') {
+        $sql .= "commentCard.date_commentCard LIKE CONCAT('%', :filterValue, '%')";
+    }
+
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindValue(':filterValue', $filterValue);
+
+    $stmt->execute();
+    $filteredComments = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $filteredComments;
+}
+
+
 
 function getCardFestival($bdd) {
     try {
@@ -149,19 +172,19 @@ function getConcertsById($bdd, $id_user) {
     }
 }
 
-function incrementLikes($bdd,$id_cardFestival) {
-    try {
-        $request = $bdd->prepare("UPDATE cardFestivals SET likes_cardFestival = likes_cardFestival + 1 WHERE id_cardFestival = :id_cardFestival");
-        $request->bindParam(':id_cardFestival', $id_cardFestival);
-        $request->execute();
+// function incrementLikes($bdd,$id_cardFestival) {
+//     try {
+//         $request = $bdd->prepare("UPDATE cardFestivals SET likes_cardFestival = likes_cardFestival + 1 WHERE id_cardFestival = :id_cardFestival");
+//         $request->bindParam(':id_cardFestival', $id_cardFestival);
+//         $request->execute();
 
-        return true;
-    } catch (PDOException $e) {
-        // Log or display the error message
-        echo "Error: " . $e->getMessage();
-        return false;
-    }
-}
+//         return true;
+//     } catch (PDOException $e) {
+//         // Log or display the error message
+//         echo "Error: " . $e->getMessage();
+//         return false;
+//     }
+// }
 
 
 // ------------------- NOUVELLES REQUETES

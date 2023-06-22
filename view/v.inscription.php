@@ -1,5 +1,5 @@
   <div class="container">
-    <h1>Formulaire d'inscription</h1>
+    <h1>FORMULAIRE D'INSCRIPTION</h1>
     <div id="fond">
       <div id="fond1">
         <!-- La balise Table pour formater l'affichage du formulaire -->
@@ -8,25 +8,33 @@
             <tr>
               <td>
                 <label for="pseudo">Pseudo</label><br>
-                <input class="input-shadow" type="text" id="pseudo" name="pseudo" placeholder="Entre 5 et 20 lettres" value="<?php echo isset($pseudo) ? $pseudo : ''; ?>">
+                <input class="input-shadow" type="text" id="pseudo" name="pseudo"  value="<?php echo isset($pseudo) ? $pseudo : ''; ?>">
+                <button class="boutonInfo"><img src="../assets/image/pointInterrogation.png" alt="Info"></button>
+                <div class="infoInscription">"Entre 5 et 20 lettres"</div>
               </td>
             </tr>
             <tr>
               <td>
                 <label for="pwd">Password</label><br>
-                <input class="input-shadow" type="password" id="pwd" name="pwd" placeholder="5 caractères minimum, 1 Majuscule, 1 caractère spécial ">
+                <input class="input-shadow" type="password" id="pwd" name="pwd">
+                <button class="boutonInfo"><img src="../assets/image/pointInterrogation.png" alt="Info"></button>
+                <div class="infoInscription">"5 caractères minimum, 1 Majuscule, 1 caractère spécial"</div>
               </td>
             </tr>
             <tr>
               <td>
                 <label for="mail">Mail</label><br>
-                <input class="input-shadow" type="email" id="mail" name="mail" placeholder="Exemple : -----@----.fr" value="<?php echo isset($mail) ? $mail : ''; ?>">
+                <input class="input-shadow" type="email" id="mail" name="mail" value="<?php echo isset($mail) ? $mail : ''; ?>">
+                <button class="boutonInfo"><img src="../assets/image/pointInterrogation.png" alt="Info"></button>
+                <div class="infoInscription">"Exemple : -----@----.fr"</div>
               </td>
             </tr>
             <tr>
               <td>
                 <label for="bio">Bio</label><br>
-                <input class="input-shadow" type="text" id="bio" name="bio" placeholder="saisir votre Bio - Lâchez-vous... Mais pas trop ..." value="<?php echo isset($bio) ? $bio : ''; ?>">
+                <input class="input-shadow" type="text" id="bio" name="bio" value="<?php echo isset($bio) ? $bio : ''; ?>">
+                <button class="boutonInfo"><img src="../assets/image/pointInterrogation.png" alt="Info"></button>
+                <div class="infoInscription">"saisir votre Bio - Lâchez-vous... Mais pas trop ..."</div>
               </td>
             </tr>
             <tr>
@@ -52,7 +60,7 @@
         <?php echo $error; ?>
       </div>
     </div> 
-  <?php elseif(!isset($errors)): ?>
+    <?php elseif(!isset($errors)): ?>
     <!-- Si la condition est vraie, donc pas d'erreur, on affiche un message de succès dans une div d'alerte verte -->
     <div class='alert alert-success col-6 succes-container'>
       YES ! Vous avez été inscrit avec succès !
@@ -63,7 +71,7 @@
       <img src="https://media.giphy.com/media/SGld0SRSJzZuKAm9c1/giphy.gif" alt="Feux d'artifice 2">
       <img src="https://media.giphy.com/media/da2BzS5gQGNQTU04x1/giphy.gif" alt="Feux d'artifice 2">
     </div>       
-  <?php endif; ?>
+    <?php endif; ?>
 
   <div class="fond3">
     <img src="https://media.giphy.com/media/QTi3uyWcyJxeAAeTNB/giphy.gif" alt="flèches">
@@ -98,6 +106,5 @@
       </div><!--row-->   
     </div><!--fond2 -->
   </div> 
-  </div> 
-  <div id="espace"></div> 
+  
 
