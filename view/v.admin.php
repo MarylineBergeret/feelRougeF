@@ -1,14 +1,14 @@
-    <div>
+    <div><!-- Logout link -->
         <a href="../controller/deconnexion.php" class="deco">DECONNEXION</a>
     </div>
-    <!-- Titre -->
-    <div class="row justify-content-center text-center">
+    <!-- Title  -->
+    <div class="row justify-content-center text-center" id="tabBord">
         <h2 class="titles-pages">TABLEAU DE BORD</h2>
         <div class="col-4">
             <hr>
         </div>
     </div>
-
+    <!-- Board info for each user  -->
     <div class="tabAdmin">
         <fieldset class="tabBord">
             <table class='separate'>
@@ -33,9 +33,8 @@
                         </td>
                     </tr>
                 <?php }?>
-            </table>
-        </fieldset>
-
+            </table><!-- separate -->
+        </fieldset>           
         <div class="container mt-5 mb-5">
             <div>
                 <fieldset class="tabBord">
@@ -59,3 +58,4 @@
             </div>
         </div>
     </div>
+

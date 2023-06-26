@@ -25,11 +25,14 @@ function getAllUser($bdd) {
 }
 
 function getUserImage($bdd,$id_user) {
-    try {
+    try { // Prepare the SQL query to retrieve the URL of the user's image from the 'users' and 'images' tables
         $stmt = $bdd->prepare('SELECT images.url_image FROM users INNER JOIN images ON users.id_image = images.id_image WHERE users.id_user = :id_user');
+        // Bind the parameter value for 'id_user'
         $stmt->bindValue(':id_user', $id_user, PDO::PARAM_INT);
         $stmt->execute();
+        // Fetch the result as an associative array
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Return the URL of the user's image
         return $result['url_image'];
     } catch (PDOException $e) {
         echo 'Une erreur est survenue : ' . $e->getMessage();
@@ -45,15 +48,6 @@ function getAllUsers($bdd) {
         echo "Erreur lors de la récupération des informations des utilisateurs: " . $e->getMessage();
     }
 }
-
-// function getUserMail($bdd, $mail){
-//     $reqUserMail = $bdd->prepare("SELECT * FROM users WHERE mail_user = :mail_user");
-//     $reqUserMail->execute(array(
-//         'mail_user' => $mail
-//     ));
-//     return $reqUserMail;
-// }
-
 function getMail($bdd, $mail){
     $reqMail = $bdd->prepare("SELECT COUNT(mail_user) FROM users WHERE mail_user = :mail_user");
     $reqMail->execute(array(
@@ -61,17 +55,6 @@ function getMail($bdd, $mail){
     ));
     return $reqMail->fetchColumn();
 }
-
-
-// function getPwd($bdd, $pwd){
-//     $reqPwd = $bdd->prepare("SELECT COUNT(pwd_user) FROM users WHERE pwd_user = :pwd_user");
-//     $reqPwd->execute(array(
-//         'pwd_user' => $pwd
-//     ));
-//     return $reqPwd;
-// }
-
-
 function getUserById($bdd, $id_user)
 {
     try {
@@ -87,9 +70,7 @@ function getUserById($bdd, $id_user)
         die("error : " . $e->getMessage());
     }
 }
-
-function getUserByMail($bdd, $mail_user)
-{
+function getUserByMail($bdd, $mail_user){
     try {
         //On recherche tout de l'utilisateur par son mail
         $req = $bdd->prepare("SELECT * FROM users where mail_user = :mail_user");
@@ -103,24 +84,23 @@ function getUserByMail($bdd, $mail_user)
         die("error : " . $e->getMessage());
     }
 }
-
 function getComments($bdd) {
     try {
         $req = $bdd->prepare("SELECT commentCard.id_commentCard, commentCard.content_commentCard, commentCard.date_commentCard, cardFestivals.name_cardFestival, users.pseudo_user
         FROM commentCard
         INNER JOIN cardFestivals ON commentCard.id_cardFestival = cardFestivals.id_cardFestival
-        INNER JOIN users ON commentCard.id_user = users.id_user");
+        INNER JOIN users ON commentCard.id_user = users.id_user
+        ORDER BY commentCard.date_commentCard DESC"); // Tri par ordre décroissant de la date de commentaire
 
-      $req->execute(); // exécuter la requête SQL
-  
-      $comments = $req->fetchAll(PDO::FETCH_ASSOC);
-  
-      return $comments;
+        $req->execute();
+        $comments = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        return $comments;
     } catch(PDOException $e) {
-      echo "Erreur : " . $e->getMessage();
+        echo "Erreur : " . $e->getMessage();
     }
-  }
-  function filterComments($bdd, $filterTypeValue, $filterValue) {
+}
+function filterComments($bdd, $filterTypeValue, $filterValue) {
     $sql = "SELECT commentCard.id_commentCard, commentCard.content_commentCard, commentCard.date_commentCard, cardFestivals.name_cardFestival, users.pseudo_user
             FROM commentCard
             INNER JOIN cardFestivals ON commentCard.id_cardFestival = cardFestivals.id_cardFestival
@@ -134,7 +114,7 @@ function getComments($bdd) {
     } elseif ($filterTypeValue === 'date') {
         $sql .= "commentCard.date_commentCard LIKE CONCAT('%', :filterValue, '%')";
     }
-
+    $sql .= " ORDER BY commentCard.date_commentCard DESC"; // Tri par ordre décroissant de la date de commentaire
     $stmt = $bdd->prepare($sql);
     $stmt->bindValue(':filterValue', $filterValue);
 
@@ -142,9 +122,6 @@ function getComments($bdd) {
     $filteredComments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $filteredComments;
 }
-
-
-
 function getCardFestival($bdd) {
     try {
         $sql = $bdd->prepare("  SELECT *
@@ -171,23 +148,26 @@ function getConcertsById($bdd, $id_user) {
         echo "Erreur lors de la récupération des informations de concerts: " . $e->getMessage();
     }
 }
-
-// function incrementLikes($bdd,$id_cardFestival) {
-//     try {
-//         $request = $bdd->prepare("UPDATE cardFestivals SET likes_cardFestival = likes_cardFestival + 1 WHERE id_cardFestival = :id_cardFestival");
-//         $request->bindParam(':id_cardFestival', $id_cardFestival);
-//         $request->execute();
-
-//         return true;
-//     } catch (PDOException $e) {
-//         // Log or display the error message
-//         echo "Error: " . $e->getMessage();
-//         return false;
-//     }
-// }
+function getMessages($bdd) {
+    try {
+        // Préparer la requête de sélection des données
+        $stmt = $bdd->prepare("SELECT * FROM contact ORDER BY date DESC");
 
 
-// ------------------- NOUVELLES REQUETES
+        // Exécuter la requête
+        $stmt->execute();
+
+        // Récupérer tous les messages
+        $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Retourner les messages
+        return $messages;
+    } catch(PDOException $e) {
+        die('Erreur: ' . $e->getMessage());
+        // Gère les erreurs de la base de données
+    }
+}
+// ------------------- LIKES
 function getLikes($bdd, $idUser, $idCardFestival){
     $request = $bdd->prepare("SELECT COUNT(*) 
                             FROM likes 
@@ -200,8 +180,6 @@ function getLikes($bdd, $idUser, $idCardFestival){
     $request = $request->fetchColumn();
     return $request>0;
 }
-
-
 function getTotalLikes($bdd){
     try{
     $request = $bdd->prepare("SELECT *, COUNT(likes.id_cardFestival) as nblikes

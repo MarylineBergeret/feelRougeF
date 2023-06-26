@@ -1,4 +1,21 @@
 
+@media screen and (max-width: 1100px){
+  #profile {   
+    grid-template-rows: 2fr; /* 1 lignes de hauteur égale */
+    grid-template-columns: 100%; /* 2 colonnes de largeur égale */
+  }
+  #grid1 {
+    padding-left: 5%;
+      grid-row: 1; /*  première ligne */
+      grid-column: 1; /*  première colonne */
+  }
+  #grid2 {
+    padding-left: 5%;
+      grid-row: 2; /* première ligne */
+      grid-column: 1; /* deuxième colonne */
+  }
+}
+
 @media screen and (max-width: 900px){
   #carouselExampleCaptions{
       z-index: 1;
@@ -21,75 +38,60 @@
   }
   .nav-links{
       
-      top: 0;
-      left: 0;
-      position: absolute;
-      background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
-      backdrop-filter: blur(8px);
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-left: -100%;
-      -webkit-transition: all 0.5s ease;
-      transition: all 0.5s ease;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -100%;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 
   }
   .navbar a{
-      color: #000;
-      font-size: 1.5rem;
-      font-weight: bolder;
-      padding: 15px 80px;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    padding: 15px 80px;
   }
   
   .navbar a:hover{
-      box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.875);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.875);
   }
   .nav-links.mobile-menu{
-      margin-left: 0;
+    margin-left: 0;
   }
   .nav-links ul{
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
   }
   .navbar .nav-links ul li{
-      margin: 25px 0;
-      font-size: 1.2rem;
+    margin: 25px 0;
+    font-size: 1.2rem;
   }
   #youtube {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-/****page profil*********/
-  /* Media queries pour ajuster la grille en fonction de la taille de l'écran */
-
-  #profile {
-    grid-template-rows: 1fr 1fr; /* 2 lignes de hauteur égale */
-    grid-template-columns: 100%; /* 1 colonne de largeur maximale */
-  }
-  
-  #grid1 {
-    grid-row: 1; /* Commence à la première ligne */
-    grid-column: 1; /* Commence à la première colonne */
-  }
-  
-  #grid2 {
-    grid-row: 2; /* Commence à la deuxième ligne */
-    grid-column: 1; /* Commence à la première colonne */
-  }
-  
+  }  
   #formTop5 {
     display: flex;
     flex-direction: column;
   }
+  #buttonFiltre, #buttonTop {
+    margin-top: 10px;
+    background-color: #AE8625;
+    width:110px ;
+    font-size: 1.2rem; 
+    font-family: 'New Rocker', cursive , sans-serif;
+  }
 }
-  /* @media screen and (max-width: 768px) {
-} */
-  
 
 @media screen and (max-width: 550px){
   .navbar .logo {
@@ -102,7 +104,6 @@
   .navbar .menu-hamburger {
     display: block;
     margin-right: 30px;
-    /* Styles spécifiques pour le bouton du menu hamburger */
   }
   #cardAfficheUser{
     width: 300px;
@@ -110,7 +111,7 @@
   #cardAfficheConcerts.card{
     width: 300px;
   }
-  #fond1, #formulaire, #formConnexion, #formPwd, #formContact{
+  #fond1, #formulaire, #formConnexion, #formPwd {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -118,7 +119,7 @@
     width: 300px;
     box-shadow: 2px 2px 5px #AE8625;
   }
-  #fond1 label, #formulaire label, #formConnexion label, #formPwd{
+  #fond1 label, #formulaire label, #formConnexion label, #formPwd {
     color: #AE8625;
     font-size: 1.5rem;
     font-family: 'New Rocker', cursive , sans-serif;
@@ -127,7 +128,6 @@
     box-shadow: 2px 2px 5px #AE8625;
     width: 240px;
     height: 50px;
-
   }
   .fond2 {
     margin-top: 20px;
@@ -137,7 +137,6 @@
     background: azure;
     overflow: auto;
     position: absolute;
-    /* top: 50%; */
     left: 50%;
     transform: translate(-50%);
   }
@@ -148,24 +147,21 @@
   #gifEclair {
     display: none;
   }
-  
 }
+  
 
-@media (max-width: 480px) {
+
+@media screen and (max-width: 480px) {
   .navbar .menu-hamburger {
     display: block;
     margin-right: 30px;
-    /* Styles spécifiques pour le bouton du menu hamburger sur les écrans de téléphone */
   }
   .navbar .logo {
     position: absolute;
     color: #AE8625;
-    top: 20px;
+    top: 35px;
     left: 5px;
-    font-size: 0.8rem;
-  }
-  header{
-    width: 100%;
+    font-size: 1.3rem;
   }
   .fond2 {
     margin-top: 20px;
@@ -175,7 +171,6 @@
     background: azure;
     overflow: auto;
     position: absolute;
-    /* top: 50%; */
     left: 50%;
     transform: translate(-50%);
   }
@@ -199,21 +194,84 @@
     width: 230px;
     height: 230px;
   } 
-  #festival {
-    margin-top: 0;
-    gap: 10px;
-  }
-  .logo {
-    margin-top: 30px;
-    font-size: 1.4rem;
-  }
   #logFaq {
     height: 200px;
     width: 200px;
   }
-  .input-shadow::placeholder {
-    font-size: 13px;
-    max-width: 240px;
+  .input-shadow {
+    width: 190px;
+    height: 45px;
   }
-  
+  .boutonInfo {
+    width: 30px; 
+  }
+  #festival{
+    gap: 10px;
+    margin-top: 20px;
+  }
+  header {
+    height: 10vh;
+    width: 100%;
+  }
+  .card1 {
+    margin-top: 20px;
+  }
+  .festh2 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+  #filter-value, #filter-type {
+    font-family: 'New Rocker', cursive , sans-serif;
+    font-size: 1.2rem; 
+  }
+  #filter-value {
+    width: 135px;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  #pCard1 p {
+    justify-content: flex-start;
+    align-content: start;
+    padding-left: 20px;
+  }
+  #img-container, #img-container2, .faqh1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .formProfil {
+    box-shadow: 2px 2px 5px #AE8625;
+  }
+  .navbar .logo {
+    padding-left: 40px;
+  }
+  .row1 {
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+  .row1 h1 {
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+  .fond3 img {
+    width: 320px;
+    height: 200px;
+  }
+  .faqh1 {
+    margin-top: 20px;
+    height: 50px;
+  }
+  .faqh1 h1 {
+    margin-top: 20px;
+    height: 50px;
+  }
+
 }

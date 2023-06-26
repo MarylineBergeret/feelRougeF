@@ -3,7 +3,7 @@
   }
   
   #h1Pendu {
-    color: #ff0000;
+    color: green;
   }
   
   #word-container {
@@ -16,10 +16,18 @@
   
   #image-container {
     margin-top: 40px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    background-color: white;
   }
   
   #hangman-image {
-    max-width: 300px;
+    max-width: 200px;
+    margin-left: auto; /* Centrage horizontal */
+    margin-right: auto; /* Centrage horizontal */
   }
   
   #guess-form {
@@ -33,4 +41,5 @@
   button {
     margin-left: 10px;
   }
+
   

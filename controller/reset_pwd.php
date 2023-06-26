@@ -6,13 +6,16 @@ include '../model/connect.php';
 include '../model/get.php';
 include '../model/update.php';
 
+
+
+
 if(!empty($_POST['mail']) AND !empty($_POST['new_password']) AND !empty($_POST['new_password1'])){
 
 // Récupère les valeurs des champs du formulaire
 $mail = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
 $newPassword = filter_var($_POST['new_password'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $newPassword1 = filter_var($_POST['new_password1'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+$id_user = $_SESSION['user']['id_user'];
     // Vérifie si le code de réinitialisation est valide pour l'adresse e-mail donnée
     if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
         // Si l'adresse e-mail n'est pas valide, affiche un message d'erreur
@@ -21,8 +24,8 @@ $newPassword1 = filter_var($_POST['new_password1'], FILTER_SANITIZE_FULL_SPECIAL
         // Interroge la base de données pour récupérer l'utilisateur correspondant à l'adresse e-mail
         $user = getUserByMail($bdd,$mail);
         if ($user && $newPassword == $newPassword1 ) {
-            // Vérifie que le nouveau mot de passe respecte les critères de sécurité (par exemple, au moins 8 caractères, contient au moins une lettre maj ou min et un chiffre avec (?=.*\d) )
-            if (preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $newPassword)) {
+            // Vérifie que le nouveau mot de passe respecte les critères de sécurité (par exemple, au moins 5 caractères, contient au moins une lettre maj ou min et un chiffre avec (?=.*\d) )
+            if (preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$%^&!\+=])(?=.*[A-Z]).{5,}$/', $newPassword)) {
                 // Hash le nouveau mot de passe avant de le stocker dans la base de données
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                 updateUserPassword($bdd, $id_user, $hashedPassword);
@@ -38,3 +41,4 @@ $newPassword1 = filter_var($_POST['new_password1'], FILTER_SANITIZE_FULL_SPECIAL
         }
     }
 }
+include '../view/v.foot.php';

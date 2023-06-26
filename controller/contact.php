@@ -1,23 +1,26 @@
 <?php
 session_start();
 include "../view/view.header.php";
-include "../view/v.contact.php";
+
+// Inclure le fichier de configuration de la base de données
+require_once '../model/connect.php';
+require_once '../model/insert.php';
+
+$status = ""; // Variable pour stocker le message d'erreur ou de succès
 
 if (isset($_POST['submit'])) {
-    $pseudo = $_POST['pseudo'];
-    $mail = $_POST['mail'];
-    $message = $_POST['textarea'];
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $mail = htmlspecialchars($_POST['mail']);
+    $message = htmlspecialchars($_POST['textarea']);
 
-    $to = 'maryline.mourgues@outlook.fr'; // Adresse e-mail de destination
-    $subject = 'Nouveau message de formulaire de contact';
-    $body = "Pseudo: $pseudo\n\nE-mail: $mail\n\nMessage:\n$message";
-
-    // Envoyer l'e-mail
-    if (mail($to, $subject, $body)) {
-        echo 'Le message a été envoyé avec succès.';
+    // Validation de l'adresse e-mail
+    if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+        $status = "Entrez une adresse e-mail avec un format valide (exemple@example.com).";
     } else {
-        echo 'Une erreur s\'est produite lors de l\'envoi du message.';
+        // Appel de la fonction sendMessage et stockage du statut de l'envoi
+        $status = sendMessage($bdd, $pseudo, $mail, $message);
     }
 }
+include "../view/v.contact.php";
 include "../view/v.foot.php";
 ?>

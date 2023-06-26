@@ -36,10 +36,8 @@ a{
 header{
     height: 20vh;
     width: 100vh;
-    
-
 }
-/* 1 **************************** NAVBAR *******************************/        /*  1  */
+/* **************************** NAVBAR *******************************/        /*   */
 .navbar{
     position: absolute;
     padding: 30px;
@@ -48,13 +46,11 @@ header{
     align-items: center;
     width: 100%;
     box-sizing: border-box; 
-
 }
 .navbar a{
     color: rgb(155, 111, 36);
     font-size: 1.3rem;
     font-family : 'Rye', cursive , sans-serif;
-
 }
 .navbar .logo{
     font-size: 2em;
@@ -78,7 +74,6 @@ header{
     right: 30px;
     width: 35px;
 }
-
 h1 {
     text-align:center;
     padding-top: 10px;
@@ -90,25 +85,18 @@ h1 {
     font-weight: bolder;
     font-family : 'New Rocker', cursive , sans-serif;
     text-shadow: -1px -1px 1px rgba(91, 55, 8, 0.737);
-    /* font-family : 'Dancing Script', cursive ; */
 }
-
-
-  #carouselExampleCaptions{
-    padding: 0 280px;
-  }
-  .pics{
-    height: 550px;
+#carouselExampleCaptions{
+    padding: 0 550px;
+}
+.pics {
+    height: 450px;
     width: 100%;
-
-  }
-  .carousel-item {
+}
+.carousel-item {
     transition-duration: 5s;
-  }
-
-
-
-/* 2 ****************************** ACCUEIL *****************************/         /*  2  */
+}
+/* ****************************** ACCUEIL *****************************/         /* */
 .presents{
     background: linear-gradient(to top, #000000da, #000000da 50%, #000 75%, #000000d3 75%);
     display: flex;
@@ -125,15 +113,13 @@ h1 {
     display: flex;
     justify-content: center;
     font-family : 'Rye', cursive , sans-serif;
-
 }
 #fest{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-template-rows: auto;
     gap: 20px;
-    margin: 100px 180px;
-    
+    margin: 100px 180px;   
     justify-items: center;
 }
 #fest img{
@@ -146,8 +132,7 @@ h1 {
 #hellFest{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 10%;
-  
+    margin-left: 10%;  
 }
 #hellFest img{
     height: 380px;
@@ -157,16 +142,15 @@ h1 {
     position: relative;
     display: inline-block;
 }
-
 .text-overlay {
-position: absolute;
-top: 83%;
-left: 50%;
-transform: translate(-50%, -50%);
-background-color: rgba(0, 0, 0, 0.6);
-color: #fff;
-padding: 10px;
-text-align: center;
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
   
 /* 3 *********************** Accueil BLACK BAND ***********************/                    /*  3  */
@@ -207,10 +191,9 @@ text-align: center;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    margin: 50px 0;
-    
+    margin: 50px 0;   
 }
-/* 4 ***************************** IMAGES DREAMS****************************/            /*  4  */
+/* ***************************** IMAGES DREAMS****************************/            /*   */
 .dream-card {
     position: relative;
     width: 300px;
@@ -270,32 +253,40 @@ text-align: center;
     position: relative;
     width: 300px;
     padding: 20px;
-    margin-left: 20px;
-    background-color: #caad0a;
+    margin-left: 40px;
+    background-color: #ffffff;
+    color: #0a5230;
     transform: rotate(-5deg);
     border-radius: 10px;
+    box-shadow: 2px 2px 5px #AE8625;
   }
+.post-it p {
+    color: #AE8625;
+}
+.post-it h3 {
+    color: #0a5230;
+}
 .post-it2 {
     position: relative;
-    width: 300px;
+    width: 360px;
     padding: 20px;
     margin-top: 30px;
-    margin-left: 60px;
+    margin-left: 30px;
     background-color: #0a5230;
     transform: rotate(-5deg);
     border-radius: 10px;
 }
 .rounded-article {
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     color: #000;
     margin: 15px;
 }
 .custom-article {
-    clip-path: polygon(0% 0%, 100% 0%, 98% 100%, 2% 100%);
+    border-radius: 20px;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: #000;
     margin: 30px;
 }
@@ -305,51 +296,11 @@ text-align: center;
 .rounded-article h3, .custom-article h3 {
     color: #AE8625;
 }
-  /* .dream-card {
-    position: relative;
-    margin: 10px;
-    perspective: 1000px;
-  }
-  
-  .dream-card img {
-    width : 200px; 
-    height : 200px;
-    border: 1rem solid rgba(0, 0, 0, 0.741);
-    -moz-border-radius : 100px;
-    -webkit-border-radius : 100px;
-    border-radius : 100px;  
-    transition: transform 0.5s;
-  }
-    
-  .dream-card .text {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-50%, -50%) rotateY(180deg);
-    text-align: center;
-    font-size: 18px;    
-    backface-visibility: hidden;
-  }
-  .dream-card.is-flipped  img {
-    transform: rotateY(180deg);
-    background: #ffffff;
-  }
-  
-  .dream-card.is-flipped .text {
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50%; */
-    /* transform: translate(-50%, -50%) rotateY(180deg); */
-    /* text-align: center; */
-    /* transform: rotateY(0deg);
-  }  */
-    
 
-/* 5 **************************** page metal ***************************/           /*  5  */   
+/* **************************** page metal ***************************/           /* */   
 #container{
     margin: 100px auto;  
 }
-
 .accordion-item{
     background:-webkit-linear-gradient(bottom, #AE8625 10%, #ebc365 20%, #AE8625 40%, #ebc365 60%, #AE8625 80%, #ebc365 100%);
     padding: 20px;
@@ -360,7 +311,6 @@ iframe{
 #youtube{
     display: flex;
     flex-direction: row;
-
 }
 #youtube2{
     display: flex;
@@ -379,7 +329,7 @@ iframe{
 } 
 
 
-/* 6 ******************************* page festival ***************************/           /*  6  */
+/* ******************************* page festival ***************************/           /* */
 .voteGif{
     text-align: center;
     display: flex;
@@ -410,10 +360,10 @@ iframe{
     justify-content: center;
 }
 #cardC {
-    max-height: 600px; /* Ajustez la hauteur maximale selon vos besoins */
+    max-height: 600px; 
     overflow-y: auto; 
     margin-left: 20px;
-    margin-right: 40px;/* Ajoute une barre de défilement verticale si nécessaire */
+    margin-right: 40px;
   }
 .imgCard{
     width: 346px;
@@ -467,10 +417,16 @@ form {
 
 /* Style pour la deuxième barre de défilement */
 #cardC ::-webkit-scrollbar-thumb {
-background-color: #0a5230;
+    background-color: #0a5230;
+}
+.row1 {
+    flex-direction: row;  
+  }
+#commStyle {
+  margin-left: 10px;
 }
   
-/* 7 ************************form insription********************************/                  /*  7  */
+/*  ************************form insription********************************/                  /*  */
 #inputFond{
     display: flex;
     justify-content: center;
@@ -503,7 +459,7 @@ background-color: #0a5230;
     width: 400px;
     height: 60px;
 }
-#fond1 button, #buttonForm, #buttonConnexion, #buttonPwd{
+#fond1 button, #buttonForm, #buttonConnexion, #buttonPwd, #buttonTop {
     margin-top: 30px;
     background-color: #AE8625;
     width:200px ;
@@ -549,6 +505,7 @@ background-color: #0a5230;
 #textFaq {
     text-align: center;
     padding: 20px;
+    background-color: white;
 }
 .question {
     color: #AE8625;
@@ -579,45 +536,59 @@ background-color: #0a5230;
 .boutonInfo img {
     width: 20px;
 }
+#buttonFiltre {
+    margin-top: 10px;
+    background-color: #AE8625;
+    width:150px ;
+    height: 35px;
+    font-weight: bold;
+    font-family: 'New Rocker', cursive , sans-serif;
+}
+.text-center {
+    background-color: white;
+}
+#contactSend {
+    display: flex;
+    justify-content: center;
+}
 
-/* 8 *******************************form connexion*******************************/        /*  8  */
+/********************************form connexion*******************************/        /**/
 
 #gifContent{
     display: flex;
     justify-content: center;
 }
-
 .fireworks {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 400px;
-  }
+}
 
-  .fireworks img {
+.fireworks img {
     position: absolute;
     animation: fireworks-animation 1s infinite;
-  }
+}
 
-  .fireworks img:nth-child(1) {
+.fireworks img:nth-child(1) {
     top: 0;
     left: 0;
     animation-delay: 1s;
-  }
+}
 
-  .fireworks img:nth-child(2) {
+.fireworks img:nth-child(2) {
     bottom: 0;
     right: 0;
     animation-delay: 2s;
-  }
+}
 
-  .fireworks img:nth-child(3) {
+.fireworks img:nth-child(3) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     animation-delay: 3s;
-  }
+}
 
   @keyframes fireworks-animation {
     0% {
@@ -630,32 +601,15 @@ background-color: #0a5230;
       opacity: 0;
     }
   }
-/* .gif1{
-    font-size: 2rem;
-    position: relative;
-    
-    animation: slide-in 6s ease-in-out forwards;  
 
-}
-
-@keyframes slide-in {
-    from {
-        left: 0%;
-    }
-    to {
-        left: 80%;
-    }
-}  */
-
-
-/* 9 *******************************form concert*******************************/        /*  9  */
+/* *******************************form concert*******************************/        /*  */
 
 #concertForm label{
 color: #AE8625;
 }
 
 
-/* 10 ********************************************page profil*******************/         /*  10  */
+/*********************************************page profil*******************/         /*   */
 .img-thumbnail{
     width: 100px;
     height: 100px;
@@ -666,14 +620,14 @@ color: #AE8625;
 #cardAfficheConcerts.card{
     width: 500px;
 }
-#buttonSendProfil{
+#buttonSendProfil, #buttonTop {
     margin-top: 5px;
     background-color: #AE8625;
     border-color: #000;
 }
 #profile {
     display: grid;
-    grid-template-rows: 1fr; /* 2 lignes de hauteur égale */
+    grid-template-rows: 1fr; /* 1 lignes de hauteur égale */
     grid-template-columns: 50% 50%; /* 2 colonnes de largeur égale */
     grid-gap: 10px; /* Espacement entre les éléments */
     align-items: center;
@@ -710,10 +664,15 @@ color: #AE8625;
     font-family: 'New Rocker', cursive , sans-serif;
     font-size: 1.3rem;
 }
+.form-group label {
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
 
 
-/*11*****************************page salon****************************/
+/******************************page salon****************************/
 
 #listen{
     position: relative;
@@ -748,14 +707,14 @@ color: #AE8625;
     /* ; centrez la div de pointage sur le point spécifié */
   }
   #point1 { /*platine*/
-    top: 62%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    left: 45%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+    top: 62%;
+    left: 45%;
+    
   }
   #point2 { /*disque mur*/
-    top: 40%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    left: 86%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+    top: 40%; 
+    left: 86%; 
+    
   }
   #point3 { /*piano*/
     top: 68%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
@@ -814,14 +773,15 @@ color: #AE8625;
     background: #AE8625;
     margin: 40px 15%;
     padding: 18px;
-    display: flex; /* Added property */
-    justify-content: center; /* Added property */
+    display: flex; 
+    justify-content: center; 
 }
 .tabAdmin{
-    display: flex; /* Added property */
+    display: flex; 
     justify-content: center;
-    flex-direction: column; /* Added property */
+    flex-direction: column; 
 }
+tabAdminComm
   
 .separate td {
     border: 1px solid black;
@@ -833,4 +793,23 @@ color: #AE8625;
 }
 .deco{
     margin-left: 30px;
+}
+#formPwd  {
+    display: flex;
+    flex-direction: column;
+  }
+  .titles-pages {
+    color: #AE8625;
+  }
+ #tabBord{
+    background-color: #000;
+ }
+ #messagesTab{
+    background-color: #ffffff; /* Fond blanc */       
+    margin: 30px; 
+
+ }
+ .separate2 td {
+    border: 1px solid black;
+    padding: 5px;
 }

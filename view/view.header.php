@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="..\assets\css\header.css">
     <link rel="stylesheet" href="..\assets\css\responsive.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/pendu.css">
     <link rel="icon" type="image/png" href="../assets/image/icons8-rock.png">  
     <title>BLOG METALWAY</title>
 </head>
@@ -25,7 +26,7 @@
                     <li class="active"><a href="../controller/metal.php">Le Métal</a></li>
                     <li><a href="../controller/festival.php">Festival</a></li>
                     <li><a href="../controller/salon.php">Salon d'écoute</a></li>
-                    <li><a href="../controller/contact.php">Contact</a></li>
+                    <li><a href="../controller/contact.php">Contact/FAQ</a></li>
                     
                     <?php if(!isset($_SESSION['user'])): ?>
                     <!-- Affiche les liens d'inscription et de connexion si l'utilisateur n'est pas connecté -->

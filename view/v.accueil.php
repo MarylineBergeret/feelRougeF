@@ -13,14 +13,14 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="pics" src="..\assets\image\vibration4.JPG" class="d-block w-100" alt="...">
+        <img class="pics" src="..\assets\image\vibration4.JPG" class="d-block w-100" alt="festival">
         <div class="carousel-caption d-none d-md-block">
           <h5>CONCERTS EN SALLE</h5>
           <p>Rien de mieux que les vibrations en concerts</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="pics" src="..\assets\image\vibration2.JPG" class="d-block w-100" alt="...">
+        <img class="pics" src="..\assets\image\vibration2.JPG" class="d-block w-100" alt="concert">
         <div class="carousel-caption d-none d-md-block">
           <h5>LES FESTIVALS</h5>
           <p>Des sites de plus en plus spectaculaires</p>
@@ -52,7 +52,7 @@
         <p>1 => Symphony X à Bordeaux en 2012</p>
         <p>2 => Heaven and Hell au Hellfest en 2014</p>
         <p>3 => Pain of Salvation au Hellfest en 2007</p>
-        <p>4 => Teanacious D à Paris en 2019</p>
+        <p>4 => Teenacious D à Paris en 2019</p>
         <p>5 => Extreme à Bilbao en 2011</p>
         <p>6 => Robert Plant à Pau en 2009</p>
       </div>
@@ -61,7 +61,7 @@
       <div class="rounded-article"> <!-- Article avec des bords ronds -->
         <h3>Pourquoi le métal ?</h3>
         <p>Fan de musique rock à la base, voir pop-rock, j'ai découvert le hard-Rock puis le Heavy-Métal dans lequel je me suis retrouvée. Je cherche dans la musique, ces moments de type "Extase", où tout est réuni pour que tu sentes que tout ton corps et toute ton âme sont connectés, vibrent à l'unisson.<br>
-        Et j'ai trouvé le mix parfait < pour ma part > dans le métal progresif.<br> 
+        Et j'ai trouvé le mix parfait dans le métal progresif.<br> 
        <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong></strong></p>
       </div>      
       <div class="custom-article">

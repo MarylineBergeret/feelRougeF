@@ -9,26 +9,6 @@ include '../view/v.profil.php';
 
 if(isset($_SESSION['user']['id_user'])){
    
-    // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //     // Vérifie si les champs sont définis et non vides
-    //     if (isset($_POST['new_pseudo']) && isset($_POST['new_email']) && isset($_POST['new_bio'])) {
-    //         // Récupère les données soumises par le formulaire
-    //         $pseudo = htmlspecialchars($_POST['new_pseudo']);
-    //         $mail = htmlspecialchars($_POST['new_email']);
-    //         $bio = htmlspecialchars($_POST['new_bio']);
-    //         $id_user = $_SESSION['user']['id_user'];
-            
-    //         // Appelle la fonction updateUser pour mettre à jour les informations de l'utilisateur
-    //         updateUser($bdd, $id_user, $pseudo, $mail, $bio);
-
-    //         // Redirige vers la page de profil de l'utilisateur avec un message de succès
-    //         header('Location: profil.php?message=Mise à jour effectuée avec succès');
-    //         exit;
-    //     } else {
-    //         // Si les champs ne sont pas définis ou vides, affiche un message d'erreur
-    //         echo "Tous les champs sont obligatoires";
-    //     }
-            // Vérifie si un fichier a été sélectionné
     if (isset($_FILES['file'])) {
         // Récupère les informations sur le fichier
         $file_name = $_FILES['file']['name'];

@@ -2,35 +2,29 @@
 session_start();
 
 if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1 ) {
-    // $_SESSION['id_role'] = '1';
-    // L'utilisateur est un administrateur, rediriger vers la page d'administration
+    // If the user is an administrator, redirect to the administration page
     include '../view/view.header.php';
     include '../model/connect.php';
     include '../model/get.php';
     include '../model/delete.php';
+   
+    // Retrieve user data by calling the function and store it in a variable
     $users = getAllUser($bdd);
     include '../view/v.admin.php';   
 
-    // Vérifier si la requête est de type POST
+    // Check if the request is of type POST
     if(isset($_POST['idUser'])) {
-        // Récupère l'ID de l'utilisateur à supprimer depuis la requête POST
+        // Get the user ID to delete from the POST request
         $userId = intval($_POST['idUser']);
-        // Appelle la fonction pour supprimer l'utilisateur de la base de données
+        // Call the function to delete the user from the database
         deleteUserDTB($bdd, $userId);
-
-        // Envoyer une réponse JSON
-        // header('Content-Type: application/json');
-        // echo json_encode(['message' => $deleteResult]);
-        // exit;
     }
     include '../view/v.foot.php';   
-} else {
-   
-    // L'utilisateur n'est pas un administrateur, rediriger vers la page d accueil.
+} else {  
+    // The user is not an administrator, redirect to the home page
     header('Location: accueil.php');
     exit();
 }
-
 
 ?>
 

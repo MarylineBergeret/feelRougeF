@@ -13,12 +13,18 @@ function deleteUserDTB($bdd, $id_user) {
         return $deleteFail;
     }
 }
-
-function deleteLike($bdd, $idUser, $idCardFestival){
-    $request = $bdd->prepare("DELETE FROM likes WHERE id_user = :idUser AND id_cardFestival = :idCardfestival");
-    $request->execute(array(
-        "idUser" => $idUser,
-        "idCardfestival" => $idCardFestival
-    ));
+function deleteLike($bdd, $idUser, $idCardFestival) {
+    try {
+        $request = $bdd->prepare("DELETE FROM likes WHERE id_user = :idUser AND id_cardFestival = :idCardfestival");
+        $request->execute(array(
+            "idUser" => $idUser,
+            "idCardfestival" => $idCardFestival
+        ));
+    } catch (PDOException $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
 }
+
+
+
 ?>

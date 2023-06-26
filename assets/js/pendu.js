@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', init);
 
-const words = ['dream theater', 'opeth', 'tool', 'hellfest', 'Pain Of Salvation', 'Transatlantic', 'Shaman Harvest', 'Symphony X', 'haken', 'Iron Maiden', 'Metallica', 'Judas Priest', 'Black Sabbath', 'Megadeth', 'Pantera', 'Slayer', 'Queensrÿche', 'Mastodon', 'Rush', 'Deep Purple', 'Led Zeppelin', 'AC/DC', 'Guns N\' Roses', 'Scorpions'];
+const words = ['dream theater', 'opeth', 'tool', 'hellfest', 'pain of salvation', 'transatlantic', 'shaman harvest', 'symphony X', 'haken', 'iron maiden', 'metallica', 'judas priest', 'black sabbath', 'megadeth', 'pantera', 'slayer', 'queensrÿche', 'mastodon', 'rush', 'deep Purple', 'led Zeppelin', 'whitesnake', 'guns n roses', 'scorpions'];
 
 let selectedWord;
 let guesses = [];
@@ -77,8 +77,8 @@ function checkGuess(guess) {
 
 function handleWrongGuess() {
   wrongGuesses++;
-  const hangmanImage = document.getElementById('hangman-image');
-  hangmanImage.src = `images/${wrongGuesses}.png`;
+  // const hangmanImage = document.getElementById('hangman-image');
+  // hangmanImage.src = `../assets/image/${wrongGuesses}.png`;
 }
 
 function checkGameStatus() {
@@ -86,9 +86,11 @@ function checkGameStatus() {
 
   if (wrongGuesses === 6) {
     alert('Vous avez perdu !');
+    document.getElementById('hangman-image').src = '../assets/image/fail.png';
     resetGame();
   } else if (!wordContainer.textContent.includes('_')) {
     alert('Félicitations, vous avez gagné !');
+    document.getElementById('hangman-image').src = '../assets/image/heavy.png';
     resetGame();
   }
 }
@@ -101,5 +103,15 @@ function resetGame() {
   setupWord();
 
   const hangmanImage = document.getElementById('hangman-image');
-  hangmanImage.src = 'images/0.png';
+  hangmanImage.src = '../assets/image/rock-and-roll.png';
+
+  // Réinitialiser les lettres déjà devinées
+  const guessesContainer = document.getElementById('guesses');
+  guessesContainer.textContent = '';
+
+  // Réinitialiser les lettres incorrectes
+  const wrongContainer = document.getElementById('wrong');
+  wrongContainer.textContent = '';
 }
+
+

@@ -9,6 +9,7 @@
     <script src="../assets/js/music.js"></script>
     <script src="../assets/js/footer.js"></script>
     <script src="../assets/js/admin.js"></script>
+    <script src="../assets/js/inscription.js"></script>
 
 </body>
 <footer>

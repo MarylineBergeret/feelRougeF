@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Jeu du Pendu - Métal Progressif</title>
-  <link rel="stylesheet" type="text/css" href="../assets/css/pendu.css">
+  
 </head>
 <body id="bodyPendu">
   <h1 id="h1Pendu">Jeu du Pendu - Métal Progressif</h1>
@@ -12,17 +12,17 @@
   </div>
 
   <div id="guesses-container">
-    <h3>Lettres déjà devinées:</h3>
+    <h3>Lettres déjà devinées :</h3>
     <p id="guesses"></p>
   </div>
 
   <div id="wrong-container">
-    <h3>Lettres incorrectes:</h3>
+    <h3>Lettres incorrectes : 6 erreurs, pas plus !</h3>
     <p id="wrong"></p>
   </div>
 
   <div id="image-container">
-    <img id="hangman-image" src="images/0.png" alt="Pendu">
+    <img id="hangman-image" src="../assets/image/rock2.png" alt="Pendu">
   </div>
 
   <form id="guess-form">

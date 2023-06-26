@@ -1,8 +1,6 @@
   <h1>CONNEXION</h1>
   <div id="mainConnexion">
-
-    <form id="formConnexion" action="../controller/connexion.php" method="post">
-    
+    <form id="formConnexion" action="../controller/connexion.php" method="post">    
       <table>
         <tr>
           <td><label for="pseudo">Pseudo</label><br>
@@ -22,12 +20,12 @@
     </form>
   </div>
   <?php if(isset($errors) && !empty($errors)) : ?>
-        <div class="alert alert-danger error-container">
-          <?php foreach($errors as $error) : ?>
-            <p><?php echo $error; ?></p>
-          <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
+    <div class="alert alert-danger error-container">
+      <?php foreach($errors as $error) : ?>
+        <p><?php echo $error; ?></p>
+      <?php endforeach; ?>
+    </div>
+  <?php endif; ?>
   <div id="gifContent">
       <img src="https://media.giphy.com/media/kpGHI4zVTYNcCz7uQE/giphy.gif" class="gif1" alt="Come On">
 
