@@ -90,7 +90,8 @@ function insertLike($bdd, $idUser, $idCardFestival) {
 function sendMessage($bdd, $pseudo, $mail, $message) {
     try {
         // Préparer la requête d'insertion des données
-        $stmt = $bdd->prepare("INSERT INTO contact (pseudo_contact, mail_contact, messages_contact) VALUES (:pseudo_contact, :mail_contact, :messages_contact)");
+        $stmt = $bdd->prepare("INSERT INTO contact (pseudo_contact, mail_contact, messages_contact) VALUES 
+        (:pseudo_contact, :mail_contact, :messages_contact)");
 
         // Lie les valeurs aux paramètres de la requête
         $stmt->bindParam(':pseudo_contact', $pseudo);

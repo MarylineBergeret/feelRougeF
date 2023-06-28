@@ -5,10 +5,10 @@ include '../model/connect.php';
 
 if(isset($_SESSION['user'])){
     if(isset($_SESSION['user']['id_role']) && $_SESSION['role'] == 1){  
-        // L'utilisateur est un administrateur, redirigé vers la page d'administration      
+          // User is an administrator, redirect to the admin page       
         header('Location: admin.php');      
     } else {
-        // L'utilisateur n'est pas un administrateur, redirigé vers la page de profil.        
+        // User is not an administrator, redirect to the profile page          
         header('Location: profil.php');
         exit();
     }
@@ -16,38 +16,38 @@ if(isset($_SESSION['user'])){
     include '../model/get.php';
     $errors = [];
     $success = '';
-    // Vérifier le nombre de tentatives de connexion
+    // Check login attempts
     if (!isset($_SESSION['login_attempts'])) {
         $_SESSION['login_attempts'] = 0;
     }
-    $max_login_attempts = 5; // Nombre maximal de tentatives de connexion autorisées
+    $max_login_attempts = 5; // Maximum number of allowed login attempts
 
     if ($_SESSION['login_attempts'] >= $max_login_attempts) {
-        // Bloquer temporairement l'accès à l'interface de connexion
+         // Temporarily block access to the login interface
         $_SESSION['login_blocked'] = true;
-        $_SESSION['block_start_time'] = time(); // Ajout de cette ligne
+        $_SESSION['block_start_time'] = time(); 
     
         header('Location: login_blocked.php');
         exit();
     }
-    // si le formulaire est soumis en vérifiant si la clé 'submit' existe dans le tableau $_POST
+    // Check if the form is submitted by checking if the 'submit' key exists in the $_POST array
     if(isset($_POST['submit'])){
-        // nettoyage des données entrantes
+         // Clean incoming data
         $pseudo = htmlspecialchars($_POST['pseudo']);
         $pwd = htmlspecialchars($_POST['pwd']);
-        // si les données demandées ne sont pas vident on récupère les données de l'user selon son pseudo
+        // If the requested data is not empty, retrieve user data based on their username
         if(!empty($pseudo) && !empty($pwd)){
             $user = getUser($bdd, $pseudo);
-            // Si l'utilisateur existe, 
+            // If the user exists,
             if($user){
                 $hashed_password = $user['pwd_user'];
-                // le mdp fourni est vérifié avec la fonction password_verify() avec le mot de passe
-                // fourni et le mot de passe haché stocké dans la bdd.
+                // Verify the provided password using the password_verify() function with the provided password
+                // and the hashed password stored in the database.
                 if(password_verify($pwd, $hashed_password)) {   
                     $_SESSION['login_attempts'] = 0;        
                     $_SESSION['user'] = $user;                    
                     header('Location: profil.php');
-                } else { // Authentification échouée, incrémentation du compteur de tentatives
+                } else {  // Authentication failed, increment login attempts counter
                     $_SESSION['login_attempts']++;
                     $errors[] = "Ca le fait pas, vos informations de connexion sont incorrectes ! ";
                 }

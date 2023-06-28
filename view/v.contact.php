@@ -3,7 +3,6 @@
           <h1 class="text-center">FORMULAIRE<br class="d-sm-none"> DE CONTACT</h1>
       </div>
   </div>
-
     <div id="formContact">      
       <form id="formulaire" action="../controller/contact.php" method="POST">       
         <table>
@@ -31,12 +30,14 @@
     <?php if (isset($status)): ?>
       <p id="contactSend"><?php echo $status; ?></p>
     <?php endif; ?>   
-    <div class="faqh1"><h1>FAQ</h1></div>
+    <div class="faqh1">
+      <h1><a href="#faq-anchor">FAQ</a></h1>
+    </div>
     <div class="fond3">
     <img src="https://media.giphy.com/media/QTi3uyWcyJxeAAeTNB/giphy.gif" alt="flèches">
   </div>
   <div class="fond2-container">
-    <div class="fond2">
+    <div class="fond2" id="faq-anchor">
       <div class="row">
         <div class="col text-center">
           <img src="../assets/image/faq.png" alt="Foire aux questions" id="logFaq">

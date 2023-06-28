@@ -13,3 +13,4 @@ buttonsInscription.forEach(function(buttonInscription) {
     info.style.display = "none";
   });
 });
+

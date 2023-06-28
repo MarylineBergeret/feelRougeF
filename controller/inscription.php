@@ -32,7 +32,7 @@ session_start();
                     $error5 = "What ? Entrez une adresse mail avec un format valide (-----@----.fr), c'est mieux.";
                     $errors[] = $error5;
                 }
-                // Regex Expression régulière mot de passe contient au moins 5 caractères, un caractère spécial et s'il contient au moins une lettre.
+                // Regex Expression régulière : au moins 5 caractères, un caractère spécial et s'il contient au moins une lettre maj.
                 if (strlen($pwd) < 5 || !preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$%^&!\+=])(?=.*[A-Z]).{5,}$/', $pwd)) {
                     $error6 = "Alors oui mais non, le mot de passe doit contenir AU MOINS 5 caractères, un caractère spécial et une majuscule.";
                     $errors[] = $error6;

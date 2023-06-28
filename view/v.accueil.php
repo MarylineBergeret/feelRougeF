@@ -40,6 +40,18 @@
   <p class="balise"><</p><h2>Mais c'est qui elle ?</h2><p class="balise">></p>
   </div>
   <br>
+  
+  <p id="presentP" >La chance de faire les Festivals c'est toutes les découvertes : je me présente avec les éditions du Hellfest que j'ai pu faire... Commencé dans le dur avec l'année "boueuse".... </p>
+  <div id="fest">
+    <img src="..\assets/image/h2007.png" alt="Hellfest2007">
+    <img src="..\assets/image/H2009.png" alt="Hellfest2009">
+    <img src="..\assets/image/H2010.png" alt="Hellfest2010">
+    <img src="..\assets/image/H2012.png" alt="Hellfest2012">
+    <img src="..\assets/image/H2014.png" alt="Hellfest2014">
+    <img src="..\assets/image/H2022.png" alt="Hellfest2022">
+    <img src="..\assets/image/point.png" alt="pointInterrogation" title="Vas donc voter !">
+  </div>
+
   <div class="row">
     <div class="col-lg-4">     
       <div class="post-it"><!-- Article style "post-it" -->
@@ -48,7 +60,7 @@
 
       </div>
       <div class="post-it2"><!-- Article style "post-it" -->
-        <h3>MON TOP 5</h3>
+        <h3 id="monTop">MON TOP 5</h3>
         <p>1 => Symphony X à Bordeaux en 2012</p>
         <p>2 => Heaven and Hell au Hellfest en 2014</p>
         <p>3 => Pain of Salvation au Hellfest en 2007</p>
@@ -62,7 +74,12 @@
         <h3>Pourquoi le métal ?</h3>
         <p>Fan de musique rock à la base, voir pop-rock, j'ai découvert le hard-Rock puis le Heavy-Métal dans lequel je me suis retrouvée. Je cherche dans la musique, ces moments de type "Extase", où tout est réuni pour que tu sentes que tout ton corps et toute ton âme sont connectés, vibrent à l'unisson.<br>
         Et j'ai trouvé le mix parfait dans le métal progresif.<br> 
-       <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong></strong></p>
+       <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong></p>
+       <article> J'ai commencé avec : Queen, Nirvana, les Guns N' Roses, Aerosmith, les Red Hot Chili Peppers, les Foo Fighters, Alter bridge, System of a Down, Metallica</article>
+       <article> Puis j'ai découvert des monstres qui sont devenus mes chanteurs préférés : Robert Plant (Led Zeppelin), Ronnie James Dio (Black Sabbath, Dio) , David Coverdale (Whitesnake), Glenn Hughes (Deep Purple), Jeff Scott Soto (Sons of Apollo)</article>
+       <article> J'ai élargi un peu mes écoutes : Evergrey, Avenged Sevenfold, Blind Guardian, Pantera, Sépultura, Down, Disturbed, Freak Kitchen, Extreme, Tenacious D, The Winery Dogs</article>
+       <article> Russell Allen (Symphony X), Daniel Gildenlöw (Pain of Salvation), Neal Morse (ex-Spock's Beard), Nathan Hunt(Shaman Harvest), Anneke van Giersbergen (The Gathering), Maynard James Keenan (Tool)</article>
+      
       </div>      
       <div class="custom-article">
         <h3>C'est quoi ces signes chelous que vous allez croiser dans le site ? </h3>
@@ -70,23 +87,11 @@
       </div>
     </div>
   </div> <!-- row -->
-
-  <p id="presentP" >La chance de faire les Festivals c'est toutes les découvertes : les éditions du Hellfest que j'ai pu faire... Commencé dans le dur avec l'année "boueuse".... </p>
-  <div id="fest">
-    <img src="..\assets/image/h2007.png" alt="Hellfest2007">
-    <img src="..\assets/image/H2009.png" alt="Hellfest2009">
-    <img src="..\assets/image/H2010.png" alt="Hellfest2010">
-    <img src="..\assets/image/H2012.png" alt="Hellfest2012">
-    <img src="..\assets/image/H2014.png" alt="Hellfest2014">
-    <img src="..\assets/image/H2022.png" alt="Hellfest2022">
-    <img src="..\assets/image/point.png" alt="pointInterrogation" title="Vas donc voter !">
-  </div>
   <div class="voteGif">
     <a href="https://www.hellfest.fr/" target="_blank">
       <img src="https://media.giphy.com/media/n4fQFQVUl0Iu5fi9WW/giphy.gif" alt="hellfest">
     </a>
   </div>
-
   <div id="hellFest">
     <div class="imageContainer">
       <a href="https://www.hellfest.fr/experience/" target="_blank">  

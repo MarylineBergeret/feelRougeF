@@ -57,5 +57,26 @@
                 </fieldset>
             </div>
         </div>
-    </div>
+    
+    <div class="tabAdmin">
+    <fieldset class="tabBord">
+            <table class='separate2'>
+   
+    <tr>
+        <th>De</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+    <?php foreach ($messages as $message) { ?>
+        <tr>
+            <td><?php echo $message['pseudo_contact'] ?></td>
+            <td><?php echo $message['mail_contact'] ?></td>
+            <td><?php echo $message['messages_contact'] ?></td>
+            <td><?php echo $message['date'] ?></td>
+        </tr>
+    <?php } ?>
+    </table><!-- separate2 -->
+        </fieldset>  
+        </div>
 

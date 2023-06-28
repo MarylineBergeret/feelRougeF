@@ -8,12 +8,11 @@
     <meta name="description" content="6 'Hellfest' au compteur, go l'Europe! 
     Votez pour les festivals incontournables selon vous! Heavy Métal, Hard Rock, progressif...">
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <!-- Inclue le lien vers la bibliothèque d'icônes de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="..\assets\css\header.css">
     <link rel="stylesheet" href="..\assets\css\responsive.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/pendu.css">
-    <link rel="icon" type="image/png" href="../assets/image/icons8-rock.png">  
+    <link rel="icon" type="image/png" href="../assets/image/unlik.png">  
     <title>BLOG METALWAY</title>
 </head>
 <body>

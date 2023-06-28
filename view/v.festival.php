@@ -15,28 +15,31 @@
     ?>
     <!-- CARD FESTIVAL avec bouton like - S'il est connecté, il peut voter - gestion des icônes like / unlike -->
     <div class="card1">
-      <h2><?= $cardFestival['name_cardFestival']; ?></h2>
+      <h2 class="festivalName"><?= $cardFestival['name_cardFestival']; ?></h2>
       <div class="card-content1">
         <img src="<?= $cardFestival['img_cardFestival']; ?>" class="imgCard" alt="festival" width="300px">
-        <p><?= $cardFestival['content_cardFestival']; ?></p>
-        <!-- Nombre de likes + affiche "like" si $num_likes inférieur ou égal à 1, sinon affiche "likes" -->
-        <span class="likes"><?= $num_likes ?><?= $num_likes > 1 ? ' likes' : ' like' ?></span>
+        <div class="flex-container">
+          <p class="festivalInfo"><?= $cardFestival['content_cardFestival']; ?></p>
+          <!-- Nombre de likes + affiche "like" si $num_likes inférieur ou égal à 1, sinon affiche "likes" -->
+          <span class="likes"><?= $num_likes ?><?= $num_likes > 1 ? ' likes' : ' like' ?></span>
+        
         <!-- si l'utilisateur est connecté et qu'il clique sur le bouton, appel de la fonction like() avec les paramètres :
         this(l'élément bouton lui-même), l'ID du festival et l'ID utilisateur -->
-        <?php if(isset($_SESSION['user'])) : ?>
-          <button class="like-btn" onclick="like(this, '<?= $cardFestival['id_cardFestival'] ?>', '<?= $_SESSION['user']['id_user'] ?>' )">
-            <!-- Selon la valeur du "alt", 'unlike' ou 'like' soit on affiche l'image rempli (fill) ou l'image sans remplissage -->
-            <img id="iconFest" src="../assets/image/<?= $liked ? 'unlike' : 'like' ?>.png" alt="<?= $liked ? 'unlike' : 'like' ?>">
-          </button>
-        <?php endif ?>
+          <?php if(isset($_SESSION['user'])) : ?>
+            <button class="like-btn" onclick="like(this, '<?= $cardFestival['id_cardFestival'] ?>', '<?= $_SESSION['user']['id_user'] ?>' )">
+              <!-- Selon la valeur du "alt", 'unlike' ou 'like' soit on affiche l'image rempli (fill) ou l'image sans remplissage -->
+              <img id="iconFest" src="../assets/image/<?= $liked ? 'unlike' : 'like' ?>.png" alt="<?= $liked ? 'unlike' : 'like' ?>">
+            </button>
+          <?php endif ?>
+        </div><!-- card-content1 -->
       </div><!-- card-content1 -->
       <!-- form avec TEXTAREA pour les commentaires -->
       <div class="comment_form">
-        <form method="POST" action="../controller/festival.php" class="comment_form">
-          <label for="content_commentCard">Votre commentaire :</label><br>
+        <form method="POST" action="../controller/festival.php" class="commentForm">
+          <label for="content_commentCard" class="festivalComm">Votre commentaire :</label><br>
           <textarea name="content_commentCard" id="content_commentCard"></textarea>
           <input type="text" name="id_cardFestival" id="inputIdFest" value="<?= $cardFestival['id_cardFestival'] ?>"><br>
-          <input name="submit" type="submit" value="Envoyer">
+          <input name="submit" type="submit" value="Envoyer" id="buttonComm">
         </form>
       </div><!-- comment_form -->
     </div><!--card1 -->
@@ -44,8 +47,8 @@
 </div>
 
 <div id="lien">
-  <p>Vous pouvez trouver tous les festivals Européens en suivant ce lien : </p>
-  <a href="https://www.concerts-metal.com/festivals.html" target="_blank">En savoir plus sur les Festivals 2023</a>
+  <p>Vous pouvez trouver tous les festivals Européens en suivant ce lien : 
+  <a href="https://www.concerts-metal.com/festivals-2024.html" target="_blank">En savoir plus sur les Festivals 2024</a></p>
 </div>
 
 <!-- 1 row avec 4 colonnes dont 2 principales : cardAfficheConcert et cardAfficheComment -->
@@ -74,7 +77,7 @@
     <div>
       <p class="festh2">Tu peux les filtrer ici :</p>
       <form id="comment-filter-form" action="../controller/festival.php" method="post">
-        <select id="filter-type" name="filter-type">
+        <select id="filter-type" name="filter-type" class="custom-font">
           <option value="cardFestival">Festival</option>
           <option value="pseudo">Pseudo</option>
           <option value="date">Date</option>

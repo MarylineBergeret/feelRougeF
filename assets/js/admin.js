@@ -1,15 +1,13 @@
-// Sélectionne tous les boutons de suppression d'utilisateur avec la classe CSS 'delete-user'
+// Select all user deletion buttons with the CSS class 'delete-user'
 const deleteButtons = document.querySelectorAll('.delete-user');
 deleteButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-        
-        // Récupère l'identifiant de l'utilisateur à supprimer à partir de l'attribut 'data-user-id' du bouton
+    button.addEventListener('click', function() {        
+       // Get the user ID to be deleted from the 'data-user-id' attribute of the button
         const userId = parseInt(button.getAttribute('data-user-id'));
-        // Affiche une boîte de dialogue de confirmation pour demander à l'utilisateur s'il est sûr de vouloir supprimer cet utilisateur
+       // Display a confirmation dialog box to ask the user if they are sure they want to delete this user
         const confirmDelete = confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?");
         if (confirmDelete) {
-            // Envoie une requête AJAX pour supprimer l'utilisateur
-            // deleteUserAjax(userId);
+             // Send an AJAX request to delete the user       
             $.ajax({
                 type: "POST",
                 url: "../controller/admin.php",

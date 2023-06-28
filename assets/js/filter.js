@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
       let selectedValue = filterTypeSelect.value;
 
       if (selectedValue === 'cardFestival') {
-        filterValueInput.setAttribute('placeholder', 'Enter the festival...');
+        filterValueInput.setAttribute('placeholder', 'Entrer le festival...');
       } else if (selectedValue === 'pseudo') {
-        filterValueInput.setAttribute('placeholder', 'Enter the username...');
+        filterValueInput.setAttribute('placeholder', 'Entrer le pseudo...');
       } else if (selectedValue === 'date') {
-        filterValueInput.setAttribute('placeholder', 'Enter the date (2023 or 2023-06 or 2023-06-17)');
+        filterValueInput.setAttribute('placeholder', 'Entrer une date (2023 ou 2023-06 ou 2023-06-17)');
       }
     });
   }

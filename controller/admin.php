@@ -10,6 +10,7 @@ if(isset($_SESSION['user']['id_role']) && $_SESSION['user']['id_role'] == 1 ) {
    
     // Retrieve user data by calling the function and store it in a variable
     $users = getAllUser($bdd);
+    $messages = getMessages($bdd);
     include '../view/v.admin.php';   
 
     // Check if the request is of type POST

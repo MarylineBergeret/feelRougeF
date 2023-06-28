@@ -91,10 +91,8 @@ function getComments($bdd) {
         INNER JOIN cardFestivals ON commentCard.id_cardFestival = cardFestivals.id_cardFestival
         INNER JOIN users ON commentCard.id_user = users.id_user
         ORDER BY commentCard.date_commentCard DESC"); // Tri par ordre décroissant de la date de commentaire
-
         $req->execute();
         $comments = $req->fetchAll(PDO::FETCH_ASSOC);
-
         return $comments;
     } catch(PDOException $e) {
         echo "Erreur : " . $e->getMessage();
@@ -106,7 +104,6 @@ function filterComments($bdd, $filterTypeValue, $filterValue) {
             INNER JOIN cardFestivals ON commentCard.id_cardFestival = cardFestivals.id_cardFestival
             INNER JOIN users ON commentCard.id_user = users.id_user
             WHERE ";
-
     if ($filterTypeValue === 'cardFestival') {
         $sql .= "cardFestivals.name_cardFestival LIKE CONCAT('%', :filterValue, '%')";
     } elseif ($filterTypeValue === 'pseudo') {
@@ -117,7 +114,6 @@ function filterComments($bdd, $filterTypeValue, $filterValue) {
     $sql .= " ORDER BY commentCard.date_commentCard DESC"; // Tri par ordre décroissant de la date de commentaire
     $stmt = $bdd->prepare($sql);
     $stmt->bindValue(':filterValue', $filterValue);
-
     $stmt->execute();
     $filteredComments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $filteredComments;
@@ -152,14 +148,10 @@ function getMessages($bdd) {
     try {
         // Préparer la requête de sélection des données
         $stmt = $bdd->prepare("SELECT * FROM contact ORDER BY date DESC");
-
-
         // Exécuter la requête
         $stmt->execute();
-
         // Récupérer tous les messages
         $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         // Retourner les messages
         return $messages;
     } catch(PDOException $e) {

@@ -34,7 +34,7 @@ a{
     color: #AE8625;
 }
 header{
-    height: 20vh;
+    height: 15vh;
     width: 100vh;
 }
 /* **************************** NAVBAR *******************************/        /*   */
@@ -272,9 +272,16 @@ h1 {
     padding: 20px;
     margin-top: 30px;
     margin-left: 30px;
-    background-color: #0a5230;
+    background-color: #ffffff;
     transform: rotate(-5deg);
     border-radius: 10px;
+}
+.post-it2 p {
+    color: #0a5230;
+}
+.post-it2 h3 {
+    text-align: center;
+    color: #AE8625;
 }
 .rounded-article {
     border-radius: 10px;
@@ -341,13 +348,11 @@ iframe{
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-template-rows: auto;
     gap: 30px;
-    margin-top: 95px;
     justify-items: center;   
 } 
 .card {
     margin-left: 20px;   
     width: 90%;
-
 }
 .card-body p {
     color: #000;
@@ -371,15 +376,17 @@ iframe{
 }
 .card1{
     width: 350px;
-    height: 380px;
+    height: 390px;
     border: 2px solid;
     border-color: white white #AE8625 #AE8625;
     margin-top: 100px;
 }
 #lien {
+    display: flex;
+    justify-content: center; 
     margin: 80px;
+    font-size: 1.4rem;
 }
-
 form {
     padding: 20px 20px;
     margin: 10px 0;
@@ -388,8 +395,17 @@ form {
     display: none;
 }
 #iconFest {
-    width: 25px;
-    height: 20px;
+    width: 35px;
+    height: 30px;
+    color: #AE8625;
+    
+}
+.likes{
+    margin-left: 140px;
+}
+.like-btn {
+    background-color: transparent;
+    margin-right: 5px;
 }
 .scroll-container {
     max-height: 800px; 
@@ -425,6 +441,38 @@ form {
 #commStyle {
   margin-left: 10px;
 }
+.custom-font {
+    font-family: 'Rye', cursive , sans-serif;
+}
+#buttonComm {
+    font-family: 'Rye', cursive , sans-serif;
+    background-color: #AE8625;
+}
+.festivalInfo {
+    font-family: 'Rye', cursive , sans-serif; 
+    width: 100px;
+}
+.festivalName {
+    font-family: 'Rye', cursive , sans-serif; 
+    display: flex;
+    justify-content: center;
+}
+.commentForm {
+    display: flex;
+    justify-content: center;     
+    flex-direction: column;
+    font-size: 1.2rem;
+}
+.festivalComm {
+    text-align: center;  
+    font-family: 'Rye', cursive , sans-serif; 
+}
+.flex-container {
+    display: flex;
+    align-items: normal;
+ }
+
+ 
   
 /*  ************************form insription********************************/                  /*  */
 #inputFond{
@@ -440,6 +488,9 @@ form {
     position: relative;
     margin-top: 40px;
 }
+#fond, #fond1 {
+    margin-top: 0;
+}
 #formulaire, #formConnexion, #formPwd, #form1{
     display: flex;
     justify-content: center;
@@ -447,6 +498,15 @@ form {
     background: #000;
     width: 700px;
     box-shadow: 2px 2px 5px #AE8625;
+}
+#form1 {
+    margin-bottom: 100px;
+    
+}
+#formTitle {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+
 }
 #fond1 label, #formulaire label, #formConnexion label{
     color: #AE8625;
@@ -480,7 +540,7 @@ form {
     height: 500px;
     margin-bottom: 200px; 
 }
-  
+ 
 .fond3{
     display: flex;
     justify-content: center;
@@ -515,7 +575,6 @@ form {
 .response {
     color: #008064;
     font-size: 1.2rem;
-
 }
 #logFaq {
     height: 400px;
@@ -551,7 +610,18 @@ form {
     display: flex;
     justify-content: center;
 }
-
+.faqh1 a {
+    text-decoration: none;
+}
+.faqh1 a:hover {
+    color: #fff;
+}
+#alertDiv {
+    margin-bottom: 80px;
+}
+.col {
+    margin-bottom: 120px;
+}
 /********************************form connexion*******************************/        /**/
 
 #gifContent{
@@ -780,14 +850,11 @@ color: #AE8625;
     display: flex; 
     justify-content: center;
     flex-direction: column; 
-}
-tabAdminComm
-  
+} 
 .separate td {
     border: 1px solid black;
     padding: 25px;
 }
-
 #name, #image, #content, #creer {
     width: 290px;
 }
@@ -807,7 +874,6 @@ tabAdminComm
  #messagesTab{
     background-color: #ffffff; /* Fond blanc */       
     margin: 30px; 
-
  }
  .separate2 td {
     border: 1px solid black;

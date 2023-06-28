@@ -15,7 +15,7 @@
                                 <form action='../controller/profil.php' method='POST' enctype="multipart/form-data" class="formProfil">
 
                                     <div class='form-group'>
-                                        <label for='file'>Changer l'image :</label><br>
+                                        <label for='imageChange'>Changer l'image :</label><br>
                                         <input type='file' id='imageChange' name='file'><br>
                                         <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>              
                                     </div>
@@ -71,39 +71,39 @@
     <div id="formTop5" class="container">
         <form id="concertForm" method="POST" action="../controller/profil.php" class="row g-3">
             <div class="col-md-4">
-            <label class="form-label">Concert préféré 1 :</label>
-            <input type="text" name="concert1" value="Top 1" class="form-control">
-            <input type="text" name="concert1_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
-            <input type="text" name="concert1_location" class="form-control" placeholder="Lieu du concert">
-            <input type="text" name="concert1_year" class="form-control" placeholder="Année du concert">
+            <label class="form-label" for="concert1">Concert préféré 1 :</label>
+            <input type="text" name="concert1" id="concert1" value="Top 1" class="form-control">
+            <input type="text" name="concert1_band" id="concert1_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
+            <input type="text" name="concert1_location" id="concert1_location" class="form-control" placeholder="Lieu du concert">
+            <input type="text" name="concert1_year" id="concert1_year" class="form-control" placeholder="Année du concert">
             </div>
             <div class="col-md-4">
-            <label class="form-label">Concert préféré 2 :</label>
-            <input type="text" name="concert2" value="Top 2" class="form-control">
-            <input type="text" name="concert2_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
-            <input type="text" name="concert2_location" class="form-control" placeholder="Lieu du concert">
-            <input type="text" name="concert2_year" class="form-control" placeholder="Année du concert">
+            <label class="form-label" for="concert2">Concert préféré 2 :</label>
+            <input type="text" name="concert2" id="concert2" value="Top 2" class="form-control">
+            <input type="text" name="concert2_band" id="concert2_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
+            <input type="text" name="concert2_location" id="concert2_location" class="form-control" placeholder="Lieu du concert">
+            <input type="text" name="concert2_year" id="concert2_year" class="form-control" placeholder="Année du concert">
             </div>
             <div class="col-md-4">
-            <label class="form-label">Concert préféré 3 :</label>
-            <input type="text" name="concert3" value="Top 3" class="form-control">
-            <input type="text" name="concert3_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
-            <input type="text" name="concert3_location" class="form-control" placeholder="Lieu du concert">
-            <input type="text" name="concert3_year" class="form-control" placeholder="Année du concert">
+            <label class="form-label" for="concert3">Concert préféré 3 :</label>
+            <input type="text" name="concert3" id="concert3" value="Top 3" class="form-control">
+            <input type="text" name="concert3_band" id="concert3_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
+            <input type="text" name="concert3_location" id="concert3_location" class="form-control" placeholder="Lieu du concert">
+            <input type="text" name="concert3_year" id="concert3_year" class="form-control" placeholder="Année du concert">
             </div>
             <div class="col-md-4">
-            <label class="form-label">Concert préféré 4 :</label>
-            <input type="text" name="concert4" value="Top 4" class="form-control">
-            <input type="text" name="concert4_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
-            <input type="text" name="concert4_location" class="form-control" placeholder="Lieu du concert">
-            <input type="text" name="concert4_year" class="form-control" placeholder="Année du concert">
+            <label class="form-label" for="concert4">Concert préféré 4 :</label>
+            <input type="text" name="concert4" id="concert4" value="Top 4" class="form-control">
+            <input type="text" name="concert4_band" id="concert4_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
+            <input type="text" name="concert4_location" id="concert4_location" class="form-control" placeholder="Lieu du concert">
+            <input type="text" name="concert4_year" id="concert4_year" class="form-control" placeholder="Année du concert">
             </div>
             <div class="col-md-4">
-            <label class="form-label">Concert préféré 5 :</label>
-            <input type="text" name="concert5" value="Top 5" class="form-control">
-            <input type="text" name="concert5_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
-            <input type="text" name="concert5_location" class="form-control" placeholder="Lieu du concert">
-            <input type="text" name="concert5_year" class="form-control" placeholder="Année du concert">
+            <label class="form-label" for="concert5">Concert préféré 5 :</label>
+            <input type="text" name="concert5" id="concert5" value="Top 5" class="form-control">
+            <input type="text" name="concert5_band" id="concert5_band" class="form-control" placeholder="Nom de l'artiste ou groupe">
+            <input type="text" name="concert5_location" id="concert5_location" class="form-control" placeholder="Lieu du concert">
+            <input type="text" name="concert5_year" id="concert5_year"class="form-control" placeholder="Année du concert">
             </div>
             <div>
             <input type="submit" value="Envoyer" id="buttonTop">

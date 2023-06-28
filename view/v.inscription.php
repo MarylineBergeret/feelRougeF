@@ -1,5 +1,5 @@
   <div class="container">
-    <h1>FORMULAIRE D'INSCRIPTION</h1>
+    <h1 id="formTitle">FORMULAIRE D'INSCRIPTION</h1>
     <div id="fond">
       <div id="fond1">
         <!-- La balise Table pour formater l'affichage du formulaire -->
@@ -10,7 +10,7 @@
                 <label for="pseudo">Pseudo</label><br>
                 <input class="input-shadow" type="text" id="pseudo" name="pseudo"  value="<?php echo isset($pseudo) ? $pseudo : ''; ?>">
                 <button class="boutonInfo"><img src="../assets/image/pointInterrogation.png" alt="Info"></button>
-                <div class="infoInscription">"Entre 5 et 20 lettres"</div>
+                <div class="infoInscription">"Entre 5 et 20 lettres sans caractères spéciaux"</div>
               </td>
             </tr>
             <tr>
@@ -54,7 +54,7 @@
     // Si la condition est vraie, on combine tous les messages d'erreur en utilisant "<br>" comme séparateur et on stocke le résultat dans la variable $error.
     $error = implode("<br>", $errors);
   ?>
-    <div class="col">
+    <div class="col" >
       <!-- On affiche le message d'erreur dans une div d'alerte rouge -->
       <div class="alert alert-danger error-container">
         <?php echo $error; ?>
@@ -63,8 +63,8 @@
     <?php elseif(!isset($errors)): ?>
     <!-- Si la condition est vraie, donc pas d'erreur, on affiche un message de succès dans une div d'alerte verte -->
     <div class='alert alert-success col-6 succes-container'>
-      YES ! Vous avez été inscrit avec succès !
-      <a href='../controller/connexion.php'>Connectez-vous</a> pour avoir accès à votre compte.
+      <p>YES ! Vous avez été inscrit avec succès !
+      <a href='../view/v.connexion.php'>Connectez-vous</a> pour avoir accès à votre compte.</p>
     </div>
     <div class="fireworks">
       <img src="https://media.giphy.com/media/Y0ONBmHnbK8Y0QBpXb/giphy.gif" alt="Feux d'artifice 2">
@@ -72,6 +72,7 @@
       <img src="https://media.giphy.com/media/da2BzS5gQGNQTU04x1/giphy.gif" alt="Feux d'artifice 2">
     </div>       
     <?php endif; ?>
+    
 
   
   
