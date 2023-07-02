@@ -842,10 +842,10 @@ color: #AE8625;
     color: rgb(248, 245, 245);
     font-size: large;
 }
-/* 13 ***********************DASHBOARD ADMIN * tableau de Bord*********************/   /*  13  */
+/* ***********************DASHBOARD ADMIN * tableau de Bord*********************/   /* */
 .tabBord{
     /* width: 70%; */
-    background: #AE8625;
+    background: #ae8625e6;
     margin: 40px 25%;
     padding: 18px;
     display: flex; 

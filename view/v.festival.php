@@ -3,19 +3,16 @@
   <img src="https://media.giphy.com/media/sTu7VKav1BU53CYhmT/giphy.gif" alt="vote">
 </div>
 <div id="festival">
-
-
   <!-- Affiche chaque carte avec compteur selon l'id_CardFestival -->
+  <!--  boucle foreach est utilisée pour parcourir chaque élément de $cardFestivals-->
   <?php foreach ($cardFestivals as $cardFestival) : ?>
     <?php 
     $idCardFestival = $cardFestival['id'];
     $num_likes = getCountLikes($bdd, $idCardFestival);
     if(isset($_SESSION['user'])){
       $idUser = $_SESSION['user']['id_user'];
-      $liked = getLikes($bdd, $idUser, $idCardFestival);
-
-    }
-    
+      $liked = getLikes($bdd, $idUser, $idCardFestival);//vérifier si l'utilisateur a aimé la carte de festival.-->
+    }   
     ?>
     <!-- CARD FESTIVAL avec bouton like - S'il est connecté, il peut voter - gestion des icônes like / unlike -->
     <div class="card1">
@@ -26,16 +23,15 @@
           <p class="festivalInfo"><?= $cardFestival['content_cardFestival']; ?></p>
           <!-- Nombre de likes + affiche "like" si $num_likes inférieur ou égal à 1, sinon affiche "likes" -->
           <span class="likes"><?= $num_likes ?><?= $num_likes > 1 ? ' likes' : ' like' ?></span>
-        <!-- si l'utilisateur est connecté et qu'il clique sur le bouton, appel de la fonction like() avec les paramètres :
-        this(l'élément bouton lui-même), l'ID du festival et l'ID utilisateur -->
+         <!-- si l'utilisateur est connecté et qu'il clique sur le bouton, appel de la fonction like() avec les paramètres :
+         this(l'élément bouton lui-même), l'ID du festival et l'ID utilisateur -->
           <?php if(isset($_SESSION['user'])) : ?>
-
             <button class="like-btn" onclick="like(this, '<?= $idCardFestival ?>', '<?= $_SESSION['user']['id_user'] ?>' )">
               <!-- Selon la valeur du "alt", 'unlike' ou 'like' soit on affiche l'image rempli (fill) ou l'image sans remplissage -->
               <img id="iconFest" src="../assets/image/<?= $liked ? 'unlike' : 'like' ?>.png" alt="<?= $liked ? 'unlike' : 'like' ?>">
             </button>
           <?php endif ?>
-        </div><!-- card-content1 -->
+        </div><!-- flex-container-->
       </div><!-- card-content1 -->
       <!-- form avec TEXTAREA pour les commentaires -->
       <div class="comment_form">

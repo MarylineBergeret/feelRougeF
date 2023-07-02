@@ -8,17 +8,17 @@
         <table>
           <tr>
             <td><label for="pseudo">Pseudo</label><br>
-            <input class="input-shadow" type="text" name="pseudo" placeholder="Entrez votre pseudo" required>
+            <input class="input-shadow" type="text" id="pseudo" name="pseudo" placeholder="Entrez votre pseudo" required>
             </td>
           </tr>
           <tr>
             <td><label for="mail">Mail</label><br>
-            <input class="input-shadow" type="email" name="mail" placeholder="saisir votre Email" required>
+            <input class="input-shadow" type="email" id="mail" name="mail" placeholder="Saisir votre Email" required>
             </td>
           </tr>                
           <tr>                
             <td><label for="textarea">Votre demande</label><br>
-            <textarea id="textAForm" name="textarea" rows="4" cols="35" placeholder="Je vous écoute"></textarea>
+            <textarea name="textarea" id="textarea" rows="4" cols="35" placeholder="Je vous écoute"></textarea>
             <br>
           </tr>
           <tr>

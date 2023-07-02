@@ -72,9 +72,9 @@
     <div class="col-lg-8">
       <div class="rounded-article"> <!-- Article avec des bords ronds -->
         <h3>Pourquoi le métal ?</h3>
-        <p>Fan de musique rock à la base, voir pop-rock, j'ai découvert le hard-Rock puis le Heavy-Métal dans lequel je me suis retrouvée. Je cherche dans la musique, ces moments de type "Extase", où tout est réuni pour que tu sentes que tout ton corps et toute ton âme sont connectés, vibrent à l'unisson.<br>
+        <article>Fan de musique rock à la base, voir pop-rock, j'ai découvert le hard-Rock puis le Heavy-Métal dans lequel je me suis retrouvée. Je cherche dans la musique, ces moments de type "Extase", où tout est réuni pour que tu sentes que tout ton corps et toute ton âme sont connectés, vibrent à l'unisson.<br>
         Et j'ai trouvé le mix parfait dans le métal progresif.<br> 
-       <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong></p>
+       <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong>
        <article> J'ai commencé avec : Queen, Nirvana, les Guns N' Roses, Aerosmith, les Red Hot Chili Peppers, les Foo Fighters, Alter bridge, System of a Down, Metallica</article>
        <br>
        <article> Puis j'ai découvert des monstres qui sont devenus mes chanteurs préférés : Robert Plant (Led Zeppelin), Ronnie James Dio (Black Sabbath, Dio) , David Coverdale (Whitesnake), Glenn Hughes (Deep Purple), Jeff Scott Soto (Sons of Apollo)</article>

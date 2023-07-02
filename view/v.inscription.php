@@ -2,7 +2,6 @@
     <h1 id="formTitle">FORMULAIRE D'INSCRIPTION</h1>
     <div id="fond">
       <div id="fond1">
-        <!-- La balise Table pour formater l'affichage du formulaire -->
         <form id="form1" action="../controller/inscription.php" method="POST">
           <table>
             <tr>
@@ -18,7 +17,7 @@
                 <label for="pwd">Password</label><br>
                 <input class="input-shadow" type="password" id="pwd" name="pwd">
                 <button class="boutonInfo"><img src="../assets/image/pointInterrogation.png" alt="Info"></button>
-                <div class="infoInscription">"5 caractères minimum, 1 Majuscule, 1 caractère spécial"</div>
+                <div class="infoInscription">"5 caractères minimum, 1 Majuscule, 1 caractère spécial, 1 chiffre"</div>
               </td>
             </tr>
             <tr>

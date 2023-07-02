@@ -162,33 +162,33 @@ function getMessages($bdd) {
     }
 }
 // ------------------- LIKES
+// récupère le nombre de likes pour un utilisateur donné et une carte de festival donnée. 
+//Renvoie un booléen indiquant si l'utilisateur a aimé cette carte de festival ou non
 function getLikes($bdd, $idUser, $idCardFestival){
-    $request = $bdd->prepare("SELECT COUNT(*) 
-                            FROM likes 
-                            WHERE id_user = :idUser 
-                            AND id_cardFestival = :idCardFestival");
-    $request->execute(array(
-        "idUser" => $idUser,
-        "idCardFestival" => $idCardFestival
-    ));
-    $request = $request->fetchColumn();
-    return $request>0;
+    try {
+        $request = $bdd->prepare("SELECT COUNT(*) 
+                                FROM likes 
+                                WHERE id_user = :idUser 
+                                AND id_cardFestival = :idCardFestival");
+        $request->execute(array(
+            "idUser" => $idUser,
+            "idCardFestival" => $idCardFestival
+        ));
+        $result = $request->fetchColumn();
+        return $result > 0;
+    } catch (Exception $e) {
+        echo "Une erreur s'est produite : " . $e->getMessage();
+    }
 }
+//nombre total de likes pour chaque carte de festival dans la table cardFestivals
 function getTotalLikes($bdd){
     try{
-    // $request = $bdd->prepare("SELECT *, COUNT(likes.id_cardFestival) as nblikes
-    //                         FROM cardFestivals
-    //                         LEFT JOIN likes
-    //                         ON likes.id_cardFestival = cardFestivals.id_cardFestival
-    //                         GROUP BY cardFestivals.id_cardFestival
-    //                         ORDER BY nblikes DESC");
-
-$request = $bdd->prepare("SELECT *, cardFestivals.id_cardFestival as id, COUNT(likes.id_cardFestival) as nblikes
-FROM cardFestivals
-LEFT JOIN likes
-ON likes.id_cardFestival = cardFestivals.id_cardFestival
-GROUP BY cardFestivals.id_cardFestival
-ORDER BY nblikes DESC");
+    $request = $bdd->prepare("SELECT *, cardFestivals.id_cardFestival as id, COUNT(likes.id_cardFestival) as nblikes
+        FROM cardFestivals
+        LEFT JOIN likes
+        ON likes.id_cardFestival = cardFestivals.id_cardFestival
+        GROUP BY cardFestivals.id_cardFestival
+        ORDER BY nblikes DESC");
     $request->execute();
     return $request->fetchAll();
     } catch (PDOException $e) {
