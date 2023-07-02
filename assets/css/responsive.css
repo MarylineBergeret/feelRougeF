@@ -14,6 +14,11 @@
       grid-row: 2; /* première ligne */
       grid-column: 1; /* deuxième colonne */
   }
+  #fest {
+    margin-left: 40px;
+    gap: 20px;
+  }
+
 }
 
 @media screen and (max-width: 900px){
@@ -75,6 +80,20 @@
     margin: 25px 0;
     font-size: 1.2rem;
   }
+  #carouselExampleCaptions{
+    padding: 0 100px;
+}
+.pics {
+    height: 350px;
+    width: 90%;
+}
+#fest {
+  margin-left: 20px;
+}
+#fest img {
+  margin-left: 20px;
+  width: 290px;
+}
   #youtube {
     display: flex;
     flex-direction: column;
@@ -91,6 +110,14 @@
     font-size: 1.2rem; 
     font-family: 'New Rocker', cursive , sans-serif;
   }
+  .dreams img {
+    width: 150px; 
+    
+  }
+  .balise, .balise1 {
+    font-size: 3rem;
+    padding: 0 50px;
+  }
 }
 
 @media screen and (max-width: 550px){
@@ -105,6 +132,25 @@
     display: block;
     margin-right: 30px;
   }
+  #carouselExampleCaptions{
+    padding: 0 30px;
+}
+.dreams img {
+  width: 150px; 
+  
+}
+.balise, .balise1 {
+  font-size: 2rem;
+  padding: 0 50px;
+}
+.pics {
+    height: 250px;
+    width: 90%;
+}
+#fest img {
+  margin-left: 20px;
+  width: 250px;
+}
   #cardAfficheUser{
     width: 300px;
   }
@@ -155,6 +201,12 @@
   .navbar .menu-hamburger {
     display: block;
     margin-right: 30px;
+  }
+  #fest img {
+    width: 190px;
+    height: 230px;
+    margin-left: 1px;
+    
   }
   .navbar .logo {
     position: absolute;
@@ -273,5 +325,15 @@
     margin-top: 20px;
     height: 50px;
   }
+  #hellFest img{
+    height: 200px;
+}
+.text-overlay {
 
+font-size: 0.7rem;
+    top: 50%;
+    width: 170px;
+  
+
+}
 }

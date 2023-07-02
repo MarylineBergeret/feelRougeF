@@ -7,42 +7,42 @@
                 <div class='card-header'>
                  <h2 class="titreH2">Profil : <?php echo $user['pseudo_user'] ?></h2>
                 </div>
-                    <div class='card-body'>
-                        <div class='row'>
-                            <div class='col-sm-4'>
-                                <div id="img-container"><img src='<?php echo $imageUrl?>' class='img-thumbnail'>
-                                </div>
-                                <form action='../controller/profil.php' method='POST' enctype="multipart/form-data" class="formProfil">
-
-                                    <div class='form-group'>
-                                        <label for='imageChange'>Changer l'image :</label><br>
-                                        <input type='file' id='imageChange' name='file'><br>
-                                        <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>              
-                                    </div>
-                                </form>
+                <div class='card-body'>
+                    <div class='row'>
+                        <div class='col-sm-4'>
+                            <div id="img-container"><img src='<?php echo $imageUrl?>' class='img-thumbnail'>
                             </div>
-                            <div class='col-sm-8' id='pCard1'>
-                                <p>Pseudo : <?php echo $user['pseudo_user'] ?></p>
-                                <p>Adresse e-mail : <?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?></p>
-                                <p>Biographie : <?php echo $user['bio_user'] ?></p>
-                                    <form action='../controller/update.php' method='POST' class="formProfil">
-                                        <div class='form-group'>
-                                            <label for='new_pseudo'>Nouveau pseudo :</label>
-                                            <input type='text' class='form-control' id='new_pseudo' name='new_pseudo' value='<?php echo $user['pseudo_user'] ?>'>
-                                        </div>
-                                        <div class='form-group'>
-                                            <label for='new_email'>Nouveau mail :</label>
-                                            <input type='text' class='form-control' id='new_email' name='new_email' value='<?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?>'>
-                                        </div>
-                                        <div class='form-group'>
-                                            <label for='new_bio'>Modifier Bio :</label>
-                                            <input type='text' class='form-control' id='new_bio' name='new_bio' value='<?php echo $user['bio_user'] ?>'>
-                                        </div>
-                                        <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>
-                                    </form>
-                            </div> <!-- end col-sm-9 -->
-                        </div> <!-- end row -->
-                    </div> <!-- end card-body -->
+                            <form action='../controller/profil.php' method='POST' enctype="multipart/form-data" class="formProfil">
+
+                                <div class='form-group'>
+                                    <label for='imageChange'>Changer l'image :</label><br>
+                                    <input type='file' id='imageChange' name='file'><br>
+                                    <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>              
+                                </div>
+                            </form>
+                        </div>
+                        <div class='col-sm-8' id='pCard1'>
+                            <p>Pseudo : <?php echo $user['pseudo_user'] ?></p>
+                            <p>Adresse e-mail : <?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?></p>
+                            <p>Biographie : <?php echo $user['bio_user'] ?></p>
+                                <form action='../controller/update.php' method='POST' class="formProfil">
+                                    <div class='form-group'>
+                                        <label for='new_pseudo'>Nouveau pseudo :</label>
+                                        <input type='text' class='form-control' id='new_pseudo' name='new_pseudo' value='<?php echo $user['pseudo_user'] ?>'>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for='new_email'>Nouveau mail :</label>
+                                        <input type='text' class='form-control' id='new_email' name='new_email' value='<?php echo substr_replace(substr_replace($user['mail_user'], str_repeat('*', $pos-1), 1, $pos-1), str_repeat('*', $pos+2), $pos+1, 4) ?>'>
+                                    </div>
+                                    <div class='form-group'>
+                                        <label for='new_bio'>Modifier Bio :</label>
+                                        <input type='text' class='form-control' id='new_bio' name='new_bio' value='<?php echo $user['bio_user'] ?>'>
+                                    </div>
+                                    <button type='submit' class='btn btn-primary' id='buttonSendProfil'>Enregistrer</button>
+                                </form>
+                        </div> <!-- end col-sm-9 -->
+                    </div> <!-- end row -->
+                </div> <!-- end card-body -->
             </div> <!-- end card -->
         </div>
 <!--affichage des concerts préférés dans une card-->
@@ -50,18 +50,18 @@
             <div class='card' id='cardAfficheConcerts'>
                 <div class='card-header'><h2 class="titreH2"><?php echo $user['pseudo_user']?> : SON TOP 5 </h2>
                 </div>
-                    <div class='card-body'>
-                        <div class='row'>
-                            <div class='col-sm-3' id="img-container2"><img src='<?php echo $imageUrl?>' class='img-thumbnail'>
-                            </div>
-                                <div class='col-sm-9' id='pCard2'>
-                                <?php foreach ($concerts as $concert) {?>
-            
-                                    <p><?php echo $concert['band_concert']?>, <?php echo $concert['location_concert']?>, <?php echo $concert['year_concert'];}?></p>
-            
-                                </div>  <!-- end col-sm-9-->
-                        </div> <!-- end row-->
-                    </div> <!-- end card-body-->
+                <div class='card-body'>
+                    <div class='row'>
+                        <div class='col-sm-3' id="img-container2"><img src='<?php echo $imageUrl?>' class='img-thumbnail'>
+                        </div>
+                        <div class='col-sm-9' id='pCard2'>
+                        <?php foreach ($concerts as $concert) {?>
+    
+                            <p><?php echo $concert['band_concert']?>, <?php echo $concert['location_concert']?>, <?php echo $concert['year_concert'];}?></p>
+    
+                        </div>  <!-- end col-sm-9-->
+                    </div> <!-- end row-->
+                </div> <!-- end card-body-->
             </div><!-- end card-->
                 
         </div>

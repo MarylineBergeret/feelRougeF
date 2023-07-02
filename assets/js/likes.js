@@ -8,6 +8,7 @@ function like(elem, idFestival, idUser){
     // Retrieval of the previous element that contains the number of likes.
     let previousElem = elem.previousElementSibling;
     let numLikes = parseInt(previousElem.textContent);   
+    
     // Si c'est un dislike, on transforme en like et on décrémente le nombre de likes (-1)
     // If it's a dislike, we convert it to a like and decrement the number of likes (-1).
     if(altimg == 'unlike'){
@@ -24,6 +25,7 @@ function like(elem, idFestival, idUser){
         let newValue = numLikes+1;
         previousElem.innerText = newValue+(newValue > 1 ? ' likes' : ' like');
     }    
+
     // Envoi de la requête AJAX pour enregistrer le like/dislike en base de données
     // Sending the AJAX request to save the like/dislike in the database.
     $.ajax({
@@ -32,6 +34,7 @@ function like(elem, idFestival, idUser){
         data : {
             likeIdFestival : idFestival,
             likeIdUser : idUser,
+            
         }
     });
 }

@@ -19,8 +19,8 @@ $cardFestivals = getTotalLikes($bdd);
 $comments = getComments($bdd);
 if(isset($_POST["likeIdFestival"]) AND isset($_POST["likeIdUser"])){
     $idUser = $_POST["likeIdUser"];
-    $idCardfestival = $_POST["likeIdFestival"];
-    $state = getLikes($bdd, $idUser, $idCardFestival);
+    $idCardfestival = $_POST["likeIdFestival"];  
+    $state = getLikes($bdd, $idUser, $idCardfestival);
     if(!$state){
         insertLike($bdd, $idUser, $idCardfestival);
     }else{
@@ -46,7 +46,7 @@ if (isset($_POST['submit'])) {
             // Redirige l'utilisateur vers la page de la carte de festival
             $comSucces = "Commentaire envoyé avec succès";
             header('Location: festival.php'); 
-            $comments = getComments($bdd);           
+                    
             exit;
         }
     }

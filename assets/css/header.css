@@ -118,13 +118,17 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-template-rows: auto;
-    gap: 20px;
-    margin: 100px 180px;   
+    gap: 35px;
+    margin-left: 230px; 
+    margin-top: 100px;  
+    margin-bottom: 100px;  
     justify-items: center;
 }
 #fest img{
     height: 400px;
-    width: 280px;
+    width: 290px;
+    border: 2px solid;
+    border-color: white white #AE8625 #AE8625;
 }
 #fest img:hover{
     scale: 1.3;
@@ -253,7 +257,7 @@ h1 {
     position: relative;
     width: 300px;
     padding: 20px;
-    margin-left: 40px;
+    margin-left: 100px;
     background-color: #ffffff;
     color: #0a5230;
     transform: rotate(-5deg);
@@ -271,7 +275,7 @@ h1 {
     width: 360px;
     padding: 20px;
     margin-top: 30px;
-    margin-left: 30px;
+    margin-left: 90px;
     background-color: #ffffff;
     transform: rotate(-5deg);
     border-radius: 10px;
@@ -283,19 +287,22 @@ h1 {
     text-align: center;
     color: #AE8625;
 }
+.flex-container {
+    background-color: #000000;
+}
 .rounded-article {
     border-radius: 10px;
-    padding: 20px;
-    background-color: #ffffff;
-    color: #000;
-    margin: 15px;
+    padding: 40px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    margin: 40px 80px;
 }
 .custom-article {
     border-radius: 20px;
     padding: 20px;
     background-color: rgb(255, 255, 255);
     color: #000;
-    margin: 30px;
+    margin: 100px 150px;
 }
 .rounded-article p, .custom-article p {
      color: #000
@@ -752,16 +759,14 @@ color: #AE8625;
     z-index: 0;
 }
 
-  
+
   .pointing-div {
-    position: absolute;
-   
+    position: absolute;   
     padding: 15px;
     width: 10%;
     border-radius: 5px;
     z-index: 1;
-  }
-  
+  } 
   .pointer {
     display: block;
     width: 10px;
@@ -787,23 +792,23 @@ color: #AE8625;
     
   }
   #point3 { /*piano*/
-    top: 68%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    left: 83%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+    top: 68%; 
+    left: 83%; 
+  
   }
   #point4 { /*guitar*/
-    top: 45%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    left: 52%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+    top: 45%; 
+    left: 52%; 
+
   }
   #point5{ 
-    top: 83%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    left: 12%; /* ajustez cette valeur pour positionner la div de pointage où vous le souhaitez */
-    /* transform: translate(-50%, -50%); centrez la div de pointage sur le point spécifié */
+    top: 83%; 
+    left: 12%; 
+
   }
   #audio-controls {
     position: fixed;
-    top: 160px;
+    top: 120px;
     left: 0;
     width: 100%;
     background-color: #0b0b0b;
@@ -841,7 +846,7 @@ color: #AE8625;
 .tabBord{
     /* width: 70%; */
     background: #AE8625;
-    margin: 40px 15%;
+    margin: 40px 25%;
     padding: 18px;
     display: flex; 
     justify-content: center; 
@@ -853,7 +858,7 @@ color: #AE8625;
 } 
 .separate td {
     border: 1px solid black;
-    padding: 25px;
+    padding: 15px;
 }
 #name, #image, #content, #creer {
     width: 290px;

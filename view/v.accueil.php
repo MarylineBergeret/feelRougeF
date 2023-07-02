@@ -76,15 +76,14 @@
         Et j'ai trouvé le mix parfait dans le métal progresif.<br> 
        <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong></p>
        <article> J'ai commencé avec : Queen, Nirvana, les Guns N' Roses, Aerosmith, les Red Hot Chili Peppers, les Foo Fighters, Alter bridge, System of a Down, Metallica</article>
+       <br>
        <article> Puis j'ai découvert des monstres qui sont devenus mes chanteurs préférés : Robert Plant (Led Zeppelin), Ronnie James Dio (Black Sabbath, Dio) , David Coverdale (Whitesnake), Glenn Hughes (Deep Purple), Jeff Scott Soto (Sons of Apollo)</article>
+       <br>
        <article> J'ai élargi un peu mes écoutes : Evergrey, Avenged Sevenfold, Blind Guardian, Pantera, Sépultura, Down, Disturbed, Freak Kitchen, Extreme, Tenacious D, The Winery Dogs</article>
        <article> Russell Allen (Symphony X), Daniel Gildenlöw (Pain of Salvation), Neal Morse (ex-Spock's Beard), Nathan Hunt(Shaman Harvest), Anneke van Giersbergen (The Gathering), Maynard James Keenan (Tool)</article>
       
       </div>      
-      <div class="custom-article">
-        <h3>C'est quoi ces signes chelous que vous allez croiser dans le site ? </h3>
-        <p>Sorry, toute jeune dans le monde du Dev Web, je pense, mange et rêve code et tous ces symboles, donc ça s'infiltre tout seul, en mode automatique.</p>
-      </div>
+
     </div>
   </div> <!-- row -->
   <div class="voteGif">
@@ -94,7 +93,7 @@
   </div>
   <div id="hellFest">
     <div class="imageContainer">
-      <a href="https://www.hellfest.fr/experience/" target="_blank">  
+      <a href="https://www.hellfestcult.fr/" target="_blank">  
         <img src="../assets/image/photoH2.png" alt="hellfest public">
       </a>
       <div class="text-overlay">
@@ -102,15 +101,15 @@
       </div>
     </div>
     <div class="imageContainer">
-      <a href=https://www.hellfestcult.fr/ target="_blank"> 
+      <a href="https://www.hellfestshop.com/fr/" target="_blank"> 
         <img src="../assets/image/photoH4.png" alt="hellfest public">
       </a>  
       <div class="text-overlay">
-        <p>Le fondateur, Ben Barbaud, modèle économique exemplaire basé sur les acteurs locaux</p>
+        <p>Modèle économique exemplaire basé sur les acteurs locaux</p>
       </div>
     </div>
     <div class="imageContainer">
-      <a href="https://www.hellfest.fr/faq" target="_blank"> 
+      <a href="https://www.facebook.com/hellfest" target="_blank"> 
         <img src="../assets/image/photoH6.png" alt="hellfest public">
       </a>
       <div class="text-overlay">
@@ -118,7 +117,7 @@
       </div>
     </div>
     <div class="imageContainer">
-      <a href="https://www.hellfest.fr/news"" target="_blank"> 
+      <a href="https://www.instagram.com/hellfestopenair/?hl=fr" target="_blank"> 
         <img src="../assets/image/photoH5.png" alt="hellfest public">
       </a>
       <div class="text-overlay">
@@ -158,28 +157,8 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-4">     
-      <div class="post-it"><!-- Article style "post-it" -->
-        <h3>"Le top 5..."</h3>
-        <p>Ouais mais comme je fais le site, j'aurais droit à un top 8 ! Ce qui va rendre plus dur ton choix de ton top 5 ! Inscris toi, accèdes à ton profil, un formulaire n'attend que tes réponses... </p>
-        <p>1 => Symphony X à Bordeaux en 2012</p>
-        <p>2 => Heaven and Hell au Hellfest en 2014</p>
-        <p>2 => Pain of Salvation au Hellfest en 2007</p>
-        <p>2 => Teanacious D à Paris en 2019</p>
-        <p>3 => Extreme à Bilbao en 2011</p>
-        <p>4 => Robert Plant à Pau en 2009</p>
-      </div>
-    </div><!--col-lg-4-->
-    <div class="col-lg-8">
-      <div class="rounded-article"> <!-- Article avec des bords ronds -->
-        <h3>Pourquoi le métal ?</h3>
-        <p>Bon, maintenant que j'en ai fais son apologie, parce que j'ai aimé toutes mes éditions, mais on va pas se mentir, ça a changé le Hellfest, alors oui je suis vieille, de l'autre génération, d'accord, mais l'esprit n'est plus le même, avant c'était l'entraide, la bonne ambiance, le plaisir de partager, découvrir la musique que tu n'écoutes pas d'habitude et qu'il te faudrait 3 siècles pour avoir le temps d'écouter ne serait ce qu'un album par artiste!!!! <br> 
-        Les critiques sont déjà là depuis quelques années, mais entre les gros problèmes d'organisation sur l'édition 2023 qui ne devraient pas y être, et les gars qui contrôle les entrées qui laissent passer tout le monde sans trop de zèle, ils ont voulu obligé le père de ma fille à vider son camelBag qu'il avait rempli de jus d'orange et de glaçons... EXCLUSIVEMENT puisque, je le rappelle, c'était pour ma fille... Et le gars l'embrouille en le mettant en doute sur son contenu, on lui fait sentir, et il chipote encore !?!? C'est du JUS et de l'ORANGE mec....<br>
-        Je m'emballe mais c'est pas fini figurez-vous, ils veulent aussi essayer de "virer" les enfants du site, en faisant payer tout d'abord les places des 6 à 16 ans!!!! - 3ème Hellfest cette année de ma fille de 10 ans et ce sera certainement la dernière tellement le budget explose chaque année - mais aussi en interdisant une bouée Licorne que des Anglais lors de l'édition 2021 avaient gentiellement offert à ma fille pour qu'elle puisse se caler le dos pendant les concerts... Non mais c'est une blague? il est où le danger d'une bouée en plastique (certes), et t'en voit à côté passer des haches géantes , oui aussi en plastique, et eux c'est pépère, allez y les copains... Non Non Non! Je ne suis plus d'accord ! <br>
-        Donc... quitte à dépensez de l'argent, est ce qu'il serait pas temps d'aller gouter à l'ambiance dans nos chers pays Européens... pour commencer of course...
-       <strong> La féerie du Heavy Métal, l'intensité du Classique Symphonique, la puissance du Hard Rock, la technique du progressif et par contre une voix pas trop gluturale...</strong></strong></p>
-      </div> <!--col-lg-8-->   
-    </div>
-  </div> <!--row-->
+  <div class="custom-article">
+    <h3>C'est quoi ces signes chelous que vous allez croiser dans le site ? </h3>
+    <p>Sorry, toute jeune dans le monde du Dev Web, je pense, mange et rêve code et tous ces symboles, donc ça s'infiltre tout seul, en mode automatique.</p>
+  </div>
 

@@ -48,6 +48,8 @@ function getAllUsers($bdd) {
         echo "Erreur lors de la récupération des informations des utilisateurs: " . $e->getMessage();
     }
 }
+
+
 function getMail($bdd, $mail){
     $reqMail = $bdd->prepare("SELECT COUNT(mail_user) FROM users WHERE mail_user = :mail_user");
     $reqMail->execute(array(
@@ -174,12 +176,19 @@ function getLikes($bdd, $idUser, $idCardFestival){
 }
 function getTotalLikes($bdd){
     try{
-    $request = $bdd->prepare("SELECT *, COUNT(likes.id_cardFestival) as nblikes
-                            FROM cardFestivals
-                            LEFT JOIN likes
-                            ON likes.id_cardFestival = cardFestivals.id_cardFestival
-                            GROUP BY cardFestivals.id_cardFestival
-                            ORDER BY nblikes DESC");
+    // $request = $bdd->prepare("SELECT *, COUNT(likes.id_cardFestival) as nblikes
+    //                         FROM cardFestivals
+    //                         LEFT JOIN likes
+    //                         ON likes.id_cardFestival = cardFestivals.id_cardFestival
+    //                         GROUP BY cardFestivals.id_cardFestival
+    //                         ORDER BY nblikes DESC");
+
+$request = $bdd->prepare("SELECT *, cardFestivals.id_cardFestival as id, COUNT(likes.id_cardFestival) as nblikes
+FROM cardFestivals
+LEFT JOIN likes
+ON likes.id_cardFestival = cardFestivals.id_cardFestival
+GROUP BY cardFestivals.id_cardFestival
+ORDER BY nblikes DESC");
     $request->execute();
     return $request->fetchAll();
     } catch (PDOException $e) {

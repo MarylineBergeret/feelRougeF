@@ -64,7 +64,7 @@
     <!-- Si la condition est vraie, donc pas d'erreur, on affiche un message de succès dans une div d'alerte verte -->
     <div class='alert alert-success col-6 succes-container'>
       <p>YES ! Vous avez été inscrit avec succès !
-      <a href='../view/v.connexion.php'>Connectez-vous</a> pour avoir accès à votre compte.</p>
+      <a href='../controller/connexion.php'>Connectez-vous</a> pour avoir accès à votre compte.</p>
     </div>
     <div class="fireworks">
       <img src="https://media.giphy.com/media/Y0ONBmHnbK8Y0QBpXb/giphy.gif" alt="Feux d'artifice 2">
